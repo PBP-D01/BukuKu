@@ -1,4 +1,4 @@
-# OLshop
+# BukuKu
 Tugas UTS Kelompok D01
 
 ## Latar Belakang Aplikasi
