@@ -25,3 +25,6 @@ Pada halaman ini, user memberikan informasi pembayaran menggunakan metode pembay
 6. Login, Register <br>
 Halaman login digunakan untuk user yang sudah memiliki akun untuk masuk ke akun mereka. <br>
 Halaman pendaftaran untuk user yang belum memiliki akun mendaftar dan membuat akun baru.
+
+## Role User 
+Seseorang dengan role sebagai user bisa melakukan beberapa hal berikut, yakni masuk ke home page, melihat-lihat product di product page, memasukan produk ke dalam cart, melakukan checkout di checkout page, dan melakukan payment. 
