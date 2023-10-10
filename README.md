@@ -26,7 +26,7 @@ Pada halaman ini, user memberikan informasi pembayaran menggunakan metode pembay
 Halaman login digunakan untuk user yang sudah memiliki akun untuk masuk ke akun mereka. <br>
 Halaman pendaftaran untuk user yang belum memiliki akun mendaftar dan membuat akun baru.
 
-## Sumber dataset katalog buku
+## Sumber Dataset Katalog Buku
 Aplikasi Bukuku akan menggunakan dataset yang berasal dari [Dataset Kaggle](https://www.kaggle.com/datasets/jealousleopard/goodreadsbooks). Aplikasi Bukuku akan mengambil 120 data buku dari hasil *sampling* 45000 data buku yang tersedia pada dataset tersebut. Data buku digunakan untuk menampilkan katalog produk yang akan ditawarkan di aplikasi.
 
 ## Role User 
