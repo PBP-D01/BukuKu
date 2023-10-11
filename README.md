@@ -12,17 +12,17 @@ Project Tengah Semester PBP
 Aplikasi "BukuKu" terinspirasi dari kebutuhan akan platform online shop yang menjual berbagai kategori buku. Aplikasi ini menghadirkan beragam pilihan buku yang diminati oleh berbagai kalangan pembaca. Dengan mengelompokkan buku ke dalam kategori yang berbeda, BukuKu memudahkan pelanggan untuk menemukan buku yang sesuai dengan minat mereka tanpa harus melakukan pencarian manual. BukuKu juga memberikan pengalaman berbelanja buku yang lebih menyenangkan dengan rekomendasi buku berdasarkan preferensi pembaca, menjadikannya tujuan utama bagi pecinta buku lokal dan internasional.
 
 ## Daftar Modul
-1. Home Page <br>
-Halaman ini menampilkan produk atau penawaran khusus terbaru. 
-2. Product Page <br>
+1. Home Page (Semua) <br> 
+Halaman ini menampilkan produk atau penawaran khusus terbaru.
+2. Leaderboard Page (Jojo) <br>
+Pada halaman ini, user dapat melihat peringkat buku dengan penjualan terbanyak. 
+3. Product Page (Kayzaa) <br>
 Pada halaman ini, user dapat melihat detail produk yang spesifik,mencakup informasi seperti gambar produk, deskripsi, harga, dan opsi untuk menambahkannya ke keranjang belanja.
-3. Cart <br>
-Pada halaman ini, user dapat melihat produk yang telah mereka tambahkan saat berbelanja, serta memilih produk tambahan.
-4. Checkout Page <br>
+4. Cart Page (Hery) <br>
+Pada halaman ini, user dapat melihat produk yang telah mereka tambahkan saat berbelanja, serta dapat memilih produk tambahan.
+5. Checkout Page (Bella) <br>
 Pada halaman ini, user memasukkan informasi seperti alamat pengiriman, metode pengiriman, dan metode pembayaran. 
-5. Payment <br>
-Pada halaman ini, user memberikan informasi pembayaran menggunakan metode pembayaran yg dipilih untuk menyelesaikan transaksi. 
-6. Login, Register <br>
+6. Login, Register (Brian) <br>
 Halaman login digunakan untuk user yang sudah memiliki akun untuk masuk ke akun mereka. <br>
 Halaman pendaftaran untuk user yang belum memiliki akun mendaftar dan membuat akun baru.
 
