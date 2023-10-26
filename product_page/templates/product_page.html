@@ -1,13 +1,114 @@
 {% extends 'base.html' %} 
-
+{% load static %}
 {% block content %}
 <head>
     <style>
+        .card {
+            display: flex;
+            color: #0A3100;
+            text-align: center;
+            font-family: Amiko;
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            width: 215.097px;
+            min-height:330.582px;
+            justify-content: center;
+            align-items: center;
+            border-radius: 12.997px;
+            background: #FFF;
+            box-shadow: 3.2492px 3.2492px 12.99679px 0px rgba(0, 0, 0, 0.25);
+            gap:4.95px;
+        }
 
+        .image-book {
+            justify-content: center;
+            align-items: center;
+            height: auto;
+            width:65%;
+        }
+
+        #title {
+            width: 100%;
+            flex-direction: row;
+            flex-wrap: wrap;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap:20.79px;
+        }
+
+        .judul-buku {
+            width:90%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
     </style>
 </head>
 
 <body>
-
+    <button class="button-cart" ></div>
+    <div>
+        bukuku
+    </div>
+    <div id="title"></div>
 </body>
+
+
+<script>
+    async function refreshProduct() {
+        const buku = document.getElementById("title");
+        
+        const product = await getProduct();
+        console.log(product)
+        let bukuString = ``
+        product.forEach((item) => {
+            bukuString += `
+             <div class="card">
+                <img class="image-book" src="${item.fields.imgUrl}">
+                <p class="judul-buku"> ${item.fields.title} </p>
+                <div class="harga-buku"> Rp${Math.ceil(item.fields.price*15000).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} </div>
+                <button class="buy-button" data-item-id="${item.id}">Buy</button>
+             </div>`
+
+        })
+        buku.innerHTML = bukuString
+    }
+    
+    async function getProduct() {
+        return fetch("{% url 'product_page:get_product_json' %}").then((res) => res.json())
+    }
+
+    refreshProduct()
+
+    function handleBuyClick(event) {
+        const itemId = event.target.getAttribute("data-item-id");
+        
+        // Lakukan AJAX di sini (gunakan XMLHttpRequest atau fetch API)
+        // Contoh menggunakan fetch:
+        fetch('/cart/add', {
+          method: 'POST',
+          body: JSON.stringify({ itemId: itemId }),
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        })
+        .then(response => response.json())
+        .then(data => {
+          // Handle respons dari server (misalnya, perbarui tampilan keranjang)
+          console.log('Item berhasil ditambahkan ke keranjang', data);
+        })
+        .catch(error => {
+          console.error('Terjadi kesalahan', error);
+        });
+      }
+    
+      // Menambahkan event listener ke tombol "Buy" pada semua elemen dengan class "buy-button"
+      const buyButtons = document.querySelectorAll('.buy-button');
+      buyButtons.forEach(button => {
+        button.addEventListener('click', handleBuyClick);
+      });
+</script>
 {% endblock %}

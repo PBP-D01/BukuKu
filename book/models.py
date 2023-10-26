@@ -6,6 +6,6 @@ class Book(models.Model):
     publishedDate = models.DateField(auto_now_add=True)
     price = models.FloatField()
     imgUrl = models.CharField(max_length=255)
-    stars = models.FloatField()
+    author= models.CharField(max_length=255)
     category_name = models.CharField(max_length=255)
     stars = models.FloatField()

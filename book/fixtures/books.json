@@ -1,0 +1,1302 @@
+[
+  {
+    "pk": 1,
+    "model": "book.Book",
+    "fields": {
+      "title": "Waxing On: The Karate Kid and Me",
+      "author": "Ralph Macchio",
+      "imgUrl": "https://m.media-amazon.com/images/I/81EftETCioL._AC_UY218_.jpg",
+      "stars": 4.7,
+      "price": 14.99,
+      "publishedDate": "2022-10-18",
+      "category_name": "Biographies & Memoirs"
+    }
+  },
+  {
+    "pk": 2,
+    "model": "book.Book",
+    "fields": {
+      "title": "We Are the Luckiest: The Surprising Magic of a Sober Life",
+      "author": "Laura McKowen",
+      "imgUrl": "https://m.media-amazon.com/images/I/81EAd8BM8VL._AC_UY218_.jpg",
+      "stars": 4.7,
+      "price": 9.99,
+      "publishedDate": "2022-01-25",
+      "category_name": "Biographies & Memoirs"
+    }
+  },
+  {
+    "pk": 3,
+    "model": "book.Book",
+    "fields": {
+      "title": "This is Lean: Resolving the Efficiency Paradox",
+      "author": "Niklas Modig",
+      "imgUrl": "https://m.media-amazon.com/images/I/61o2QNMaV0L._AC_UY218_.jpg",
+      "stars": 4.6,
+      "price": 16.99,
+      "publishedDate": "2014-04-27",
+      "category_name": "Business & Money"
+    }
+  },
+  {
+    "pk": 4,
+    "model": "book.Book",
+    "fields": {
+      "title": "Steve Jobs",
+      "author": "Walter Isaacson",
+      "imgUrl": "https://m.media-amazon.com/images/I/81FiZi-CWHL._AC_UY218_.jpg",
+      "stars": 4.7,
+      "price": 16.99,
+      "publishedDate": "2011-10-23",
+      "category_name": "Biographies & Memoirs"
+    }
+  },
+  {
+    "pk": 5,
+    "model": "book.Book",
+    "fields": {
+      "title": "Spent: Break the Buying Obsession and Discover Your True Worth",
+      "author": "Sally Palaian",
+      "imgUrl": "https://m.media-amazon.com/images/I/71xeo8JHYzL._AC_UY218_.jpg",
+      "stars": 4.6,
+      "price": 13.99,
+      "publishedDate": "2011-04-07",
+      "category_name": "Self-Help"
+    }
+  },
+  {
+    "pk": 6,
+    "model": "book.Book",
+    "fields": {
+      "title": "A Flicker in the Dark: A Novel",
+      "author": "Stacy Willingham",
+      "imgUrl": "https://m.media-amazon.com/images/I/81FGbR7AYqL._AC_UY218_.jpg",
+      "stars": 4.3,
+      "price": 9.99,
+      "publishedDate": "2022-01-11",
+      "category_name": "Mystery, Thriller & Suspense"
+    }
+  },
+  {
+    "pk": 7,
+    "model": "book.Book",
+    "fields": {
+      "title": "AMAZON KINDLE DIRECT PUBLISHING COMPLETE GUIDE: Account Opening, Formatting, Cover Design, Publishing, Promotion/Marketing, Get US Payoneer Bank Account to Receive Your Royalties",
+      "author": "Steven Bright",
+      "imgUrl": "https://m.media-amazon.com/images/I/81CXqWWakDL._AC_UY218_.jpg",
+      "stars": 4.0,
+      "price": 0.99,
+      "publishedDate": "2017-02-27",
+      "category_name": "Reference"
+    }
+  },
+  {
+    "pk": 8,
+    "model": "book.Book",
+    "fields": {
+      "title": "Keeper of the Lost Cities Illustrated & Annotated Edition: Book One",
+      "author": "Shannon Messenger",
+      "imgUrl": "https://m.media-amazon.com/images/I/81sHUtD2S0L._AC_UY218_.jpg",
+      "stars": 4.8,
+      "price": 8.49,
+      "publishedDate": "2020-08-04",
+      "category_name": "Children's eBooks"
+    }
+  },
+  {
+    "pk": 9,
+    "model": "book.Book",
+    "fields": {
+      "title": "Old Testament Survey",
+      "author": "Paul R. House",
+      "imgUrl": "https://m.media-amazon.com/images/I/71sXtyYdSyL._AC_UY218_.jpg",
+      "stars": 5.0,
+      "price": 29.99,
+      "publishedDate": "2023-06-15",
+      "category_name": "Religion & Spirituality"
+    }
+  },
+  {
+    "pk": 10,
+    "model": "book.Book",
+    "fields": {
+      "title": "Dancing in the Streets: A History of Collective Joy",
+      "author": "Barbara Ehrenreich",
+      "imgUrl": "https://m.media-amazon.com/images/I/511+Rs2cxZL._AC_UY218_.jpg",
+      "stars": 4.6,
+      "price": 12.99,
+      "publishedDate": "2007-12-26",
+      "category_name": "Politics & Social Sciences"
+    }
+  },
+  {
+    "pk": 11,
+    "model": "book.Book",
+    "fields": {
+      "title": "Human Compatible: AI and the Problem of Control",
+      "author": "Stuart Russell",
+      "imgUrl": "https://m.media-amazon.com/images/I/81gqs5+8V3L._AC_UY218_.jpg",
+      "stars": 4.5,
+      "price": 0.0,
+      "publishedDate": "2019-10-08",
+      "category_name": "Computers & Technology"
+    }
+  },
+  {
+    "pk": 12,
+    "model": "book.Book",
+    "fields": {
+      "title": "Criminal Law",
+      "author": "Katheryn Russell-Brown",
+      "imgUrl": "https://m.media-amazon.com/images/I/51ZURQadHrL._AC_UY218_.jpg",
+      "stars": 4.5,
+      "price": 70.12,
+      "publishedDate": "2015-01-30",
+      "category_name": "Law"
+    }
+  },
+  {
+    "pk": 13,
+    "model": "book.Book",
+    "fields": {
+      "title": "The Coldest Touch",
+      "author": "Isabel Sterling",
+      "imgUrl": "https://m.media-amazon.com/images/I/81acObdtR2L._AC_UY218_.jpg",
+      "stars": 4.4,
+      "price": 2.99,
+      "publishedDate": "2021-12-07",
+      "category_name": "Teen & Young Adult"
+    }
+  },
+  {
+    "pk": 14,
+    "model": "book.Book",
+    "fields": {
+      "title": "Crazy Like A Fox: The Definitive Chronicle of Brian Pillman 20 Years Later",
+      "author": "Liam O'Rourke",
+      "imgUrl": "https://m.media-amazon.com/images/I/71B7rHHZ9oL._AC_UY218_.jpg",
+      "stars": 4.6,
+      "price": 9.99,
+      "publishedDate": "2018-01-24",
+      "category_name": "Sports & Outdoors"
+    }
+  },
+  {
+    "pk": 15,
+    "model": "book.Book",
+    "fields": {
+      "title": "The CDL STUDY 2023/2024: The Complete Guide to Pass the Commercial Driver’s License Exam on Your First Attempt Including the Up-to-Date and Latest Practice Tests",
+      "author": "Edmund York",
+      "imgUrl": "https://m.media-amazon.com/images/I/81raeVgIOhL._AC_UY218_.jpg",
+      "stars": 5.0,
+      "price": 8.99,
+      "publishedDate": "2023-02-02",
+      "category_name": "Engineering & Transportation"
+    }
+  },
+  {
+    "pk": 16,
+    "model": "book.Book",
+    "fields": {
+      "title": "8 to Great: How to Take Charge of Your Life and Make Positive Changes Using an 8-Step Breakthrough Process",
+      "author": "MK Mueller",
+      "imgUrl": "https://m.media-amazon.com/images/I/71fnBe09CVL._AC_UY218_.jpg",
+      "stars": 4.6,
+      "price": 3.99,
+      "publishedDate": "2022-07-22",
+      "category_name": "Self-Help"
+    }
+  },
+  {
+    "pk": 17,
+    "model": "book.Book",
+    "fields": {
+      "title": "AI: The Profitable Future of Innovation and Human Progress: Unlocking the Boundless Potential of Artificial Intelligence with ChatGPT for a Smarter and Brighter Tomorrow (The Passive Income Life)",
+      "author": "Janek Kruczkowski",
+      "imgUrl": "https://m.media-amazon.com/images/I/81t9JP+BItL._AC_UY218_.jpg",
+      "stars": 4.5,
+      "price": 2.99,
+      "publishedDate": "2023-09-07",
+      "category_name": "Computers & Technology"
+    }
+  },
+  {
+    "pk": 18,
+    "model": "book.Book",
+    "fields": {
+      "title": "American Born Chinese",
+      "author": "Gene Luen Yang",
+      "imgUrl": "https://m.media-amazon.com/images/I/9122hTcqjxL._AC_UY218_.jpg",
+      "stars": 4.5,
+      "price": 9.45,
+      "publishedDate": "2023-04-04",
+      "category_name": "Children's eBooks"
+    }
+  },
+  {
+    "pk": 19,
+    "model": "book.Book",
+    "fields": {
+      "title": "The Reading List: A Novel",
+      "author": "Sara Nisha Adams",
+      "imgUrl": "https://m.media-amazon.com/images/I/81ZpUYS9aEL._AC_UY218_.jpg",
+      "stars": 4.4,
+      "price": 1.99,
+      "publishedDate": "2021-08-03",
+      "category_name": "Literature & Fiction"
+    }
+  },
+  {
+    "pk": 20,
+    "model": "book.Book",
+    "fields": {
+      "title": "Liguria (Bradt Travel Guides)",
+      "author": "Rosie Whitehouse",
+      "imgUrl": "https://m.media-amazon.com/images/I/01RmK+J4pJL._AC_UY218_.gif",
+      "stars": 4.9,
+      "price": 17.62,
+      "publishedDate": "2019-02-19",
+      "category_name": "Travel"
+    }
+  },
+  {
+    "pk": 21,
+    "model": "book.Book",
+    "fields": {
+      "title": "Winning at Trial (NITA)",
+      "author": "Shane D. Read",
+      "imgUrl": "https://m.media-amazon.com/images/I/71AKDV1VruL._AC_UY218_.jpg",
+      "stars": 4.5,
+      "price": 71.25,
+      "publishedDate": "2007-06-11",
+      "category_name": "Law"
+    }
+  },
+  {
+    "pk": 22,
+    "model": "book.Book",
+    "fields": {
+      "title": "Uberland: How Algorithms Are Rewriting the Rules of Work",
+      "author": "Alex Rosenblat",
+      "imgUrl": "https://m.media-amazon.com/images/I/911GZ5Gr3xL._AC_UY218_.jpg",
+      "stars": 4.4,
+      "price": 13.99,
+      "publishedDate": "2018-10-23",
+      "category_name": "Biographies & Memoirs"
+    }
+  },
+  {
+    "pk": 23,
+    "model": "book.Book",
+    "fields": {
+      "title": "Trapped in a Video Game: The Complete Series",
+      "author": "Dustin Brady",
+      "imgUrl": "https://m.media-amazon.com/images/I/71ekqU1siAL._AC_UY218_.jpg",
+      "stars": 4.8,
+      "price": 34.98,
+      "publishedDate": "2019-09-03",
+      "category_name": "Children's eBooks"
+    }
+  },
+  {
+    "pk": 24,
+    "model": "book.Book",
+    "fields": {
+      "title": "On the House: A Washington Memoir",
+      "author": "John Boehner",
+      "imgUrl": "https://m.media-amazon.com/images/I/819fy4YiseL._AC_UY218_.jpg",
+      "stars": 4.4,
+      "price": 12.99,
+      "publishedDate": "2021-04-13",
+      "category_name": "Biographies & Memoirs"
+    }
+  },
+  {
+    "pk": 25,
+    "model": "book.Book",
+    "fields": {
+      "title": "How to Cook Without a Book, Completely Updated and Revised: Recipes and Techniques Every Cook Should Know by Heart: A Cookbook",
+      "author": "Pam Anderson",
+      "imgUrl": "https://m.media-amazon.com/images/I/91kagEd+onL._AC_UY218_.jpg",
+      "stars": 4.6,
+      "price": 10.99,
+      "publishedDate": "2018-08-28",
+      "category_name": "Cookbooks, Food & Wine"
+    }
+  },
+  {
+    "pk": 26,
+    "model": "book.Book",
+    "fields": {
+      "title": "The Whole Truth: A Cosmologist’s Reflections on the Search for Objective Reality",
+      "author": "P. J. E. Peebles",
+      "imgUrl": "https://m.media-amazon.com/images/I/9133MRX8HIL._AC_UY218_.jpg",
+      "stars": 4.0,
+      "price": 15.37,
+      "publishedDate": "2022-08-02",
+      "category_name": "Science & Math"
+    }
+  },
+  {
+    "pk": 27,
+    "model": "book.Book",
+    "fields": {
+      "title": "Complete Family Wealth: Wealth as Well-Being",
+      "author": "James E. Hughes",
+      "imgUrl": "https://m.media-amazon.com/images/I/414yho3PdOL._AC_UY218_.jpg",
+      "stars": 4.5,
+      "price": 24.0,
+      "publishedDate": "2021-12-31",
+      "category_name": "Business & Money"
+    }
+  },
+  {
+    "pk": 28,
+    "model": "book.Book",
+    "fields": {
+      "title": "Healthy Family Cookbook: 100 Fast and Easy Recipes for the Whole Family",
+      "author": "Brittany Poulson MDA RDN CDE",
+      "imgUrl": "https://m.media-amazon.com/images/I/A1ifSktGUbL._AC_UY218_.jpg",
+      "stars": 4.4,
+      "price": 6.99,
+      "publishedDate": "2019-11-26",
+      "category_name": "Cookbooks, Food & Wine"
+    }
+  },
+  {
+    "pk": 29,
+    "model": "book.Book",
+    "fields": {
+      "title": "The Art of Execution: How the world's best investors get it wrong and still make millions",
+      "author": "Lee Freeman-Shor",
+      "imgUrl": "https://m.media-amazon.com/images/I/81QJ0aBvtpL._AC_UY218_.jpg",
+      "stars": 4.3,
+      "price": 20.99,
+      "publishedDate": "2015-09-14",
+      "category_name": "Business & Money"
+    }
+  },
+  {
+    "pk": 30,
+    "model": "book.Book",
+    "fields": {
+      "title": "The Portrait of a Mirror: A Novel",
+      "author": "A. Natasha Joukovsky",
+      "imgUrl": "https://m.media-amazon.com/images/I/91OuQBhUnsL._AC_UY218_.jpg",
+      "stars": 3.9,
+      "price": 9.99,
+      "publishedDate": "2021-06-01",
+      "category_name": "Humor & Entertainment"
+    }
+  },
+  {
+    "pk": 31,
+    "model": "book.Book",
+    "fields": {
+      "title": "Will the Circle Be Unbroken?: A Memoir of Learning to Believe You’re Gonna Be Okay",
+      "author": "Sean Dietrich",
+      "imgUrl": "https://m.media-amazon.com/images/I/91HL3vPCCUL._AC_UY218_.jpg",
+      "stars": 4.8,
+      "price": 14.49,
+      "publishedDate": "2020-03-10",
+      "category_name": "Biographies & Memoirs"
+    }
+  },
+  {
+    "pk": 32,
+    "model": "book.Book",
+    "fields": {
+      "title": "Visual Toolbox, The: 60 Lessons for Stronger Photographs (Voices That Matter)",
+      "author": "David duChemin",
+      "imgUrl": "https://m.media-amazon.com/images/I/41gtegzbGML._AC_UY218_.jpg",
+      "stars": 4.6,
+      "price": 29.99,
+      "publishedDate": "2015-03-20",
+      "category_name": "Arts & Photo graphy"
+    }
+  },
+  {
+    "pk": 33,
+    "model": "book.Book",
+    "fields": {
+      "title": "Quality Risk Management in the FDA-Regulated Industry",
+      "author": "José Rodríguez-Pérez",
+      "imgUrl": "https://m.media-amazon.com/images/I/51y8eNogT-L._AC_UY218_.jpg",
+      "stars": 4.3,
+      "price": 43.99,
+      "publishedDate": "2017-02-21",
+      "category_name": "Engineering & Transportation"
+    }
+  },
+  {
+    "pk": 34,
+    "model": "book.Book",
+    "fields": {
+      "title": "Future Ready: The Four Pathways to Capturing Digital Value",
+      "author": "Stephanie L. Woerner",
+      "imgUrl": "https://m.media-amazon.com/images/I/71d7EZtxBXL._AC_UY218_.jpg",
+      "stars": 4.6,
+      "price": 14.99,
+      "publishedDate": "2022-10-18",
+      "category_name": "Computers & Technology"
+    }
+  },
+  {
+    "pk": 35,
+    "model": "book.Book",
+    "fields": {
+      "title": "Integrative Approaches to Psychology and Christianity, Fourth Edition: An Introduction to Worldview Issues, Philosophical Foundations, and Models of Integration",
+      "author": "David N. Entwistle",
+      "imgUrl": "https://m.media-amazon.com/images/I/81Ezmh+hQGL._AC_UY218_.jpg",
+      "stars": 5.0,
+      "price": 9.99,
+      "publishedDate": "2021-12-29",
+      "category_name": "Health, Fitness & Dieting"
+    }
+  },
+  {
+    "pk": 36,
+    "model": "book.Book",
+    "fields": {
+      "title": "The Integrated Man: A Handbook For the Recovering Nice Guy",
+      "author": "Sidharth Agarwal",
+      "imgUrl": "https://m.media-amazon.com/images/I/615aaSdF0cL._AC_UY218_.jpg",
+      "stars": 4.7,
+      "price": 7.99,
+      "publishedDate": "2023-04-26",
+      "category_name": "Self-Help"
+    }
+  },
+  {
+    "pk": 37,
+    "model": "book.Book",
+    "fields": {
+      "title": "Purposeful Retirement: How to Bring Happiness and Meaning to Your Retirement (Retirement gift for men)",
+      "author": "Hyrum W. Smith",
+      "imgUrl": "https://m.media-amazon.com/images/I/61Kx6OpTMTL._AC_UY218_.jpg",
+      "stars": 4.3,
+      "price": 8.99,
+      "publishedDate": "2017-03-14",
+      "category_name": "Parenting & Relationships"
+    }
+  },
+  {
+    "pk": 38,
+    "model": "book.Book",
+    "fields": {
+      "title": "Dewey the Library Cat: A True Story",
+      "author": "Vicki Myron",
+      "imgUrl": "https://m.media-amazon.com/images/I/713W5PSBb2L._AC_UY218_.jpg",
+      "stars": 4.7,
+      "price": 8.99,
+      "publishedDate": "2011-04-12",
+      "category_name": "Children's eBooks"
+    }
+  },
+  {
+    "pk": 39,
+    "model": "book.Book",
+    "fields": {
+      "title": "A Short History of Europe: From Pericles to Putin",
+      "author": "Simon Jenkins",
+      "imgUrl": "https://m.media-amazon.com/images/I/A1oOXJzp3gL._AC_UY218_.jpg",
+      "stars": 4.5,
+      "price": 12.99,
+      "publishedDate": "2019-03-05",
+      "category_name": "History"
+    }
+  },
+  {
+    "pk": 40,
+    "model": "book.Book",
+    "fields": {
+      "title": "Tomboyland: Essays",
+      "author": "Melissa Faliveno",
+      "imgUrl": "https://m.media-amazon.com/images/I/81wey1b9BYL._AC_UY218_.jpg",
+      "stars": 4.2,
+      "price": 4.99,
+      "publishedDate": "2020-08-01",
+      "category_name": "Travel"
+    }
+  },
+  {
+    "pk": 41,
+    "model": "book.Book",
+    "fields": {
+      "title": "The Last One: A Novel",
+      "author": "Will Dean",
+      "imgUrl": "https://m.media-amazon.com/images/I/81w2uxyBGEL._AC_UY218_.jpg",
+      "stars": 4.0,
+      "price": 13.99,
+      "publishedDate": "2023-08-08",
+      "category_name": "Mystery, Thriller & Suspense"
+    }
+  },
+  {
+    "pk": 42,
+    "model": "book.Book",
+    "fields": {
+      "title": "100 Most Popular Songs for Fingerpicking Guitar: Solo Guitar Arrangements in Standard Notation and Tab",
+      "author": "Hal Leonard Corp.",
+      "imgUrl": "https://m.media-amazon.com/images/I/81gkWrgPSUL._AC_UY218_.jpg",
+      "stars": 4.5,
+      "price": 23.81,
+      "publishedDate": "2019-07-01",
+      "category_name": "Arts & Photo graphy"
+    }
+  },
+  {
+    "pk": 43,
+    "model": "book.Book",
+    "fields": {
+      "title": "A Family-Centered Signed Language Curriculum to Support Deaf Children's Language Acquisition (Elements in Sign Languages)",
+      "author": "Razi M. Zarchy",
+      "imgUrl": "https://m.media-amazon.com/images/I/51cUdoo+L0L._AC_UY218_.jpg",
+      "stars": 0.0,
+      "price": 20.9,
+      "publishedDate": "2023-08-24",
+      "category_name": "Reference"
+    }
+  },
+  {
+    "pk": 44,
+    "model": "book.Book",
+    "fields": {
+      "title": "Cadillac Jack: A Novel",
+      "author": "Larry McMurtry",
+      "imgUrl": "https://m.media-amazon.com/images/I/81iCowUTNGL._AC_UY218_.jpg",
+      "stars": 4.1,
+      "price": 2.99,
+      "publishedDate": "2019-01-15",
+      "category_name": "Literature & Fiction"
+    }
+  },
+  {
+    "pk": 45,
+    "model": "book.Book",
+    "fields": {
+      "title": "The Outer Limits of Reason: What Science, Mathematics, and Logic Cannot Tell Us",
+      "author": "Noson S. Yanofsky",
+      "imgUrl": "https://m.media-amazon.com/images/I/819XCs4JicL._AC_UY218_.jpg",
+      "stars": 4.4,
+      "price": 17.99,
+      "publishedDate": "2013-08-23",
+      "category_name": "Science & Math"
+    }
+  },
+  {
+    "pk": 46,
+    "model": "book.Book",
+    "fields": {
+      "title": "How to Read Literature Like a Professor: For Kids",
+      "author": "Thomas C. Foster",
+      "imgUrl": "https://m.media-amazon.com/images/I/91H9ScSpozL._AC_UY218_.jpg",
+      "stars": 4.5,
+      "price": 9.99,
+      "publishedDate": "2013-04-23",
+      "category_name": "Education & Teaching"
+    }
+  },
+  {
+    "pk": 47,
+    "model": "book.Book",
+    "fields": {
+      "title": "Teaching Literature to Adolescents",
+      "author": "Richard Beach",
+      "imgUrl": "https://m.media-amazon.com/images/I/811vn24XoHL._AC_UY218_.jpg",
+      "stars": 4.7,
+      "price": 35.73,
+      "publishedDate": "2020-12-28",
+      "category_name": "Education & Teaching"
+    }
+  },
+  {
+    "pk": 48,
+    "model": "book.Book",
+    "fields": {
+      "title": "You Are Gods: On Nature and Supernature",
+      "author": "David Bentley Hart",
+      "imgUrl": "https://m.media-amazon.com/images/I/912I-O5GDRS._AC_UY218_.jpg",
+      "stars": 4.6,
+      "price": 14.99,
+      "publishedDate": "2022-04-01",
+      "category_name": "Politics & Social Sciences"
+    }
+  },
+  {
+    "pk": 49,
+    "model": "book.Book",
+    "fields": {
+      "title": "Destitution: A Classic Western",
+      "author": "John Deacon",
+      "imgUrl": "https://m.media-amazon.com/images/I/81KdmUGmpuL._AC_UY218_.jpg",
+      "stars": 4.5,
+      "price": 2.99,
+      "publishedDate": "2022-08-15",
+      "category_name": "History"
+    }
+  },
+  {
+    "pk": 50,
+    "model": "book.Book",
+    "fields": {
+      "title": "Signs of Survival: A Memoir of the Holocaust",
+      "author": "Renee Hartman",
+      "imgUrl": "https://m.media-amazon.com/images/I/71x186feuaL._AC_UY218_.jpg",
+      "stars": 4.7,
+      "price": 17.99,
+      "publishedDate": "2022-01-04",
+      "category_name": "Children's eBooks"
+    }
+  },
+  {
+    "pk": 51,
+    "model": "book.Book",
+    "fields": {
+      "title": "The Prince: Second Edition",
+      "author": "Niccolo Machiavelli",
+      "imgUrl": "https://m.media-amazon.com/images/I/71ImzC-EQvL._AC_UY218_.jpg",
+      "stars": 4.6,
+      "price": 9.99,
+      "publishedDate": "2010-05-15",
+      "category_name": "Politics & Social Sciences"
+    }
+  },
+  {
+    "pk": 52,
+    "model": "book.Book",
+    "fields": {
+      "title": "Python Programming for Beginners: A Step by Step Guide to Master Python Programming for Beginners with Practical Projects",
+      "author": "Joseph Rive",
+      "imgUrl": "https://m.media-amazon.com/images/I/814bPWxyfGL._AC_UY218_.jpg",
+      "stars": 0.0,
+      "price": 2.99,
+      "publishedDate": "2023-09-12",
+      "category_name": "Computers & Technology"
+    }
+  },
+  {
+    "pk": 53,
+    "model": "book.Book",
+    "fields": {
+      "title": "Users' Guides to the Medical Literature: A Manual for Evidence-Based Clinical Practice, 3E (Users Guides to the Medical Literature)",
+      "author": "Gordon Guyatt",
+      "imgUrl": "https://m.media-amazon.com/images/I/91A8Lp7WbWL._AC_UY218_.jpg",
+      "stars": 4.7,
+      "price": 53.49,
+      "publishedDate": "2014-11-20",
+      "category_name": "Science & Math"
+    }
+  },
+  {
+    "pk": 54,
+    "model": "book.Book",
+    "fields": {
+      "title": "The Easy Air Fryer Cookbook for Beginners: 100 Regular Use Easy & Delicious Air Fryer Recipes, Ideal for Newbies",
+      "author": "Lillian J.Jackson",
+      "imgUrl": "https://m.media-amazon.com/images/I/81BjAO7GJHL._AC_UY218_.jpg",
+      "stars": 0.0,
+      "price": 9.99,
+      "publishedDate": "2023-04-15",
+      "category_name": "Cookbooks, Food & Wine"
+    }
+  },
+  {
+    "pk": 55,
+    "model": "book.Book",
+    "fields": {
+      "title": "A Table: Recipes for Cooking and Eating the French Way",
+      "author": "Rebekah Peppler",
+      "imgUrl": "https://m.media-amazon.com/images/I/81eyubeMaXL._AC_UY218_.jpg",
+      "stars": 4.6,
+      "price": 17.09,
+      "publishedDate": "2021-04-06",
+      "category_name": "Cookbooks, Food & Wine"
+    }
+  },
+  {
+    "pk": 56,
+    "model": "book.Book",
+    "fields": {
+      "title": "From 504 FICO® credit score to FICO® 810: Cracking the Code to a 800+ FICO® Credit Score",
+      "author": "Daraine Delevante",
+      "imgUrl": "https://m.media-amazon.com/images/I/61Czk5z9kHL._AC_UY218_.jpg",
+      "stars": 0.0,
+      "price": 9.99,
+      "publishedDate": "2023-07-12",
+      "category_name": "Business & Money"
+    }
+  },
+  {
+    "pk": 57,
+    "model": "book.Book",
+    "fields": {
+      "title": "The Rifle 2: Back to the Battlefield",
+      "author": "Andrew Biggio",
+      "imgUrl": "https://m.media-amazon.com/images/I/911D0CdrZUL._AC_UY218_.jpg",
+      "stars": 5.0,
+      "price": 14.99,
+      "publishedDate": "2023-09-19",
+      "category_name": "History"
+    }
+  },
+  {
+    "pk": 58,
+    "model": "book.Book",
+    "fields": {
+      "title": "Icebound In The Arctic: The Mystery of Captain Francis Crozier and the Franklin Expedition",
+      "author": "Michael Smith",
+      "imgUrl": "https://m.media-amazon.com/images/I/91tve0PhpPL._AC_UY218_.jpg",
+      "stars": 4.6,
+      "price": 10.99,
+      "publishedDate": "2021-04-12",
+      "category_name": "Sports & Outdoors"
+    }
+  },
+  {
+    "pk": 59,
+    "model": "book.Book",
+    "fields": {
+      "title": "Diabetic Air Fryer Cookbook: Mastering Diabetes-Friendly Cooking with Your Air Fryer with Easy and Delicious Recipes and a 28-Day Meal Plan for Balanced Living",
+      "author": "Eloise Meyer",
+      "imgUrl": "https://m.media-amazon.com/images/I/81P-0U1DnvL._AC_UY218_.jpg",
+      "stars": 5.0,
+      "price": 9.99,
+      "publishedDate": "2023-09-17",
+      "category_name": "Cookbooks, Food & Wine"
+    }
+  },
+  {
+    "pk": 60,
+    "model": "book.Book",
+    "fields": {
+      "title": "Lose 90 Pounds in 90 Days: Waist-A-Way, The Healthy Way",
+      "author": "Elizabeth Carter",
+      "imgUrl": "https://m.media-amazon.com/images/I/81hXegKmQjL._AC_UY218_.jpg",
+      "stars": 4.0,
+      "price": 3.97,
+      "publishedDate": "2015-08-04",
+      "category_name": "Health, Fitness & Dieting"
+    }
+  },
+  {
+    "pk": 61,
+    "model": "book.Book",
+    "fields": {
+      "title": "Our Migrant Souls: A Meditation on Race and the Meanings and Myths of “Latino”",
+      "author": "Héctor Tobar",
+      "imgUrl": "https://m.media-amazon.com/images/I/81rgnJCvGKL._AC_UY218_.jpg",
+      "stars": 4.6,
+      "price": 13.99,
+      "publishedDate": "2023-05-09",
+      "category_name": "Biographies & Memoirs"
+    }
+  },
+  {
+    "pk": 62,
+    "model": "book.Book",
+    "fields": {
+      "title": "Learn to Program with Assembly: Foundational Learning for New Programmers",
+      "author": "Jonathan Bartlett",
+      "imgUrl": "https://m.media-amazon.com/images/I/61vFGIMagLL._AC_UY218_.jpg",
+      "stars": 4.7,
+      "price": 16.5,
+      "publishedDate": "2021-11-05",
+      "category_name": "Computers & Technology"
+    }
+  },
+  {
+    "pk": 63,
+    "model": "book.Book",
+    "fields": {
+      "title": "Saving Freud: The Rescuers Who Brought Him to Freedom",
+      "author": "Andrew Nagorski",
+      "imgUrl": "https://m.media-amazon.com/images/I/71pkyfW691L._AC_UY218_.jpg",
+      "stars": 4.5,
+      "price": 13.99,
+      "publishedDate": "2022-08-23",
+      "category_name": "Biographies & Memoirs"
+    }
+  },
+  {
+    "pk": 64,
+    "model": "book.Book",
+    "fields": {
+      "title": "Trauma-Sensitive Schools for the Adolescent Years: Promoting Resiliency and Healing, Grades 6–12",
+      "author": "Susan E. Craig",
+      "imgUrl": "https://m.media-amazon.com/images/I/91jeGhjRbxL._AC_UY218_.jpg",
+      "stars": 4.8,
+      "price": 17.25,
+      "publishedDate": "2017-09-29",
+      "category_name": "Education & Teaching"
+    }
+  },
+  {
+    "pk": 65,
+    "model": "book.Book",
+    "fields": {
+      "title": "Urban Construction Project Management (McGraw-Hill Construction Series)",
+      "author": "Richard Lambeck",
+      "imgUrl": "https://m.media-amazon.com/images/I/71JwQBYqyQL._AC_UY218_.jpg",
+      "stars": 4.3,
+      "price": 66.49,
+      "publishedDate": "2008-12-15",
+      "category_name": "Engineering & Transportation"
+    }
+  },
+  {
+    "pk": 66,
+    "model": "book.Book",
+    "fields": {
+      "title": "The Codex Borgia: A Full-Color Restoration of the Ancient Mexican Manuscript (Dover Fine Art, History of Art)",
+      "author": "Gisele Díaz",
+      "imgUrl": "https://m.media-amazon.com/images/I/91gyHluRHvL._AC_UY218_.jpg",
+      "stars": 4.7,
+      "price": 13.77,
+      "publishedDate": "2012-12-26",
+      "category_name": "Arts & Photo graphy"
+    }
+  },
+  {
+    "pk": 67,
+    "model": "book.Book",
+    "fields": {
+      "title": "Art Briles: Looking Up: My Journey from Tragedy to Triumph",
+      "author": "Nick Eatman",
+      "imgUrl": "https://m.media-amazon.com/images/I/51weEAahYHL._AC_UY218_.jpg",
+      "stars": 4.6,
+      "price": 10.49,
+      "publishedDate": "2013-08-01",
+      "category_name": "Travel"
+    }
+  },
+  {
+    "pk": 68,
+    "model": "book.Book",
+    "fields": {
+      "title": "Better Broths & Healing Tonics: 75 Bone Broth and Vegetarian Broth-Based Recipes for Everyone",
+      "author": "Jill Sheppard Davenport MS MPP CNS NBC-HWC LN",
+      "imgUrl": "https://m.media-amazon.com/images/I/813gDQtyWPL._AC_UY218_.jpg",
+      "stars": 4.8,
+      "price": 14.99,
+      "publishedDate": "2022-11-08",
+      "category_name": "Cookbooks, Food & Wine"
+    }
+  },
+  {
+    "pk": 69,
+    "model": "book.Book",
+    "fields": {
+      "title": "What Kind of Mother: A Novel",
+      "author": "Clay Chapman",
+      "imgUrl": "https://m.media-amazon.com/images/I/91d34VCHNrL._AC_UY218_.jpg",
+      "stars": 3.8,
+      "price": 2.99,
+      "publishedDate": "2023-09-12",
+      "category_name": "Mystery, Thriller & Suspense"
+    }
+  },
+  {
+    "pk": 70,
+    "model": "book.Book",
+    "fields": {
+      "title": "Two Meals a Day: The Simple, Sustainable Strategy to Lose Fat, Reverse Aging, and Break Free from Diet Frustration Forever",
+      "author": "Mark Sisson",
+      "imgUrl": "https://m.media-amazon.com/images/I/91kQR42NzyL._AC_UY218_.jpg",
+      "stars": 4.5,
+      "price": 12.99,
+      "publishedDate": "2021-03-09",
+      "category_name": "Health, Fitness & Dieting"
+    }
+  },
+  {
+    "pk": 71,
+    "model": "book.Book",
+    "fields": {
+      "title": "Principles of Contract Law (Concise Hornbook Series)",
+      "author": "Robert A. Hillman",
+      "imgUrl": "https://m.media-amazon.com/images/I/01RmK+J4pJL._AC_UY218_.gif",
+      "stars": 0.0,
+      "price": 48.75,
+      "publishedDate": "2023-01-02",
+      "category_name": "Law"
+    }
+  },
+  {
+    "pk": 72,
+    "model": "book.Book",
+    "fields": {
+      "title": "Color, Form, and Magic: Use the Power of Aesthetics for Creative and Magical Work",
+      "author": "Nicole Pivirotto",
+      "imgUrl": "https://m.media-amazon.com/images/I/61tUtrXvCdS._AC_UY218_.jpg",
+      "stars": 4.5,
+      "price": 1.99,
+      "publishedDate": "2021-09-07",
+      "category_name": "Arts & Photo graphy"
+    }
+  },
+  {
+    "pk": 73,
+    "model": "book.Book",
+    "fields": {
+      "title": "Secrets of Dynamic Communications: Prepare with Focus, Deliver with Clarity, Speak with Power",
+      "author": "Ken Davis",
+      "imgUrl": "https://m.media-amazon.com/images/I/716KejMI4TL._AC_UY218_.jpg",
+      "stars": 4.6,
+      "price": 10.99,
+      "publishedDate": "2013-09-17",
+      "category_name": "Self-Help"
+    }
+  },
+  {
+    "pk": 74,
+    "model": "book.Book",
+    "fields": {
+      "title": "One Big Tent: Atheist and Agnostic AA Members Share Their Experience, Strength and Hope",
+      "author": "AA Grapevine",
+      "imgUrl": "https://m.media-amazon.com/images/I/81so72Lj63L._AC_UY218_.jpg",
+      "stars": 4.7,
+      "price": 10.92,
+      "publishedDate": "2018-09-17",
+      "category_name": "Self-Help"
+    }
+  },
+  {
+    "pk": 75,
+    "model": "book.Book",
+    "fields": {
+      "title": "No Impact Man: The Adventures of a Guilty Liberal Who Attempts to Save the Planet, and the Discoveries He Makes About Himself and Our Way of Life in the Process",
+      "author": "Colin Beavan",
+      "imgUrl": "https://m.media-amazon.com/images/I/51U1VapJs7L._AC_UY218_.jpg",
+      "stars": 4.4,
+      "price": 11.99,
+      "publishedDate": "2009-09-01",
+      "category_name": "Science & Math"
+    }
+  },
+  {
+    "pk": 76,
+    "model": "book.Book",
+    "fields": {
+      "title": "Abeni's Song (Abeni's Song, 1)",
+      "author": "P. Djèlí Clark",
+      "imgUrl": "https://m.media-amazon.com/images/I/81kn3-BgQpL._AC_UY218_.jpg",
+      "stars": 4.3,
+      "price": 18.74,
+      "publishedDate": "2023-07-25",
+      "category_name": "Children's eBooks"
+    }
+  },
+  {
+    "pk": 77,
+    "model": "book.Book",
+    "fields": {
+      "title": "Decision at Sea: Five Naval Battles that Shaped American History",
+      "author": "Craig L. Symonds",
+      "imgUrl": "https://m.media-amazon.com/images/I/91sA0w81jtL._AC_UY218_.jpg",
+      "stars": 4.6,
+      "price": 9.59,
+      "publishedDate": "2006-10-23",
+      "category_name": "History"
+    }
+  },
+  {
+    "pk": 78,
+    "model": "book.Book",
+    "fields": {
+      "title": "The Self-Sufficient Life and How to Live It: The Complete Back-to-Basics Guide",
+      "author": "John Seymour",
+      "imgUrl": "https://m.media-amazon.com/images/I/A1d-6sZfFuL._AC_UY218_.jpg",
+      "stars": 4.8,
+      "price": 1.99,
+      "publishedDate": "2018-09-04",
+      "category_name": "Crafts, Hobbies & Home"
+    }
+  },
+  {
+    "pk": 79,
+    "model": "book.Book",
+    "fields": {
+      "title": "YELLOWSTONE TRAVEL GUIDE 2023 - 2024 & BEYOND: Must-Have Yellowstone Travel Book 2023. Most Up-To-date Yellowstone National Park Travel Books Guide. 50+ maps. 100+ Pictures. Meet Elks, Bissons, Bear…",
+      "author": "Mary Dale",
+      "imgUrl": "https://m.media-amazon.com/images/I/815ohKiLj5L._AC_UY218_.jpg",
+      "stars": 3.5,
+      "price": 9.99,
+      "publishedDate": "2023-04-13",
+      "category_name": "Travel"
+    }
+  },
+  {
+    "pk": 80,
+    "model": "book.Book",
+    "fields": {
+      "title": "SQL Server 2022 Revealed: A Hybrid Data Platform Powered by Security, Performance, and Availability",
+      "author": "Bob Ward",
+      "imgUrl": "https://m.media-amazon.com/images/I/613w7GoAcwL._AC_UY218_.jpg",
+      "stars": 4.7,
+      "price": 13.5,
+      "publishedDate": "2022-11-02",
+      "category_name": "Computers & Technology"
+    }
+  },
+  {
+    "pk": 81,
+    "model": "book.Book",
+    "fields": {
+      "title": "The Third Plate: Field Notes on the Future of Food",
+      "author": "Dan Barber",
+      "imgUrl": "https://m.media-amazon.com/images/I/81P73DqhpyL._AC_UY218_.jpg",
+      "stars": 4.7,
+      "price": 12.99,
+      "publishedDate": "2014-05-20",
+      "category_name": "Science & Math"
+    }
+  },
+  {
+    "pk": 82,
+    "model": "book.Book",
+    "fields": {
+      "title": "Gluten-Free Flavor Flours: A New Way to Bake with Non-Wheat Flours, Including Rice, Nut, Coconut, Teff, Buckwheat, and Sorghum Flours",
+      "author": "Alice Medrich",
+      "imgUrl": "https://m.media-amazon.com/images/I/817U9ajhg8L._AC_UY218_.jpg",
+      "stars": 4.6,
+      "price": 13.99,
+      "publishedDate": "2014-10-28",
+      "category_name": "Cookbooks, Food & Wine"
+    }
+  },
+  {
+    "pk": 83,
+    "model": "book.Book",
+    "fields": {
+      "title": "Finnish Lessons 3.0: What Can the World Learn from Educational Change in Finland?",
+      "author": "Pasi Sahlberg",
+      "imgUrl": "https://m.media-amazon.com/images/I/91IjwrmMdxL._AC_UY218_.jpg",
+      "stars": 4.6,
+      "price": 17.25,
+      "publishedDate": "2021-01-22",
+      "category_name": "Education & Teaching"
+    }
+  },
+  {
+    "pk": 84,
+    "model": "book.Book",
+    "fields": {
+      "title": "Reluctant Hero: A 9/11 Survivor Speaks Out About That Unthinkable Day, What He's Learned, How He's Struggled, and What No One Should Ever Forget",
+      "author": "Michael Benfante",
+      "imgUrl": "https://m.media-amazon.com/images/I/717sk1T4XNL._AC_UY218_.jpg",
+      "stars": 4.3,
+      "price": 10.99,
+      "publishedDate": "2011-08-11",
+      "category_name": "Self-Help"
+    }
+  },
+  {
+    "pk": 85,
+    "model": "book.Book",
+    "fields": {
+      "title": "The Last Sultan: The Life and Times of Ahmet Ertegun",
+      "author": "Robert Greenfield",
+      "imgUrl": "https://m.media-amazon.com/images/I/712BQKp6wWL._AC_UY218_.jpg",
+      "stars": 4.4,
+      "price": 15.99,
+      "publishedDate": "2011-11-08",
+      "category_name": "Arts & Photo graphy"
+    }
+  },
+  {
+    "pk": 86,
+    "model": "book.Book",
+    "fields": {
+      "title": "TINSA: A Neurological Approach to the Treatment of Sex Addiction",
+      "author": "Michael Barta",
+      "imgUrl": "https://m.media-amazon.com/images/I/71ai7NruwGL._AC_UY218_.jpg",
+      "stars": 4.5,
+      "price": 9.99,
+      "publishedDate": "2018-03-21",
+      "category_name": "Health, Fitness & Dieting"
+    }
+  },
+  {
+    "pk": 87,
+    "model": "book.Book",
+    "fields": {
+      "title": "Help. Them. Heal: Teaching You Both How to Heal Your Relationship After Sexual Betrayal",
+      "author": "Carol Juergensen Sheets",
+      "imgUrl": "https://m.media-amazon.com/images/I/71punSOn2NL._AC_UY218_.jpg",
+      "stars": 5.0,
+      "price": 32.99,
+      "publishedDate": "2022-05-30",
+      "category_name": "Self-Help"
+    }
+  },
+  {
+    "pk": 88,
+    "model": "book.Book",
+    "fields": {
+      "title": "Niching Up: The Narrower the Market, the Bigger the Prize",
+      "author": "Chris Dreyer",
+      "imgUrl": "https://m.media-amazon.com/images/I/71kC3MDTUxL._AC_UY218_.jpg",
+      "stars": 4.5,
+      "price": 2.99,
+      "publishedDate": "2022-10-24",
+      "category_name": "Biographies & Memoirs"
+    }
+  },
+  {
+    "pk": 89,
+    "model": "book.Book",
+    "fields": {
+      "title": "A Modern Guide to Public Relations: Unveiling the Mystery of PR: Including: Content Marketing, SEO, Social Media & PR Best Practices",
+      "author": "Amy Rosenberg",
+      "imgUrl": "https://m.media-amazon.com/images/I/61kdqcjybtL._AC_UY218_.jpg",
+      "stars": 4.5,
+      "price": 9.99,
+      "publishedDate": "2021-01-30",
+      "category_name": "Education & Teaching"
+    }
+  },
+  {
+    "pk": 90,
+    "model": "book.Book",
+    "fields": {
+      "title": "Badasses: The Legend of Snake, Foo, Dr. Death, and John Madden's Oakland Raiders",
+      "author": "Peter Richmond",
+      "imgUrl": "https://m.media-amazon.com/images/I/51HQmiqEJxL._AC_UY218_.jpg",
+      "stars": 4.5,
+      "price": 13.99,
+      "publishedDate": "2010-09-14",
+      "category_name": "Sports & Outdoors"
+    }
+  },
+  {
+    "pk": 91,
+    "model": "book.Book",
+    "fields": {
+      "title": "How to Stop Overthinking Your Relationship and Start Loving Now: Effective solutions for reducing anxiety, resolving conflict, and improving communication in your relationship",
+      "author": "Robyn Brookes",
+      "imgUrl": "https://m.media-amazon.com/images/I/71Cff+DSGqL._AC_UY218_.jpg",
+      "stars": 4.9,
+      "price": 4.99,
+      "publishedDate": "2023-07-29",
+      "category_name": "Parenting & Relationships"
+    }
+  },
+  {
+    "pk": 92,
+    "model": "book.Book",
+    "fields": {
+      "title": "Selections from Science and Sanity",
+      "author": "Alfred Korzybski",
+      "imgUrl": "https://m.media-amazon.com/images/I/614br2tWfLL._AC_UY218_.jpg",
+      "stars": 4.5,
+      "price": 9.99,
+      "publishedDate": "2013-02-03",
+      "category_name": "Education & Teaching"
+    }
+  },
+  {
+    "pk": 93,
+    "model": "book.Book",
+    "fields": {
+      "title": "Sex Trafficking: Inside the Business of Modern Slavery",
+      "author": "Siddharth Kara",
+      "imgUrl": "https://m.media-amazon.com/images/I/8183SFHwqAL._AC_UY218_.jpg",
+      "stars": 4.5,
+      "price": 3.99,
+      "publishedDate": "2020-07-15",
+      "category_name": "Biographies & Memoirs"
+    }
+  },
+  {
+    "pk": 94,
+    "model": "book.Book",
+    "fields": {
+      "title": "The Authority On DUI Defense (The Authority On - Law Book 2)",
+      "author": "George F. McCranie IV",
+      "imgUrl": "https://m.media-amazon.com/images/I/81sbge8ZRpL._AC_UY218_.jpg",
+      "stars": 3.6,
+      "price": 12.99,
+      "publishedDate": "2013-05-22",
+      "category_name": "Law"
+    }
+  },
+  {
+    "pk": 95,
+    "model": "book.Book",
+    "fields": {
+      "title": "Knotmonsters: Sweet and Treats edition: 50 Amigurumi Crochet Patterns",
+      "author": "Michael Cao",
+      "imgUrl": "https://m.media-amazon.com/images/I/91EZA2kuSXL._AC_UY218_.jpg",
+      "stars": 4.4,
+      "price": 10.99,
+      "publishedDate": "2023-01-15",
+      "category_name": "Crafts, Hobbies & Home"
+    }
+  },
+  {
+    "pk": 96,
+    "model": "book.Book",
+    "fields": {
+      "title": "Why Marx Was Right",
+      "author": "Terry Eagleton",
+      "imgUrl": "https://m.media-amazon.com/images/I/71jtvXqW7bL._AC_UY218_.jpg",
+      "stars": 4.4,
+      "price": 9.99,
+      "publishedDate": "2018-03-01",
+      "category_name": "Politics & Social Sciences"
+    }
+  },
+  {
+    "pk": 97,
+    "model": "book.Book",
+    "fields": {
+      "title": "Poverty, by America",
+      "author": "Matthew Desmond",
+      "imgUrl": "https://m.media-amazon.com/images/I/61yYtOhQ-ML._AC_UY218_.jpg",
+      "stars": 4.5,
+      "price": 13.99,
+      "publishedDate": "2023-03-21",
+      "category_name": "Politics & Social Sciences"
+    }
+  },
+  {
+    "pk": 98,
+    "model": "book.Book",
+    "fields": {
+      "title": "Fluent In Korean: Learn Korean & Practice Reading With Conversations, Articles & Blogs",
+      "author": "Skip The Subtitles",
+      "imgUrl": "https://m.media-amazon.com/images/I/71BkWSvaOML._AC_UY218_.jpg",
+      "stars": 4.8,
+      "price": 3.99,
+      "publishedDate": "2022-08-13",
+      "category_name": "Reference"
+    }
+  },
+  {
+    "pk": 99,
+    "model": "book.Book",
+    "fields": {
+      "title": "Costanzo Physiology E-Book",
+      "author": "Linda Costanzo",
+      "imgUrl": "https://m.media-amazon.com/images/I/51ujkSdw1mL._AC_UY218_.jpg",
+      "stars": 4.8,
+      "price": 43.11,
+      "publishedDate": "2021-09-28",
+      "category_name": "Science & Math"
+    }
+  },
+  {
+    "pk": 100,
+    "model": "book.Book",
+    "fields": {
+      "title": "The Wonder Weeks: A Stress-Free Guide to Your Baby's Behavior (6th Edition)",
+      "author": "Xaviera Plooij",
+      "imgUrl": "https://m.media-amazon.com/images/I/81NX7P+fbRL._AC_UY218_.jpg",
+      "stars": 4.7,
+      "price": 9.99,
+      "publishedDate": "2019-09-10",
+      "category_name": "Parenting & Relationships"
+    }
+  }
+]
