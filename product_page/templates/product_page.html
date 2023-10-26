@@ -45,15 +45,96 @@
             text-overflow: ellipsis;
             white-space: nowrap;
         }
+
+        .button-all {
+            display: flex;
+            flex-shrink: row;
+        }
+
+        .search-buku {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+        }
+
+
+        .input-search {
+            width: 500px;
+            border-radius: 10px;
+            background: #79C278;
+            box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.25) inset;
+            width: 1052px;
+            height: 40px;
+            flex-shrink: 0;
+            
+        }
+
+        .isi-content {
+            display: flex;
+            flex-direction: column;
+            gap:20px;
+        }
+        
+        .fav-button {
+            width: 40px;
+            height: 40px;
+            flex-shrink: 0;
+            border-radius: 10px;
+            background: linear-gradient(180deg, #8DB085 0%, #5A8569 100%);
+            border-style: hidden;
+            color: white;
+            cursor: pointer;
+        }
+
+        .fav-button:hover {
+            background: linear-gradient(180deg, #42653a 0%, #26472f 100%);
+        }
+
+        .buy-button {
+            width: 70px;
+            height: 40px;
+            flex-shrink: 0;
+            border-radius: 10px;
+            background: linear-gradient(180deg, #8DB085 0%, #5A8569 100%);
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+        
+        .buy-button:hover {
+            background: linear-gradient(180deg, #42653a 0%, #26472f 100%);
+        }
+        .button-all {
+            display: flex;
+            flex-direction: row;
+            gap:7px;
+            
+        }
+
+        .navbar {
+            display: flex;
+            flex-direction: row;
+        }
+
     </style>
 </head>
 
 <body>
-    <button class="button-cart" ></div>
-    <div>
-        bukuku
+    <div class="isi-content">
+        <div class="navbar">
+            <div>bukuku</div>
+            <div class="nav-kanan">
+                <div>cart</div>
+                <div>fav</div>
+            </div>
+            
+        </div>
+        <div class="search-buku">
+            <input type="text" placeholder="Cari buku Anda..." class="input-search">
+        </div>
+        <div id="title"></div>
     </div>
-    <div id="title"></div>
 </body>
 
 
@@ -70,7 +151,15 @@
                 <img class="image-book" src="${item.fields.imgUrl}">
                 <p class="judul-buku"> ${item.fields.title} </p>
                 <div class="harga-buku"> Rp${Math.ceil(item.fields.price*15000).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} </div>
-                <button class="buy-button" data-item-id="${item.id}">Buy</button>
+                <div class="button-all">
+
+                    <form action='javascript:add_to_cart(${item.pk})' id='transactionIDValue' class="d-inline" method="post">
+                        {{cart_product_form}}
+                        {% csrf_token %}
+                        <input type="submit" class="btn btn-primary shadow px-5 py-2 Id_submit" value="Add To Cart">
+                    </form>
+                    <button class="fav-button" data-item-id="${item.pk}"><3 </button>
+                </div>
              </div>`
 
         })
@@ -83,32 +172,10 @@
 
     refreshProduct()
 
-    function handleBuyClick(event) {
-        const itemId = event.target.getAttribute("data-item-id");
-        
-        // Lakukan AJAX di sini (gunakan XMLHttpRequest atau fetch API)
-        // Contoh menggunakan fetch:
-        fetch('/cart/add', {
-          method: 'POST',
-          body: JSON.stringify({ itemId: itemId }),
-          headers: {
-            'Content-Type': 'application/json'
-          }
-        })
-        .then(response => response.json())
-        .then(data => {
-          // Handle respons dari server (misalnya, perbarui tampilan keranjang)
-          console.log('Item berhasil ditambahkan ke keranjang', data);
-        })
-        .catch(error => {
-          console.error('Terjadi kesalahan', error);
-        });
+    async function add_to_cart(book_id) {
+        alert(book_id)
+        return fetch(`add_to_cart/${book_id}`).then((res) => res.json()) 
       }
-    
-      // Menambahkan event listener ke tombol "Buy" pada semua elemen dengan class "buy-button"
-      const buyButtons = document.querySelectorAll('.buy-button');
-      buyButtons.forEach(button => {
-        button.addEventListener('click', handleBuyClick);
-      });
+
 </script>
 {% endblock %}

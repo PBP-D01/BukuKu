@@ -2,6 +2,8 @@ from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render
 from book.models import Book
 from django.core import serializers
+from cart.models import Cart
+from django.views.decorators.csrf import csrf_exempt
 
 # Create your views here.
 def show_product(request):
@@ -16,10 +18,17 @@ def get_product_json(request):
     product_item = Book.objects.all()
     return HttpResponse(serializers.serialize('json', product_item))
 
-def add_to_cart(request):
-    if request.method == 'POST':
-        book_id = request.POST.get('book.id')
-        product_item = Book.objects.get(id=book_id)
-        
-        response_data = {'message': 'Item berhasil ditambahkan ke keranjang'}
-        return JsonResponse(response_data)
+@csrf_exempt
+def add_cart(request, id):
+    book = Book.objects.get(pk=id)
+    
+    if(Cart.objects.filter(user = request.user.id, book_id= id)):
+        cart = Cart.objects.get(user = request.user.id, book_id = id)
+        cart.book_amount += 1
+        cart.save()
+        print(cart.book_amount)
+        return HttpResponse(b"ADDED", status=201)
+    else:
+        Cart(user = request.user, book = book, book_amount = 1).save()
+        return HttpResponse(b"ADDED", status=201)
+   
