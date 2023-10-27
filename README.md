@@ -19,10 +19,10 @@ Pada halaman ini, user dapat melihat peringkat buku dengan penjualan terbanyak.
 3. Product Page (Kayzaa) <br>
 Pada halaman ini, user dapat melihat detail produk yang spesifik,mencakup informasi seperti gambar produk, deskripsi, harga, dan opsi untuk menambahkannya ke keranjang belanja.
 4. Cart Page (Hery) <br>
-Pada halaman ini, user dapat melihat produk yang telah mereka tambahkan saat berbelanja, serta dapat memilih produk tambahan.
-5. Checkout Page (Bella) <br>
+Pada halaman ini, user dapat melihat produk yang telah mereka tambahkan saat berbelanja, serta dapat mengatur kuantitas produk dan banyak produk yang akan di checkout.
+6. Checkout Page (Bella) <br>
 Pada halaman ini, user memasukkan informasi seperti alamat pengiriman, metode pengiriman, dan metode pembayaran. 
-6. Login, Register (Brian) <br>
+7. Login, Register (Brian) <br>
 Halaman login digunakan untuk user yang sudah memiliki akun untuk masuk ke akun mereka. <br>
 Halaman pendaftaran untuk user yang belum memiliki akun mendaftar dan membuat akun baru.
 
