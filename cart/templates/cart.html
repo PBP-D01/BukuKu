@@ -1,50 +1,313 @@
 {% extends 'base.html' %}
 
 {% block meta %}
-{% endblock meta %}
+<style>
+  .wireframe {
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
 
+.wireframe .div {
+  background-color: #ffffff;
+  width: 1440px;
+  height: 1024px;
+  position: relative;
+}
+
+.wireframe .mask-group {
+  position: absolute;
+  width: 49px;
+  height: 49px;
+  top: 39px;
+  left: 30px;
+}
+
+.wireframe .text-wrapper {
+  position: absolute;
+  top: 47px;
+  left: 100px;
+  background: radial-gradient(
+    50% 50% at 50% 50%,
+    rgb(54.99, 175.51, 95.97) 0%,
+    rgb(86.84, 173.39, 116.26) 14.95%,
+    rgb(116.19, 202.07, 145.39) 33.85%,
+    rgb(72.9, 161.7, 103.09) 47.69%,
+    rgb(51.92, 175.51, 93.94) 63.74%,
+    rgb(115.35, 198.89, 143.76) 80.63%,
+    rgb(80.91, 173.39, 112.35) 91.16%
+  );
+  -webkit-background-clip: text !important;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: "Ancress-Bold", Helvetica;
+  font-weight: 700;
+  color: transparent;
+  font-size: 38.7px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.wireframe .text-wrapper-2 {
+  position: absolute;
+  top: 174px;
+  left: 70px;
+  background: radial-gradient(
+    50% 50% at 50% 50%,
+    rgb(54.99, 175.51, 95.97) 0%,
+    rgb(86.84, 173.39, 116.26) 14.95%,
+    rgb(116.19, 202.07, 145.39) 33.85%,
+    rgb(72.9, 161.7, 103.09) 47.69%,
+    rgb(51.92, 175.51, 93.94) 63.74%,
+    rgb(115.35, 198.89, 143.76) 80.63%,
+    rgb(80.91, 173.39, 112.35) 91.16%
+  );
+  -webkit-background-clip: text !important;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: "Ancress-Bold", Helvetica;
+  font-weight: 700;
+  color: transparent;
+  font-size: 34px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.wireframe .text-wrapper-3 {
+  position: absolute;
+  top: 174px;
+  left: 1050px;
+  background: radial-gradient(
+    50% 50% at 50% 50%,
+    rgb(54.99, 175.51, 95.97) 0%,
+    rgb(86.84, 173.39, 116.26) 14.95%,
+    rgb(116.19, 202.07, 145.39) 33.85%,
+    rgb(72.9, 161.7, 103.09) 47.69%,
+    rgb(51.92, 175.51, 93.94) 63.74%,
+    rgb(115.35, 198.89, 143.76) 80.63%,
+    rgb(80.91, 173.39, 112.35) 91.16%
+  );
+  -webkit-background-clip: text !important;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: "Ancress-Bold", Helvetica;
+  font-weight: 700;
+  color: transparent;
+  font-size: 34px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.wireframe .vector-container {
+  position: absolute;
+  width: 50px; /* Width of your image */
+  height: 100%; /* Height of your image */
+  top: 0;
+  left: 980px;
+  background-image: url('https://www.pngall.com/wp-content/uploads/5/Vertical-Line-PNG-High-Quality-Image.png');
+  background-repeat: repeat; /* Repeat vertically */
+  background-size: 50px 100%; /* Adjust the size if needed */
+}
+
+.wireframe .vertical-line {
+  border-left: 2px dotted #48A166;
+  position: fixed;
+  width: 1px; /* Width of your image */
+  height: 100%; /* Height of your image */
+  top: 0;
+  left: 1050px;
+}
+
+.wireframe .vector {
+  display: none; /* Hide the original image */
+}
+
+.wireframe .text-wrapper-4 {
+  position: absolute;
+  top: 237px;
+  left: 1050px;
+  font-family: "Amiko-Regular", Helvetica;
+  font-weight: 400;
+  color: #093100;
+  font-size: 19.9px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.wireframe .text-wrapper-5 {
+  position: absolute;
+  top: 237px;
+  left: 1287px;
+  font-family: "Amiko-Bold", Helvetica;
+  font-weight: 700;
+  color: #093100;
+  font-size: 19.9px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.wireframe .overlap {
+  position: absolute;
+  width: 494px;
+  height: 58px;
+  top: 300px;
+  left: 919px;
+  background-image: url();
+  background-size: 100% 100%;
+}
+
+.wireframe .text-wrapper-6 {
+  position: absolute;
+  top: 14px;
+  left: 150px;
+  font-family: "Amiko-SemiBold", Helvetica;
+  font-weight: 600;
+  color: #093100;
+  font-size: 19.9px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.wireframe .text-wrapper-7 {
+  position: absolute;
+  top: 11px;
+  left: 368px;
+  font-family: "Amiko-Bold", Helvetica;
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 19.9px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.wireframe .rectangle {
+  position: absolute;
+  width: 394px;
+  height: 81px;
+  top: 602px;
+  left: 1050px;
+  border-radius: 20px;
+  background: radial-gradient(
+    50% 50% at 50% 50%,
+    rgb(54.99, 175.51, 95.97) 0%,
+    rgb(86.84, 173.39, 116.26) 14.95%,
+    rgb(116.19, 202.07, 145.39) 33.85%,
+    rgb(72.9, 161.7, 103.09) 47.69%,
+    rgb(51.92, 175.51, 93.94) 63.74%,
+    rgb(115.35, 198.89, 143.76) 80.63%,
+    rgb(80.91, 173.39, 112.35) 91.16%
+  );
+}
+
+.wireframe .text-wrapper-8 {
+  position: absolute;
+  top: 26px;
+  left: 120px;
+  font-family: "Amiko-Regular", Helvetica;
+  font-weight: 400;
+  color: #ffffff;
+  font-size: 26.3px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.wireframe .image {
+  position: absolute;
+  width: 129px;
+  height: 100px;
+  top: 33px;
+  left: 45px;
+  object-fit: cover;
+}
+
+.wireframe .p {
+  position: absolute;
+  width: 423px;
+  top: 0;
+  left: 0;
+  font-family: "Amiko-Regular", Helvetica;
+  font-weight: 400;
+  color: #093100;
+  font-size: 6.8px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.wireframe .img {
+  position: absolute;
+  width: 21px;
+  height: 11px;
+  top: 4px;
+  left: 9px;
+}
+
+.card-container {
+  position: absolute;
+  width: 718px;
+  height: flex;
+  top: 220px;
+  left: 20px;
+  width: 63%; /* Set the width of the container */
+  margin: 0 auto; /* Center the container horizontally */
+  display: flex;
+  justify-content: space-between; /* Adjust the space between cards */
+  padding: 20px; /* Add padding around the cards if needed */
+  /* background: #093100; */
+}
+
+.card-container .card {
+  box-shadow: 3.2492px 3.2492px 12.99679px 0px rgba(0, 0, 0, 0.25);
+  border: none;
+  width: 900px;
+}
+
+.card-container .card-text {
+  margin-bottom: none;
+}
+
+.form-outline input[type="number"] {
+  color: #71C58E;
+  background-color: #E1FFEC; 
+}
+
+.card-container button {
+  background-color: #71C58E;
+  border: none;
+}
+
+.card-container button:hover {
+  background-color:#5D886A;
+}
+</style>
+{% endblock meta %}
 {% block content %}
-<section class="h-100 gradient-custom">
-    <div class="container py-5">
-      <h1>My Cart</h1>
-      <div class="row d-flex justify-content-center my-4">
-        <div class="col-md-8">
-          <div class="row d-flex justify-content-center my-4">
-            <h5 class="mb-0" id="item_in_cart"></h5>
-          </div>
-          <div class="row d-flex justify-content-left my-4" id="cart_card">
-          </div>
+    <div class="wireframe">
+      <div class="div">
+        <img class="mask-group" src="https://raw.githubusercontent.com/kayzaazr/cupcat-shop/main/gambar-website/Mask%20group.png" />
+        <div class="text-wrapper">My Cart</div>
+        <div class="text-wrapper-2" id="item_in_cart"></div>
+        <div class="text-wrapper-3">Details</div>
+        <div class="vertical-line"></div>
+        <!-- <div class="vector-container"> -->
+          <!-- <img class="vector" src="https://www.pngall.com/wp-content/uploads/5/Vertical-Line-PNG-High-Quality-Image.png" /> -->
+        <!-- </div> -->
+        <div class="text-wrapper-4">Cart Total</div>
+        <div class="text-wrapper-5" id="total_price">Rp 100.000</div>
+        <div class="overlap">
+          <div class="text-wrapper-6">Total</div>
+          <div class="text-wrapper-7">Rp 100.000</div>
         </div>
-          
-        <div class="col-md-4">
-          <div class="card mb-4">
-            <div class="card-header py-3">
-              <h5 class="mb-0">Summary</h5>
-            </div>
-            <div class="card-body">
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item d-flex justify-content-between align-items-center px-0">
-                  Total Item
-                  <span id="total_item"></span>
-                </li>
-                <li
-                  class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
-                  <div>
-                    <strong>Total amount</strong>
-                  </div>
-                  <span id="total_price"><strong></strong></span>
-                </li>
-              </ul>
-  
-              <button type="button" class="btn btn-primary btn-lg btn-block">
-                Go to checkout
-              </button>
-            </div>
-          </div>
+        <div class="rectangle">
+          <div class="text-wrapper-8">Place Order</div>
+        </div>
+        <div class="card-container">
+          <div class="row" id="cart_card"></div>
         </div>
       </div>
     </div>
- </section>
 
 <script>
   async function getCartBook() {
@@ -65,64 +328,45 @@
         totalAmount += cart.book_amount
         totalBook += 1
         htmlStringCard += 
-        `<div class="card mb-4" style="max-width: 45rem; min-height: 200px;">
-          <div class="card-body">
-            <div class="row d-flex justify-content-left my-4">
-              <div class="col-lg-3 col-md-12 mb-4 mb-lg-0">
-                  <div class="bg-image hover-overlay hover-zoom ripple rounded" data-mdb-ripple-color="light">
-                    <img src="${cart.book_img}"
-                      class="w-100" alt="Book Image" />
-                    <a href="#!">
-                      <div class="mask" style="background-color: rgba(251, 251, 251, 0.2)"></div>
-                    </a>
+        `<div class="col"> 
+          <div class="card mb-4">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-lg-2 col-md-8 text-end">
+                  <img style="height: 160px;" src="${cart.book_img}" />
+                </div>
+                <div class="col">
+                  <h5 class="card-title" style="font-family: Amiko-Regular, Helvetica; color: #57AD74;">${cart.book_title}</h5>
+                  <p class="card-text" style="font-family: Amiko-Regular, Helvetica;">Author: ${cart.book_author}</p>
+                  <p class="card-text" style="font-family: Amiko-Bold, Helvetica; font-weight: bold; color: #57AD74; font-size:large;">Rp. ${Math.ceil(price*15000).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} </p>
+                  <div class="d-flex mb-4" style="max-width: 180px; max-height: 1px;">
+                    <button type="button" class="btn btn-primary h-25 me-2" data-mdb-toggle="tooltip" title="Remove item" onclick="deleteCart(${cart.id})">
+                      <img width="10" height="10" src="https://www.iconsdb.com/icons/preview/white/trash-6-xxl.png" />
+                    </button>
+                    <button class="btn btn-primary h-25 me-2" onclick="decrease(${cart.id})">
+                      -
+                    </button>
+        
+                    <div class="form-outline">
+                      <input text-allign="center" width="50" id="form1" min="1" name="quantity" value="${cart.book_amount}" type="number" class="form-control" readonly/>
+                    </div>
+  
+                    <button class="btn btn-primary h-25 ms-2" onclick="increase(${cart.id})">
+                       +
+                    </button>
                   </div>
-              </div>
-
-              <div class="col">
-                <p><strong>${cart.book_title}</strong></p>
-                <p>Author: ${cart.book_author}</p>
-                <p class="text-start text-md-left">
-                  <strong>$${price.toFixed(2)}</strong>
-                </p>
-          `
-
-        // if(cart.item_stock == 0)
-        //     htmlStringCard += `
-        //         <p class="text-start text-md-center">Out of Stock<p>`
-        // else {
-          htmlStringCard += `
-                <div class="d-flex mb-4" style="max-width: 300px">
-                  <button type="button" class="btn btn-primary h-25 me-2" data-mdb-toggle="tooltip"
-                  title="Remove item" onclick="deleteCart(${cart.id})">
-                    <img width="10" height="10" src="https://www.iconsdb.com/icons/preview/white/trash-6-xxl.png" />
-                  </button>
-                  <button class="btn btn-primary h-25 me-2"
-                    onclick="decrease(${cart.id})">
-                    -
-                  </button>
-
-                  <div class="form-outline">
-                    <input text-allign="center" width="50" id="form1" min="1" name="quantity" value="${cart.book_amount}" type="number" class="form-control" readonly/>
-                  </div>
-
-                  <button class="btn btn-primary h-25 ms-2"
-                    onclick="increase(${cart.id})">
-                    +
-                  </button>
-                </div>`
-        // }
-
-        htmlStringCard += `
+                </div>
               </div>
             </div>
+            <div class="card-footer" style="background: #5D886A; height: 30px;"></div>
           </div>
-          <div class="card-footer"></div>
-        </div>`
+        </div>  `
+
     })
-    htmlStringCard += `<h6 class="mb-0"><a href="/" class="text-body"><img widht="30" height="30" src="https://cdn.icon-icons.com/icons2/1674/PNG/512/arrowback_111142.png"></img>Back to shop</a></h6>`
+    htmlStringCard += `<h6 class="mb-0"><a href="/product_page" class="text-body"><img widht="30" height="30" src="https://cdn.icon-icons.com/icons2/1674/PNG/512/arrowback_111142.png"></img>Back to shop</a></h6>`
     document.getElementById("cart_card").innerHTML = htmlStringCard
     document.getElementById("item_in_cart").innerHTML = totalBook + " Item added"
-    document.getElementById("total_price").innerHTML = `$`+ totalPrice.toFixed(2)
+    document.getElementById("total_price").innerHTML = `Rp. `+ Math.ceil(totalPrice*15000).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
     document.getElementById("total_item").innerHTML = totalAmount
   }
 
