@@ -1,1 +1,19 @@
+{% extends 'base.html' %}
+
+{% block meta %}
+
+{% endblock meta %}
+
+{% block content %} 
 <h1>Main Page BukuKu</h1>
+<a href="{% url 'main:login' %}">
+    <button class="btn btn-primary">
+        login
+    </button>
+</a>
+<a href="{% url 'main:register' %}">
+    <button class="btn btn-primary">
+        Register
+    </button>
+</a>
+{% endblock content %} 

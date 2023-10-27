@@ -14,12 +14,13 @@
             line-height: normal;
             width: 215.097px;
             min-height:330.582px;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
             border-radius: 12.997px;
             background: #FFF;
             box-shadow: 3.2492px 3.2492px 12.99679px 0px rgba(0, 0, 0, 0.25);
             gap:4.95px;
+            padding: 10px;
         }
 
         .image-book {
@@ -27,6 +28,7 @@
             align-items: center;
             height: auto;
             width:65%;
+            margin-top: 5px;
         }
 
         #title {
@@ -51,44 +53,30 @@
             flex-shrink: row;
         }
 
-        .search-buku {
+
+        .input-search {
             display: flex;
             align-items: center;
             justify-content: center;
-            
-        }
-
-
-        .input-search {
-            width: 500px;
             border-radius: 10px;
+            padding-left: 20px;
+            border:hidden;
+            color: white;
             background: #79C278;
             box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.25) inset;
             width: 1052px;
             height: 40px;
-            flex-shrink: 0;
             
+        }
+
+        .input-search::placeholder{
+            color: white;
         }
 
         .isi-content {
             display: flex;
             flex-direction: column;
             gap:20px;
-        }
-        
-        .fav-button {
-            width: 40px;
-            height: 40px;
-            flex-shrink: 0;
-            border-radius: 10px;
-            background: linear-gradient(180deg, #8DB085 0%, #5A8569 100%);
-            border-style: hidden;
-            color: white;
-            cursor: pointer;
-        }
-
-        .fav-button:hover {
-            background: linear-gradient(180deg, #42653a 0%, #26472f 100%);
         }
 
         .buy-button {
@@ -117,21 +105,120 @@
             flex-direction: row;
         }
 
+        .search-filter-bar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+
+        .dropbtn {
+            background: transparent; 
+            border: none; 
+            padding: 0; 
+            margin: 0;
+        }
+        
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f1f1f1;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            flex-direction: column; 
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        
+        .dropdown-content button {
+            padding: 10px; 
+            width: 100%;
+            text-align: left; 
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+        }
+
+
+        .dropdown-content button:hover {
+            background-color: #ddd;
+        }
+        .dropdown-content a:hover {background-color: #ddd;}
+    
+        .dropdown:hover .dropdown-content {display: block;}
+
+        .button-cart {
+            background: transparent; 
+            border: none; 
+            padding: 0; 
+            margin: 0;
+            margin-right:40px;
+            margin-top: 10px;
+
+        }
+        
+        .button-cart-img {
+            width: 100%;
+            height: auto;
+            
+        }
+
+        .filter-img {
+            width: 75%; 
+            height: auto;
+        }
+
+        .btn-add-to-cart {
+        background: linear-gradient(180deg, #8DB085 0%, #5A8569 100%);
+        color: #fff; 
+        padding: 10px 20px; 
+        border: none; 
+        border-radius: 5px; 
+        cursor: pointer; 
+        font-size: 16px; 
+        margin-bottom: 0px;
+        }
+
+        .btn-add-to-cart:hover {
+            background: #294123;
+        }
+
+        .logo {
+            margin-left:40px;
+            margin-top: 10px;
+        }
+
+
     </style>
 </head>
 
 <body>
     <div class="isi-content">
         <div class="navbar">
-            <div>bukuku</div>
+            <img src="https://raw.githubusercontent.com/kayzaazr/cupcat-shop/main/gambar-website/BukuKu..png" class="logo"> 
             <div class="nav-kanan">
-                <div>cart</div>
-                <div>fav</div>
+                <button class="button-cart"> <img src="https://raw.githubusercontent.com/kayzaazr/cupcat-shop/main/gambar-website/Mask%20group.png" class="button-cart-img">
+                </button> 
+                
             </div>
             
         </div>
-        <div class="search-buku">
-            <input type="text" placeholder="Cari buku Anda..." class="input-search">
+
+        <div class="search-filter-bar">
+            <input onkeydown='javascript:test(this)' type="text" placeholder="Cari buku Anda..." class="input-search">
+            <div class="dropdown">
+                <button class="dropbtn"> <img src="https://raw.githubusercontent.com/kayzaazr/cupcat-shop/main/gambar-website/Mask%20group-1.png" class="filter-img"></button>
+                <div class="dropdown-content">
+                    <button id="button-1">Cari berdasarkan judul</button>
+                    <button id="button-2">Cari berdasarkan author</button>
+                </div>
+            </div>
         </div>
         <div id="title"></div>
     </div>
@@ -149,17 +236,13 @@
             bukuString += `
              <div class="card">
                 <img class="image-book" src="${item.fields.imgUrl}">
-                <p class="judul-buku"> ${item.fields.title} </p>
+                <div class="judul-buku"> ${item.fields.title} </div>
                 <div class="harga-buku"> Rp${Math.ceil(item.fields.price*15000).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} </div>
-                <div class="button-all">
-
-                    <form action='javascript:add_to_cart(${item.pk})' id='transactionIDValue' class="d-inline" method="post">
-                        {{cart_product_form}}
-                        {% csrf_token %}
-                        <input type="submit" class="btn btn-primary shadow px-5 py-2 Id_submit" value="Add To Cart">
-                    </form>
-                    <button class="fav-button" data-item-id="${item.pk}"><3 </button>
-                </div>
+                <form action='javascript:add_to_cart(${item.pk})' id='transactionIDValue' class="d-inline" method="post">
+                    {{cart_product_form}}
+                    {% csrf_token %}
+                    <input type="submit" class="btn-add-to-cart" value="Add To Cart">
+                </form>
              </div>`
 
         })
@@ -173,9 +256,33 @@
     refreshProduct()
 
     async function add_to_cart(book_id) {
-        alert(book_id)
         return fetch(`add_to_cart/${book_id}`).then((res) => res.json()) 
-      }
+    }
+
+    async function test(input){
+        console.log(input.value)
+        const buku = document.getElementById("title");
+        const product = await fetch(`search_bar/${input.value}`).then((res) => res.json());
+        console.log(product)
+        let bukuString = ``
+        product.forEach((item) => {
+            bukuString += `
+             <div class="card">
+                <img class="image-book" src="${item.fields.imgUrl}">
+                <div class="judul-buku"> ${item.fields.title} </div>
+                <div class="harga-buku"> Rp${Math.ceil(item.fields.price*15000).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} </div>
+
+                <form action='javascript:add_to_cart(${item.pk})' id='transactionIDValue' class="d-inline" method="post">
+                    {{cart_product_form}}
+                    {% csrf_token %}
+                    <input type="submit" class="btn-add-to-cart" value="Add To Cart">
+                </form>
+
+             </div>`
+
+        })
+        buku.innerHTML = bukuString
+    }
 
 </script>
 {% endblock %}
