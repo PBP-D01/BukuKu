@@ -9,13 +9,16 @@ from django.core import serializers
 from django.views.decorators.csrf import csrf_exempt
 from book.models import Book
 from cart.models import Cart 
+from django.contrib.auth.decorators import login_required
 
 
-# Create your views here.
+# Create your views here.@csrf_exempt
+@login_required(login_url='/login')
 def get_item_json(request):
     item_product = Checkout.objects.all()
     return HttpResponse(serializers.serialize('json', item_product))
 
+@login_required(login_url='/login')
 @csrf_exempt
 def checkout(request):
     form = CheckoutForm(request.POST or None)
@@ -24,22 +27,12 @@ def checkout(request):
         checkout = form.save(commit=False)
         checkout.user = request.user
         checkout.save()
-
-        leaderboard_update = checkout.book
-        leaderboard_update.buys += 1
-        leaderboard_update.save()
-
-        # Remove the item from the user's cart
-        cart_item = Cart.objects.get(user=request.user)
-        cart_item.delete()
-
-    user_cart = Cart.objects.filter(user=request.user)
     context = {
         'form': form,
-        'user_cart': user_cart,
     }
     return render(request, "checkout.html", context)
 
+@login_required(login_url='/login')
 def get_cart_json(request):
     cart = Cart.objects.filter(user = request.user)
 
@@ -59,3 +52,26 @@ def get_cart_json(request):
     cart_json = json.dumps(cart_data)
 
     return HttpResponse(cart_json, content_type='application/json')
+
+@login_required(login_url='/login')
+@csrf_exempt
+def update_buys(request):
+        leaderboard_update = Cart.objects.get(user=request.user)
+        leaderboard_update.buys += 1
+        leaderboard_update.save()
+        return HttpResponse(b"ADDED", status=201)
+
+@login_required(login_url='/login')
+@csrf_exempt
+def update_cart(request):
+        cart_item = Cart.objects.get(user=request.user)
+        cart_item.delete()
+        return HttpResponse(b"DELETED", status=201)
+
+@login_required(login_url='/login')
+@csrf_exempt
+def search_bar(request, value):
+    print(f"Search value received: {value}")  # Debugging line
+    product_items = Book.objects.filter(book__title__icontains=value) | Cart.objects.filter(book__author__icontains=value)
+    product_data = serializers.serialize('json', product_items)
+    return HttpResponse(product_data, content_type='application/json')
