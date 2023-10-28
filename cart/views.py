@@ -14,14 +14,9 @@ from django.views.decorators.csrf import csrf_exempt
 def show_cart(request):
     carts = Cart.objects.filter(user = request.user)
 
-    cart_counter = len(carts)
-    context = {
-        'cart': carts,
-        'counter': cart_counter,
-    }
+    return render(request, "cart.html")
 
-    return render(request, "cart.html", context)
-    
+@login_required(login_url='main/login') 
 def get_cart_json(request):
     cart = Cart.objects.filter(user = request.user)
 
@@ -42,6 +37,7 @@ def get_cart_json(request):
 
     return HttpResponse(cart_json, content_type='application/json')
 
+@login_required(login_url='main/login')
 @csrf_exempt
 def increase_cart(request, id):
     book = Cart.objects.get(pk=id)
@@ -50,6 +46,7 @@ def increase_cart(request, id):
 
     return HttpResponse(b"INCREASED", status=201)
 
+@login_required(login_url='main/login')
 @csrf_exempt
 def decrease_cart(request, id):
     book = Cart.objects.get(pk=id)
@@ -59,6 +56,7 @@ def decrease_cart(request, id):
  
     return HttpResponse(b"DECREASED", status=201)
 
+@login_required(login_url='main/login')
 @csrf_exempt
 def delete_cart(request, id):
     book = Cart.objects.get(pk=id)
