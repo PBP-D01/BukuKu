@@ -29,6 +29,7 @@ class Migration(migrations.Migration):
                 ("author", models.CharField(max_length=255)),
                 ("category_name", models.CharField(max_length=255)),
                 ("stars", models.FloatField()),
+                ("buys", models.IntegerField(default=0)),
             ],
         ),
     ]
