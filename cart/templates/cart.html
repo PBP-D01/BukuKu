@@ -13,7 +13,7 @@
 .wireframe .div {
   background-color: #ffffff;
   width: 1440px;
-  height: 1024px;
+  height: 350px;
   position: relative;
 }
 
@@ -292,6 +292,48 @@
   background-color:#5D886A;
 }
 
+.input-search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  padding-left: 20px;
+  border:hidden;
+  color: white;
+  background: #79C278;
+  box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.25) inset;
+  width: 500px;
+  height: 40px; 
+  position: absolute;
+  top: 45px;
+  left: 435px;      
+}
+
+.input-search::placeholder{
+  color: white;
+}
+
+.input-search:focus{
+  outline: none;
+  border: none;
+}
+
+.centered-image {
+    position: absolute;
+    top: 100%;
+    left: 700px;
+    transform: translate(-50%, -50%);
+  }
+
+  .centered-image-2 {
+    position: absolute;
+    top: 660px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 250px;
+    height: 60px;
+  }
+
 </style>
 {% endblock meta %}
 {% block content %}
@@ -300,37 +342,50 @@
         <img class="mask-group" src="https://raw.githubusercontent.com/kayzaazr/cupcat-shop/main/gambar-website/Mask%20group.png" />
         <div class="text-wrapper"><img src="https://raw.githubusercontent.com/MahogaHeryasa/temp/master/IMG/My%20Cart.png" /></div>
 
+        <div id="cart_empty">
+        </div>
+          
+        <input class="input-search" id="searchBar" type="text" placeholder="Cari buku Anda...">
         <div class="text-wrapper-2" id="item_in_cart"></div>
-        <div class="text-wrapper-3">Details</div>
-        <div class="vertical-line"></div>
-        <div class="text-wrapper-4">Quantity</div>
+        <div id="details">
+        </div>
           <div class="text-wrapper-5" id="total_item"></div>
         <div class="overlap">
-          <div class="card">
-            <div class="card-body">
-              <div class="row">
-                <div class="col-lg-3">
-                  <p class="text-wrapper-10">Total</p>
-                </div>
-                <div class="col text-end">
-                  <p class="text-wrapper-9" id="total_price"></p>
-                </div>
-              </div>
-            </div>
-          </div>
+          <div id="card_total"></div> <!-- card total harga -->
         </div>
-        <a href="{% url 'product_page:show_product' %}">
-          <div class="rectangle">
-            <!-- <div class="text-wrapper-8">Place Order</div> -->
-            <img height="70px" width="350px" src="https://github.com/MahogaHeryasa/temp/blob/master/IMG/Group%2019%20(1).png?raw=true"/>
-          </div>
-        </a>
-        <div class="card-container">
+        <div id="btn_order"> </div> <!-- tombol place order -->
+        <div class="card-container" id="cardContainer">
           <div class="row" id="cart_card">
           </div>
         </div>
         
       </div>
+    </div>
+
+    <div class="modal fade" id="editCart" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">EDIT AMOUNT</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form id="form" onsubmit="return false;">
+              {% csrf_token %}
+              <div class="mb-3">
+                  <input type="number" class="form-control" id="amount" name="book_amount" placeholder="Amount"></input>
+              </div>
+          </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" id="button_edit" data-bs-dismiss="modal">Add Product</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" aria-hidden="true">
+      <input type="number" id="hiddenInput" name="myHiddenField" value="" />
     </div>
 
 <script>
@@ -343,11 +398,20 @@
 
     const cartsL = carts.length
     document.getElementById("cart_card").innerHTML = ""
+    document.getElementById("item_in_cart").innerHTML = ""
+    document.getElementById("details").innerHTML = ""
+    document.getElementById("card_total").innerHTML = ""
+    document.getElementById("btn_order").innerHTML = ""
+    document.getElementById("total_item").innerHTML = ""
+
+    document.getElementById("cart_empty").innerHTML = ""
     let htmlStringCard = ``
     let totalBook = 0
     let totalPrice = 0
     let totalAmount = 0
-    carts.forEach((cart) => {
+
+    if (cartsL != 0) {
+      carts.forEach((cart) => {
         let price = cart.book_amount * cart.book_price
         totalPrice += price
         totalAmount += cart.book_amount
@@ -364,7 +428,7 @@
                   <h5 class="card-title" style="font-family: Amiko-Regular, Helvetica; color: #57AD74;">${cart.book_title}</h5>
                   <p class="card-text" style="font-family: Amiko-Regular, Helvetica;">Author: ${cart.book_author}</p>
                   <p class="card-text" style="font-family: Amiko-Bold, Helvetica; font-weight: bold; color: #57AD74; font-size:large;">Rp. ${Math.ceil(price*15000).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} </p>
-                  <div class="d-flex" style="max-width: 200px; max-height: 1px;">
+                  <div class="d-flex" style="max-width: 300px; max-height: 1px;">
                     <button type="button" class="btn btn-primary h-25 me-2" data-mdb-toggle="tooltip" title="Remove item" onclick="deleteCart(${cart.id})">
                       <img width="15" height="15" src="https://github.com/MahogaHeryasa/temp/blob/master/IMG/bin.png?raw=true" />
                     </button>
@@ -379,6 +443,14 @@
                     <button class="btn btn-primary h-25 ms-2" onclick="increase(${cart.id})">
                        +
                     </button>
+
+                    <button class="btn btn-primary h-25 ms-2" data-bs-toggle="modal" data-bs-target="#editCart" onclick="passValue(${cart.id})">
+                       ..
+                    </button>
+
+                    <a type="button" href="/cart/edit-cart/${cart.id}" style="height:20px;" class="btn btn-primary h-25 ms-2">
+                      EDIT
+                    </a>
                   </div>
                 </div>
               </div>
@@ -387,18 +459,46 @@
           </div>
         </div>  `
 
-    })
-    htmlStringCard += `
-    <h6 class="mt-4 text-center">
-      <a href="/product_page">
-        <img src="https://github.com/MahogaHeryasa/temp/blob/master/IMG/Group%2053%20(1).png?raw=true">
-          </img>
-      </a>
-    </h6>`
-    document.getElementById("cart_card").innerHTML = htmlStringCard
-    document.getElementById("item_in_cart").innerHTML = totalBook + " Item added"
-    document.getElementById("total_price").innerHTML = `Rp. `+ Math.ceil(totalPrice*15000).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-    document.getElementById("total_item").innerHTML = totalAmount
+      })
+      htmlStringCard += `
+      <h6 class="mt-4 text-center">
+        <a href="/product_page">
+          <img src="https://github.com/MahogaHeryasa/temp/blob/master/IMG/Group%2053%20(1).png?raw=true">
+            </img>
+        </a>
+      </h6>`
+      document.getElementById("cart_card").innerHTML = htmlStringCard
+      document.getElementById("item_in_cart").innerHTML = totalBook + " Item added"
+      document.getElementById("total_item").innerHTML = totalAmount
+      document.getElementById("details").innerHTML = ` <div class="text-wrapper-3">Details</div>
+                                                          <div class="vertical-line"></div>
+                                                          <div class="text-wrapper-4">Quantity</div>`
+      document.getElementById("card_total").innerHTML = `<div class="card">
+                                                            <div class="card-body">
+                                                              <div class="row">
+                                                                <div class="col-lg-3">
+                                                                  <p class="text-wrapper-10">Total</p>
+                                                                </div>
+                                                                <div class="col text-end">
+                                                                  <p class="text-wrapper-9">Rp. ${Math.ceil(totalPrice*15000).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</p>
+                                                                </div>
+                                                              </div>
+                                                            </div>
+                                                          </div>`
+      document.getElementById("btn_order").innerHTML = `<a href="{% url 'product_page:show_product' %}">
+                                                            <div class="rectangle">
+                                                              <img height="70px" width="350px" src="https://github.com/MahogaHeryasa/temp/blob/master/IMG/Group%2019%20(1).png?raw=true"/>
+                                                            </div>
+                                                          </a>`
+      document.getElementById("searchBar").type = "text"                                            
+    }
+    else {
+      document.getElementById("cart_empty").innerHTML =`<a href="{% url 'product_page:show_product' %}">
+                                                          <img class="centered-image-2" height="70px" width="350px" src="https://github.com/MahogaHeryasa/temp/blob/master/IMG/Group%2045.png?raw=true"/>
+                                                        </a>
+                                                        <img class="centered-image" src="https://github.com/MahogaHeryasa/temp/blob/master/IMG/Group%2052.png?raw=true" alt="Your Cart is Empty" />`
+      document.getElementById("searchBar").type = "hidden"
+    }
   }
 
   refreshBooks()
@@ -422,5 +522,31 @@
         method: "POST",
     }).then(refreshBooks)
   }  
+
+  $(document).ready(function(){
+    $("#searchBar").on("keyup", function() {
+      var value = $(this).val().toLowerCase();
+      $("#cardContainer .card").filter(function() {
+        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+      });
+    });
+  });
+
+  async function passValue(cartId) {
+    document.getElementById('hiddenInput').value = cartId
+  }
+  async function edit() {
+      var cartId = document.getElementById('hiddenInput').value
+      fetch("/cart/edit/" + cartId, {
+          method: "POST",
+          body: new FormData(document.querySelector('#form'))
+      }).then(refreshBooks)
+
+      document.getElementById("form").reset()
+      return false
+  }
+
+  document.getElementById('button_edit').onclick = edit
+
 </script>
 {% endblock content %} 
