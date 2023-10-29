@@ -22,6 +22,30 @@
         <table id="product_table" class="w-full">
         </table>
     </div>
+
+    <table>
+        <tr>
+            <th>Comment Section</th>
+
+        </tr>
+    
+        {% comment %} Berikut cara memperlihatkan data produk di bawah baris ini {% endcomment %}
+    
+        {% for comment in comments %}
+            <tr>
+                <td>{{comment.comment}}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    
+    <br />
+    
+    <a href="{% url 'leaderboard:create_comment' %}">
+        <button>
+            Add New Comment
+        </button>
+    </a>
+
     <script>
         async function getProducts() {
     try {

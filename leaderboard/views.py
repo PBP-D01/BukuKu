@@ -14,20 +14,45 @@ from django.http import HttpResponseNotFound
 from django.http import HttpResponseRedirect
 # from leaderboard.forms import ProductForm
 from django.urls import reverse
-from leaderboard.models import LeaderBoard
+from leaderboard.models import LeaderBoard, Comment
 from django.contrib.auth.decorators import login_required
-
+from django.http import HttpResponseRedirect
+from leaderboard.forms import CommentForm
+from django.urls import reverse
+from django.http import HttpResponse
+from django.core import serializers
 
 
 from django.shortcuts import render 
 from book.models import Book
+
+
+def show_xml_by_id(request, id):
+    data = Comment.objects.filter(pk=id)
+    return HttpResponse(serializers.serialize("xml", data), content_type="application/xml")
+
+
+def show_json_by_id(request, id):
+    data = Comment.objects.filter(pk=id)
+    return HttpResponse(serializers.serialize("json", data), content_type="application/json")
+
+
+
+def show_xml(request):
+    data = Comment.objects.all()
+    return HttpResponse(serializers.serialize("xml", data), content_type="application/xml")
+
+def show_json(request):
+    data = Comment.objects.all()
+    return HttpResponse(serializers.serialize("json", data), content_type="application/json")
 
 @login_required(login_url='/login')
 def show_leaderboard(request):
     # Get the last time the leaderboard page was opened from the cookie
     last_opened = request.COOKIES.get('last_opened', None)
     context = {
-        'last_opened': last_opened
+        'last_opened': last_opened,
+        'comments': Comment.objects.all()
     }
     # Update the cookie with the current timestamp
     response = render(request, "leaderboard.html", context=context)
@@ -54,4 +79,13 @@ def search_bar(request, value):
     product_item = Book.objects.filter(title__icontains=value)
     print(serializers.serialize('json', product_item))
     return HttpResponse(serializers.serialize('json', product_item))
+
+def create_comment(request):
+    form = CommentForm(request.POST or None)
+    if form.is_valid() and request.method == "POST":
+        form.save()
+        return HttpResponseRedirect(reverse('main:show_main'))
+
+    context = {'form': form}
+    return render(request, "create_comment.html", context)
 
