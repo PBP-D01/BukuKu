@@ -24,7 +24,7 @@ def login_user(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            return redirect('product_page:show_product')
+            return redirect('main:show_main')
         else:
             messages.info(request, 'Sorry, incorrect username or password. Please try again.')
     context = {}
