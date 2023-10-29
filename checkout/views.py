@@ -22,12 +22,14 @@ def get_item_json(request):
 @csrf_exempt
 def checkout(request):
     form = CheckoutForm(request.POST or None)
+
     if form.is_valid() and request.method == "POST":
         checkout = form.save(commit=False)
         checkout.user = request.user
         checkout.save()
     context = {
         'form': form,
+        'last_login': request.COOKIES['last_login'],
     }
     return render(request, "checkout.html", context)
 
@@ -42,7 +44,7 @@ def update_cart(request):
 @login_required(login_url='/login')
 @csrf_exempt
 def search_bar(request, value):
-    product_items = Book.objects.filter(title__icontains=value)
+    product_items = Cart.objects.filter(book__title__icontains=value) | Cart.objects.filter(book__author__icontains=value)
     print(serializers.serialize('json', product_items))
     return HttpResponse(serializers.serialize('json', product_items))
 
