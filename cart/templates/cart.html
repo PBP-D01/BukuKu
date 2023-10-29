@@ -10,18 +10,11 @@
   width: 100%;
 }
 
-.wireframe .div {
-  background-color: #ffffff;
-  width: 1440px;
-  height: 350px;
-  position: relative;
-}
-
 .wireframe .mask-group {
   position: absolute;
-  width: 49px;
-  height: 49px;
-  top: 39px;
+  width: 10px;
+  height: 10px;
+  top: 15px;
   left: 30px;
 }
 
@@ -54,7 +47,7 @@
 .wireframe .text-wrapper-2 {
   position: absolute;
   top: 174px;
-  left: 70px;
+  left: 80px;
   background: radial-gradient(
     50% 50% at 50% 50%,
     rgb(54.99, 175.51, 95.97) 0%,
@@ -79,7 +72,7 @@
 .wireframe .text-wrapper-3 {
   position: absolute;
   top: 174px;
-  left: 1050px;
+  left: 1090px;
   background: radial-gradient(
     50% 50% at 50% 50%,
     rgb(54.99, 175.51, 95.97) 0%,
@@ -117,14 +110,15 @@
   position: fixed;
   width: 1px;
   height: 100%;
-  top: 0;
+  top: 0px;
   left: 1050px;
+  z-index: -1;
 }
 
 .wireframe .text-wrapper-4 {
   position: absolute;
   top: 237px;
-  left: 1050px;
+  left: 1090px;
   font-family: "Amiko-Regular", Helvetica;
   font-weight: 400;
   color: #093100;
@@ -136,7 +130,7 @@
 .wireframe .text-wrapper-5 {
   position: absolute;
   top: 237px;
-  left: 1420px;
+  left: 1465px;
   font-family: "Amiko-Bold", Helvetica;
   font-weight: 700;
   color: #093100;
@@ -150,7 +144,7 @@
   width: 396px;
   height: 200px;
   top: 300px;
-  left: 1050px;
+  left: 1090px;
 }
 
 .overlap .card {
@@ -209,7 +203,7 @@
   width: 394px;
   height: 81px;
   top: 602px;
-  left: 1070px;
+  left: 1116px;
 }
 
 .wireframe .text-wrapper-8 {
@@ -259,7 +253,7 @@
   width: 718px;
   height: flex;
   top: 220px;
-  left: 20px;
+  left: 50px;
   width: 63%; /* Set the width of the container */
   margin: 0 auto; /* Center the container horizontally */
   display: flex;
@@ -302,11 +296,11 @@
   color: white;
   background: #79C278;
   box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.25) inset;
-  width: 500px;
+  width: 935px;
   height: 40px; 
   position: absolute;
-  top: 45px;
-  left: 435px;      
+  top: 100px;
+  left: 50px;      
 }
 
 .input-search::placeholder{
@@ -334,13 +328,89 @@
     height: 60px;
   }
 
+  #amount {
+    border:hidden;
+    color: white;
+    background: #79C278;
+    box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.25) inset;
+  }
+
+  #amount::placeholder{
+  color: white;
+  }
+
+  #amount:focus{
+    outline: none;
+    border: none;
+  }
+
+  .modal-footer button {
+    background-color: #79C278;
+    border: none;
+  }
+
+  .col .btn {
+    background-color: #71C58E;
+    border: none;
+  }
+
+  .col .btn:hover {
+    background-color:#5D886A;
+  }
+
+  .custom-navbar-bg {
+    background-color: white;
+    top: 0px;
+  }
+
 </style>
-{% endblock meta %}
+{% endblock %}
+
 {% block content %}
+  <nav class="navbar navbar-expand-lg custom-navbar-bg">
+      <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+            <img class="mask-group" style="height: 46px; width: 198px;" src="https://github.com/MahogaHeryasa/temp/blob/master/IMG/Group%2055.png?raw=true" />
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav" style="margin-left: 500px">
+                  <li class="nav-item">
+                      <a class="nav-link active" style="font-family: Amiko-Regular, Helvetica;font-size: 20px; color: #71C78F;margin-right: 10px;" aria-current="page" href="/">Home</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" style="font-family: Amiko-Regular, Helvetica;font-size: 20px; color: #71C78F; margin-right: 10px; margin-left: 10px;" href="/product_page">Product Page</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" style="font-family: Amiko-Regular, Helvetica;font-size: 20px; color: #71C78F;margin-right: 10px; margin-left: 10px;" href="/leaderboard/">Product Leaderboard</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" style="font-family: Amiko-Regular, Helvetica;font-size: 20px; color: #71C78F;margin-right: 10px; margin-left: 10px;" href="/cart/">
+                      <img src="https://github.com/MahogaHeryasa/temp/blob/master/IMG/Group%2059.png?raw=true"/>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" style="font-family: Amiko-Regular, Helvetica;font-size: 20px; color: #71C78F;margin-right: 10px; margin-left: 10px;" href="">{{name}}</a>
+                  </li>
+                  <!-- <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" style="font-family: Amiko-Regular, Helvetica;font-size: 20px; color: #71C78F; margin-right: 10px; margin-left: 10px;" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          Shopping
+                      </a>
+                      <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="/cart/">Your Cart</a></li>
+                          <li><a class="dropdown-item" href="/checkout/">Checkout</a></li>
+                      </ul>
+                  </li> -->
+              </ul>
+          </div>
+      </div>
+  </nav>
+
     <div class="wireframe">
-      <div class="div">
-        <img class="mask-group" src="https://raw.githubusercontent.com/kayzaazr/cupcat-shop/main/gambar-website/Mask%20group.png" />
-        <div class="text-wrapper"><img src="https://raw.githubusercontent.com/MahogaHeryasa/temp/master/IMG/My%20Cart.png" /></div>
+      <div class="vertical-line"></div>
+      <div>
 
         <div id="cart_empty">
         </div>
@@ -366,19 +436,17 @@
       <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
           <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalLabel">EDIT AMOUNT</h1>
+            <h1 class="modal-title fs-5" style="font-family: Amiko-Bold, Helvetica; color: #57AD74; font-weight: bold;">EDIT BOOK AMOUNT</h1>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
             <form id="form" onsubmit="return false;">
               {% csrf_token %}
-              <div class="mb-3">
-                  <input type="number" class="form-control" id="amount" name="book_amount" placeholder="Amount"></input>
-              </div>
-          </form>
+              <input min="1" type="number" class="form-control" id="amount" name="book_amount" placeholder="Book Amount" value=""></input>
+            </form>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-primary" id="button_edit" data-bs-dismiss="modal">Add Product</button>
+            <button type="button" class="btn btn-primary" id="button_edit" data-bs-dismiss="modal">Submit</button>
           </div>
         </div>
       </div>
@@ -471,7 +539,6 @@
       document.getElementById("item_in_cart").innerHTML = totalBook + " Item added"
       document.getElementById("total_item").innerHTML = totalAmount
       document.getElementById("details").innerHTML = ` <div class="text-wrapper-3">Details</div>
-                                                          <div class="vertical-line"></div>
                                                           <div class="text-wrapper-4">Quantity</div>`
       document.getElementById("card_total").innerHTML = `<div class="card">
                                                             <div class="card-body">
@@ -485,7 +552,7 @@
                                                               </div>
                                                             </div>
                                                           </div>`
-      document.getElementById("btn_order").innerHTML = `<a href="{% url 'product_page:show_product' %}">
+      document.getElementById("btn_order").innerHTML = `<a href="{% url 'checkout:checkout' %}">
                                                             <div class="rectangle">
                                                               <img height="70px" width="350px" src="https://github.com/MahogaHeryasa/temp/blob/master/IMG/Group%2019%20(1).png?raw=true"/>
                                                             </div>
@@ -536,12 +603,14 @@
     document.getElementById('hiddenInput').value = cartId
   }
   async function edit() {
+      var amount = document.getElementById('amount').value
       var cartId = document.getElementById('hiddenInput').value
-      fetch("/cart/edit/" + cartId, {
+      if (amount != "") {
+        fetch("/cart/edit/" + cartId, {
           method: "POST",
           body: new FormData(document.querySelector('#form'))
-      }).then(refreshBooks)
-
+        }).then(refreshBooks)
+      }
       document.getElementById("form").reset()
       return false
   }
@@ -549,4 +618,14 @@
   document.getElementById('button_edit').onclick = edit
 
 </script>
-{% endblock content %} 
+
+<footer class="my-5 pt-5 text-muted text-center text-small">
+  <p class="mb-1">© 2023 BukuKu</p>
+  <ul class="list-inline">
+      <li class="list-inline-item"><a href="#">Privacy</a></li>
+      <li class="list-inline-item"><a href="#">Terms</a></li>
+      <li class="list-inline-item"><a href="#">Support</a></li>
+  </ul>
+  <h6>Sesi terakhir login: {{ last_login }}</h6>
+</footer>
+{% endblock %} 
