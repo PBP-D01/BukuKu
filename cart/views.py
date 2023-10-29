@@ -8,20 +8,16 @@ from django.http import HttpResponse
 from django.core import serializers
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
+from cart.forms import CartForm
 
 # Create your views here.
-@login_required(login_url='main/login')
+@login_required(login_url='/login')
 def show_cart(request):
     carts = Cart.objects.filter(user = request.user)
 
-    cart_counter = len(carts)
-    context = {
-        'cart': carts,
-        'counter': cart_counter,
-    }
+    return render(request, "cart.html")
 
-    return render(request, "cart.html", context)
-    
+@login_required(login_url='/login') 
 def get_cart_json(request):
     cart = Cart.objects.filter(user = request.user)
 
@@ -42,6 +38,7 @@ def get_cart_json(request):
 
     return HttpResponse(cart_json, content_type='application/json')
 
+@login_required(login_url='/login')
 @csrf_exempt
 def increase_cart(request, id):
     book = Cart.objects.get(pk=id)
@@ -50,6 +47,7 @@ def increase_cart(request, id):
 
     return HttpResponse(b"INCREASED", status=201)
 
+@login_required(login_url='/login')
 @csrf_exempt
 def decrease_cart(request, id):
     book = Cart.objects.get(pk=id)
@@ -59,9 +57,40 @@ def decrease_cart(request, id):
  
     return HttpResponse(b"DECREASED", status=201)
 
+@login_required(login_url='/login')
 @csrf_exempt
 def delete_cart(request, id):
     book = Cart.objects.get(pk=id)
     book.delete()
 
     return HttpResponse(b"DELETED", status=201)
+
+@login_required(login_url='/login')
+@csrf_exempt
+def edit_cart(request, id):
+    cart = Cart.objects.get(pk = id)
+
+    form = CartForm(request.POST or None, instance=cart)
+
+    if form.is_valid() and request.method == "POST":
+        form.save()
+        return HttpResponseRedirect(reverse('cart:show_cart'))
+
+    context = {
+    'form': form
+    }
+
+    return render(request, "edit_cart.html", context)
+
+@csrf_exempt
+def edit_cart_ajax(request, id):
+    cart = Cart.objects.get(pk=id)
+    if request.method == 'POST':
+        new_book_amount = request.POST.get("book_amount")
+
+        cart.book_amount = new_book_amount
+        cart.save()
+
+        return HttpResponse(b"EDITED", status=201)
+
+    return HttpResponseNotFound()

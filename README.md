@@ -22,9 +22,8 @@ Pada halaman ini, user dapat melihat detail produk yang spesifik,mencakup inform
 Pada halaman ini, user dapat melihat produk yang telah mereka tambahkan saat berbelanja, serta dapat mengatur kuantitas produk dan banyak produk yang akan di checkout.
 6. Checkout Page (Bella) <br>
 Pada halaman ini, user memasukkan informasi seperti alamat pengiriman, metode pengiriman, dan metode pembayaran. 
-7. Login, Register (Brian) <br>
-Halaman login digunakan untuk user yang sudah memiliki akun untuk masuk ke akun mereka. <br>
-Halaman pendaftaran untuk user yang belum memiliki akun mendaftar dan membuat akun baru.
+7. Review (Brian) <br>
+Review merupakan fitur dimana user dapat menambahkan hasil review mereka terhadap sebuah buku yang kemudian akan ditampilkan dan bisa dilihat oleh user lain.
 
 ## Sumber Dataset Katalog Buku
 Aplikasi Bukuku akan menggunakan dataset yang berasal dari [Dataset Kaggle](https://www.kaggle.com/datasets/asaniczka/amazon-kindle-books-dataset-2023-130k-books). Aplikasi Bukuku akan mengambil 100 data buku dari hasil *sampling* 130000 data buku yang tersedia pada dataset tersebut. Data buku digunakan untuk menampilkan katalog produk yang akan ditawarkan di aplikasi.

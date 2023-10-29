@@ -22,7 +22,6 @@ def get_item_json(request):
 @csrf_exempt
 def checkout(request):
     form = CheckoutForm(request.POST or None)
-
     if form.is_valid() and request.method == "POST":
         checkout = form.save(commit=False)
         checkout.user = request.user
