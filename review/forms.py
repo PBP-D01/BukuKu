@@ -12,5 +12,7 @@ class ReviewForm(forms.ModelForm):
         fields = ('text', 'rating', 'book', 'reviewer')
         widgets = {
             'text': forms.Textarea(attrs={'type' : 'text', 'placeholder' : 'Masukkan Teks Review', 'class' : 'form-text-control', 'autocomplete' : 'off'}),
-            'rating': forms.RadioSelect(attrs={'class' : ''}, choices=RATING_CHOICES),
+            'rating': forms.RadioSelect(choices=RATING_CHOICES),
+            'book' : forms.HiddenInput(),
+            'reviewer' : forms.HiddenInput(),
         }

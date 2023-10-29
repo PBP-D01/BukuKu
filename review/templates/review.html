@@ -1,5 +1,7 @@
-<!DOCTYPE html>
-<html>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
 <head>
     <title>Halaman Review</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -23,22 +25,160 @@
             background-color: #fff;
             padding: 20px;
             border-radius: 5px;
+            
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .five-pointed-star {
+            --star-color:gray;
+            margin:1em auto;
+            font-size:1em;
+            position: relative;
+            display: block;
+            width: 0px;
+            height: 0px;
+            border-right: 1em solid transparent;
+            border-bottom: 0.7em solid var(--star-color);
+            border-left: 1em solid transparent;
+            transform: rotate(35deg);
+        }
+        .five-pointed-star:before {
+            border-bottom: 0.8em solid var(--star-color);
+            border-left: 0.3em solid transparent;
+            border-right: 0.3em solid transparent;
+            position: absolute;
+            height: 0;
+            width: 0;
+            top: -0.45em;
+            left: -0.65em;
+            display: block;
+            content:"";
+            transform: rotate(-35deg);
+        }
+        .five-pointed-star:after {
+            position: absolute;
+            display: block;
+            top: 0.03em;
+            left: -1.05em;
+            width: 0;
+            height: 0;
+            border-right: 1em solid transparent;
+            border-bottom: 0.7em solid var(--star-color);
+            border-left: 1em solid transparent;
+            transform: rotate(-70deg);
+            content:"";
+        }
+
+        #review-container {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            width: 100%;
+            margin: 1em 0;
+        }
+
+        .review {
+            display: flex;
+            flex-direction: column;
+            flex-shrink : 0;
+            border: 1px solid black;
+            box-shadow: 6px 6px 6px 4px rgba(0,0,0,0.3);
+            padding: 0.7em 1.25em;
+            border-radius: 1em;
+            margin: 0em 0.5em;
+
+            width: 15em;
+            height: 9em;
+        }
+
+        .review strong {
+            color: #74B666;
+            font-size: 1.5em;
+        }
+
+        .review p {
+            margin: 0.5em 0;
+            padding: 0;
+            overflow-y: auto;
+        }
+
+        .review .five-pointed-star {
+            font-size: 0.7em;
+        }
+
+        .button {
+            padding: 0.5em 3em;
+            border-radius: 1em;
+            color: white;
+            background-color: #74B666;
+            margin: 0.25em 0.5em;
         }
     </style>
-</head>
+{% endblock meta %}
+{% block content %}
 <body>
-    <button id="reviewButton">Review</button>
+
+    <div style="display: flex; flex-direction: column; align-items: center; padding: 4em 4em; width: min(1200px, 95vw); margin: auto; box-shadow: 6px 6px 6px 6px rgba(0,0,0,0.3); border-radius: 1em; position: relative; overflow: hidden;">
+
+        <div style="display: flex; align-items: flex-start; width: 100%;">
+            <img src="{{ book.imgUrl }}" style="padding: 0em 1.5em;"/>
+            <div style="display: flex; flex-direction: column; color: #74B666;">
+                <strong>{{ book.title }}</strong>
+                <span>Penulis: {{ book.author }}</span>
+                <span>Tanggal Rilis: {{ book.publishedDate }}</span>
+                <span>Rating: {{ book.stars }}</span>
+                <span>Kategori: {{ book.category_name }}</span>
+            </div>
+        </div>
+        
+        <div id="review-container">
+            {% for review in reviews %}
+                <div class="review">
+                    <strong>{{ review.reviewer }}</strong>
+                    <p>{{ review.text }}</p>
+                    <div style="display: flex; justify-content: flex-start; width: 5em;">
+                        {% for i in rating_range %}
+                            {% if i <= review.rating %}
+                                <div class="five-pointed-star" style="--star-color: #74B666;"></div>
+                            {% else %}
+                                <div class="five-pointed-star" style="--star-color: gray;"></div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        <p>Kami sangat ingin mendengar pendapat Anda tentang<br>buku ini. Maukah Anda memberikan ulasan?</p>
+
+        <button id="reviewButton" class="button">Review</button>
+
+        <span style="height: 3em;"></span>
+
+        <div style="position: absolute; bottom:0; left:0; right:0; height: 3em; background-color: #74B666;"></div>
+
+    </div>
 
     <!-- Modal Pop-up -->
     <div id="reviewModal" class="modal">
-        <div class="modal-content">
-            <form id="reviewForm" method="post" action="{% url 'review:add_review' %}">
+        <div class="modal-content" style="width: 30em; position: relative; overflow: hidden;">
+            <form id="reviewForm">
                 {% csrf_token %}
                 
                 {{ form.text }}
                 {{ form.text.errors }}
 
-                {{ form.rating }}
+                <div style="display: flex; width: 20em;">
+                    {% for radio in form.rating %}
+                        <label class="five-pointed-star" for="{{ radio.id_for_label }}">
+                            <span class="radio" style="display: none;">{{ radio.tag }}</span>
+                        </label>
+                    {% endfor %}
+                </div>
+                
                 {{ form.rating.errors }}
 
                 {{ form.book }}
@@ -47,8 +187,16 @@
                 {{ form.reviewer }}
                 {{ form.reviewer.errors }}
 
-                <button id="postReview">Post</button>
+                <div style="display: flex; justify-content: center;">
+                    <button id="postReview" type="submit" class="button">Post</button>
+                    <button id="backReview" type="button" class="button">Back</button>
+                </div>
+                
             </form>
+
+            <span style="height: 2.5em;"></span>
+
+            <div style="position: absolute; bottom:0; left:0; right:0; height: 2.5em; background-color: #74B666;"></div>
         </div>
     </div>
 
@@ -59,20 +207,44 @@
                 $("#reviewModal").show();
             });
 
+            $("#backReview").click(function() {
+                $("#reviewModal").hide();
+            });
+
             // Tangani submit form dengan Ajax
             $("#reviewForm").submit(function(e) {
                 e.preventDefault();
                 $.ajax({
                     type: "POST",
-                    url: "{% url 'review:add_review' %}",
+                    url: "{% url 'review:add_review' book_id %}",
                     headers: {'X-CSRFToken': $("input[name=csrfmiddlewaretoken]").val()},
                     data: {
-                        review_text: $("#reviewText").val()
+                        text: $("#id_text").val(),
+                        rating: $("input[name='rating']:checked").val(),
+                        book: $("#id_book").val(),
+                        reviewer: $("#id_reviewer").val(),
                     },
                     success: function(response) {
                         if (response.status === 'success') {
-                            alert(response.message);
                             $("#reviewModal").hide();
+
+                            let result = '<div class="review">'
+                            + '<strong>' + response.review_reviewer + '</strong>'
+                            + '<p>' + response.review_text + '</p>';
+
+                            result += '<div style="display: flex; justify-content: flex-start; width: 5em;">';
+
+                            for (let i=1; i<6; i++) {
+                                if (i <= response.review_rating) {
+                                    result += '<div class="five-pointed-star" style="--star-color: #74B666;"></div>';
+                                } else {
+                                    result += '<div class="five-pointed-star" style="--star-color: gray;"></div>';
+                                }
+                            }
+
+                            result += '</div>';
+
+                            $("#review-container").append(result)
                         } else {
                             alert("Terjadi kesalahan: " + response.message);
                         }
@@ -83,6 +255,22 @@
                 });
             });
         });
+
+
+        $(".five-pointed-star .radio input").on("change", function() {
+            let rating_id_text = $(this).attr("id").slice(0, -1);
+            let rating_id_number = $(this).attr("id").slice(-1);
+            
+            for (let i = 0; i <= 4; i++) {
+                let star = $("label[for=" + rating_id_text + i + "]");
+                if (i <= parseInt(rating_id_number)) {
+                    star.css("--star-color", "#74B666");
+                } else {
+                    star.css("--star-color", "gray");
+                }
+                
+            }
+        });
     </script>
 </body>
-</html>
+{% endblock %}
