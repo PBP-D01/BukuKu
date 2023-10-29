@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Halaman Review</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        /* CSS untuk gaya modal pop-up */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+        }
+        .modal-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <button id="reviewButton">Review</button>
+
+    <!-- Modal Pop-up -->
+    <div id="reviewModal" class="modal">
+        <div class="modal-content">
+            <form id="reviewForm" method="post" action="{% url 'review:add_review' %}">
+                {% csrf_token %}
+                
+                {{ form.text }}
+                {{ form.text.errors }}
+
+                {{ form.rating }}
+                {{ form.rating.errors }}
+
+                {{ form.book }}
+                {{ form.book.errors }}
+
+                {{ form.reviewer }}
+                {{ form.reviewer.errors }}
+
+                <button id="postReview">Post</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            // Tampilkan pop-up saat tombol "Review" ditekan
+            $("#reviewButton").click(function() {
+                $("#reviewModal").show();
+            });
+
+            // Tangani submit form dengan Ajax
+            $("#reviewForm").submit(function(e) {
+                e.preventDefault();
+                $.ajax({
+                    type: "POST",
+                    url: "{% url 'review:add_review' %}",
+                    headers: {'X-CSRFToken': $("input[name=csrfmiddlewaretoken]").val()},
+                    data: {
+                        review_text: $("#reviewText").val()
+                    },
+                    success: function(response) {
+                        if (response.status === 'success') {
+                            alert(response.message);
+                            $("#reviewModal").hide();
+                        } else {
+                            alert("Terjadi kesalahan: " + response.message);
+                        }
+                    },
+                    error: function() {
+                        alert("Terjadi kesalahan dalam mengirim permintaan.");
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

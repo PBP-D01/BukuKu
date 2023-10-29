@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'product_page',
     'leaderboard',
     'checkout',
+    'review',
 ]
 
 MIDDLEWARE = [
