@@ -1,0 +1,49 @@
+{% extends 'base.html' %} 
+<style>
+    .intro {
+        height: 100%;
+    }
+
+    .bg-image-vertical {
+        position: relative;
+        background-repeat: repeat;
+        background-position: right center;
+        background-size: auto 100%;
+    }
+</style>
+
+{% block content %}
+<section class="intro">
+    <div class="bg-image-vertical h-1024" style="background-color: #f2f2f2;
+            background-image: url(https://guitar.com/wp-content/uploads/2021/04/guitar-shop@1400x1050.jpg);
+          ">
+      <div class="mask d-flex align-items-center">
+        <div class="container" style="margin-top: 6rem; margin-bottom: 6rem;">
+          <div class="row justify-content-center">
+            <div class="col-12 col-lg-10">
+              <div class="card" style="border-radius: 1rem;">
+                <div class="card-body p-5" >
+  
+                  <h1 class="mb-5 text-center">Item Atribute</h1>
+                  <form method="POST">
+                    {% csrf_token %}
+                    <div class="form-outline mb-4">
+                    </div>
+                    <div class="form-outline mb-4">
+                    </div>
+                    <div class="form-outline mb-4">
+                      <input type="number" id="form6Example5" class="form-control" placeholder="Book Amount" name="book_amount"/>
+                    </div>
+                    <button type="submit" class="btn btn-dark btn-rounded btn-block">Submit Changes</button>
+                  </form>
+  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+{% endblock %}

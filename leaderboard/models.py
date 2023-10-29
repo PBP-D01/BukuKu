@@ -6,3 +6,5 @@ class LeaderBoard(models.Model):
     users = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
     # quote = models.TextField(default = "")
     book = models.ForeignKey(Book, on_delete=models.CASCADE, default=None)
+class Comment(models.Model):
+    comment = models.CharField(max_length=255)
