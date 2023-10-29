@@ -364,6 +364,7 @@
     }
 
 
+    document.getElementById("checkoutButton").onclick = update_cart;
     document.getElementById("checkoutButton").addEventListener("click", function () {
         const firstName = document.getElementById("firstName").value;
         const email = document.getElementById("email").value;
@@ -384,12 +385,13 @@
             // Mengaktifkan tombol untuk menutup pop-up
             document.getElementById("closePopup").addEventListener("click", function () {
                 document.body.removeChild(popup)
-                update_cart(); 
+
             });
         } else {
             window.alert("Harap isi semua kolom formulir terlebih dahulu.");
         }
     });
+
 
     async function getCartBook() {
     return fetch("/cart/get-cart/").then((res) => res.json())
@@ -405,7 +407,6 @@
         let price = cart.book_amount * cart.book_price
         totalPrice += price
         totalAmount += cart.book_amount
-        cart.book_buys +=1
         htmlStringCard += 
         `<div class="col"> 
           <div class="card mb-4">

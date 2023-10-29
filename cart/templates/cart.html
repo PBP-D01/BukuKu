@@ -2,7 +2,7 @@
 
 {% block meta %}
 <style>
-  .wireframe {
+.wireframe { 
   background-color: #ffffff;
   display: flex;
   flex-direction: row;
@@ -10,44 +10,7 @@
   width: 100%;
 }
 
-.wireframe .mask-group {
-  position: absolute;
-  width: 10px;
-  height: 10px;
-  top: 15px;
-  left: 30px;
-}
-
-.wireframe .text-wrapper {
-  position: absolute;
-  top: 47px;
-  left: 100px;
-  background: radial-gradient(
-    50% 50% at 50% 50%,
-    rgb(54.99, 175.51, 95.97) 0%,
-    rgb(86.84, 173.39, 116.26) 14.95%,
-    rgb(116.19, 202.07, 145.39) 33.85%,
-    rgb(72.9, 161.7, 103.09) 47.69%,
-    rgb(51.92, 175.51, 93.94) 63.74%,
-    rgb(115.35, 198.89, 143.76) 80.63%,
-    rgb(80.91, 173.39, 112.35) 91.16%
-  );
-  -webkit-background-clip: text !important;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-family: "Ancress-Bold", Helvetica;
-  font-weight: 700;
-  color: transparent;
-  font-size: 38.7px;
-  letter-spacing: 0;
-  line-height: normal;
-  white-space: nowrap;
-}
-
-.wireframe .text-wrapper-2 {
-  position: absolute;
-  top: 174px;
-  left: 80px;
+.text-wrapper-2 {
   background: radial-gradient(
     50% 50% at 50% 50%,
     rgb(54.99, 175.51, 95.97) 0%,
@@ -69,56 +32,8 @@
   line-height: normal;
 }
 
-.wireframe .text-wrapper-3 {
-  position: absolute;
-  top: 174px;
-  left: 1090px;
-  background: radial-gradient(
-    50% 50% at 50% 50%,
-    rgb(54.99, 175.51, 95.97) 0%,
-    rgb(86.84, 173.39, 116.26) 14.95%,
-    rgb(116.19, 202.07, 145.39) 33.85%,
-    rgb(72.9, 161.7, 103.09) 47.69%,
-    rgb(51.92, 175.51, 93.94) 63.74%,
-    rgb(115.35, 198.89, 143.76) 80.63%,
-    rgb(80.91, 173.39, 112.35) 91.16%
-  );
-  -webkit-background-clip: text !important;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-family: "Ancress-Bold", Helvetica;
-  font-weight: 700;
-  color: transparent;
-  font-size: 34px;
-  letter-spacing: 0;
-  line-height: normal;
-}
-
-.wireframe .vector-container {
-  position: absolute;
-  width: 50px; /* Width of your image */
-  height: 100%; /* Height of your image */
-  top: 0;
-  left: 980px;
-  background-image: url('https://www.pngall.com/wp-content/uploads/5/Vertical-Line-PNG-High-Quality-Image.png');
-  background-repeat: repeat; /* Repeat vertically */
-  background-size: 50px 100%; /* Adjust the size if needed */
-}
-
-.wireframe .vertical-line {
-  border-left: 2px dotted #48A166;
-  position: fixed;
-  width: 1px;
-  height: 100%;
-  top: 0px;
-  left: 1050px;
-  z-index: -1;
-}
-
-.wireframe .text-wrapper-4 {
-  position: absolute;
-  top: 237px;
-  left: 1090px;
+.text-wrapper-4 {
+  margin-top: 20px;
   font-family: "Amiko-Regular", Helvetica;
   font-weight: 400;
   color: #093100;
@@ -127,10 +42,8 @@
   line-height: normal;
 }
 
-.wireframe .text-wrapper-5 {
-  position: absolute;
-  top: 237px;
-  left: 1465px;
+.text-wrapper-5 {
+  margin-top: 20px;
   font-family: "Amiko-Bold", Helvetica;
   font-weight: 700;
   color: #093100;
@@ -139,16 +52,9 @@
   line-height: normal;
 }
 
-.wireframe .overlap {
-  position: absolute;
-  width: 396px;
-  height: 200px;
-  top: 300px;
-  left: 1090px;
-}
-
 .overlap .card {
-  height: 54px;
+  margin-top: 10px;
+  height: 50px;
   border: none;
   box-shadow: 3.2492px 3.2492px 12.99679px 0px rgba(0, 0, 0, 0.25);
   background: linear-gradient(
@@ -174,98 +80,20 @@
   line-height: normal;
 }
 
-.wireframe .text-wrapper-6 {
-  position: absolute;
-  top: 14px;
-  left: 150px;
-  font-family: "Amiko-SemiBold", Helvetica;
-  font-weight: 600;
-  color: #093100;
-  font-size: 19.9px;
-  letter-spacing: 0;
-  line-height: normal;
-}
-
-.wireframe .text-wrapper-7 {
-  position: absolute;
-  top: 11px;
-  left: 368px;
-  font-family: "Amiko-Bold", Helvetica;
-  font-weight: 700;
-  color: #ffffff;
-  font-size: 19.9px;
-  letter-spacing: 0;
-  line-height: normal;
-}
-
-.wireframe .rectangle {
-  position: absolute;
-  width: 394px;
-  height: 81px;
-  top: 602px;
-  left: 1116px;
-}
-
-.wireframe .text-wrapper-8 {
-  position: absolute;
-  top: 26px;
-  left: 120px;
-  font-family: "Amiko-Regular", Helvetica;
-  font-weight: 400;
-  color: #ffffff;
-  font-size: 26.3px;
-  letter-spacing: 0;
-  line-height: normal;
-}
-
-.wireframe .image {
-  position: absolute;
-  width: 129px;
-  height: 100px;
-  top: 33px;
-  left: 45px;
-  object-fit: cover;
-}
-
-.wireframe .p {
-  position: absolute;
-  width: 423px;
-  top: 0;
-  left: 0;
-  font-family: "Amiko-Regular", Helvetica;
-  font-weight: 400;
-  color: #093100;
-  font-size: 6.8px;
-  letter-spacing: 0;
-  line-height: normal;
-}
-
-.wireframe .img {
-  position: absolute;
-  width: 21px;
-  height: 11px;
-  top: 4px;
-  left: 9px;
-}
-
 .card-container {
-  position: absolute;
-  width: 718px;
-  height: flex;
-  top: 220px;
-  left: 50px;
-  width: 63%; /* Set the width of the container */
-  margin: 0 auto; /* Center the container horizontally */
+  margin-top: 220px;
+  margin-left: 50px;
+  height: fit-content;
+  margin: 0 auto;
   display: flex;
-  justify-content: space-between; /* Adjust the space between cards */
-  padding: 20px; /* Add padding around the cards if needed */
-  /* background: #093100; */
-}
+  justify-content: space-between; 
+} 
 
 .card-container .card {
+
   box-shadow: 3.2492px 3.2492px 12.99679px 0px rgba(0, 0, 0, 0.25);
   border: none;
-  width: 900px;
+  width: 888px;
 }
 
 .card-container .card-text {
@@ -296,11 +124,8 @@
   color: white;
   background: #79C278;
   box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.25) inset;
-  width: 935px;
+  width: 100%;
   height: 40px; 
-  position: absolute;
-  top: 100px;
-  left: 50px;      
 }
 
 .input-search::placeholder{
@@ -342,7 +167,7 @@
   #amount:focus{
     outline: none;
     border: none;
-  }
+  } 
 
   .modal-footer button {
     background-color: #79C278;
@@ -358,16 +183,15 @@
     background-color:#5D886A;
   }
 
-  .custom-navbar-bg {
-    background-color: white;
-    top: 0px;
+  .col-4 {
+    border-left: 2px dotted #48A166;
   }
 
-</style>
+</style> 
 {% endblock %}
 
 {% block content %}
-  <nav class="navbar navbar-expand-lg custom-navbar-bg">
+  <nav class="navbar navbar-expand-lg">
       <div class="container-fluid">
           <a class="navbar-brand" href="#">
             <img class="mask-group" style="height: 46px; width: 198px;" src="https://github.com/MahogaHeryasa/temp/blob/master/IMG/Group%2055.png?raw=true" />
@@ -394,44 +218,30 @@
                   <li class="nav-item">
                     <a class="nav-link" style="font-family: Amiko-Regular, Helvetica;font-size: 20px; color: #71C78F;margin-right: 10px; margin-left: 10px;" href="">{{name}}</a>
                   </li>
-                  <!-- <li class="nav-item dropdown">
-                      <a class="nav-link dropdown-toggle" style="font-family: Amiko-Regular, Helvetica;font-size: 20px; color: #71C78F; margin-right: 10px; margin-left: 10px;" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                          Shopping
-                      </a>
-                      <ul class="dropdown-menu">
-                          <li><a class="dropdown-item" href="/cart/">Your Cart</a></li>
-                          <li><a class="dropdown-item" href="/checkout/">Checkout</a></li>
-                      </ul>
-                  </li> -->
               </ul>
           </div>
       </div>
   </nav>
 
-    <div class="wireframe">
-      <div class="vertical-line"></div>
-      <div>
+  <div class="row">
+    <div id="cart_empty">
+    </div>
+    <div class="col-8" style="padding-left: 70px; padding-right: 70px; padding-top: 30px;">
+      
+      <input class="input-search" id="searchBar" type="text" placeholder="Cari buku Anda...">
+      <h3 id="item_in_cart" class="text-wrapper-2" style="margin-top: 30px;"></h3>
 
-        <div id="cart_empty">
-        </div>
+      <div class="card-container" id="cardContainer">
+        <div class="row" id="cart_card">
           
-        <input class="input-search" id="searchBar" type="text" placeholder="Cari buku Anda...">
-        <div class="text-wrapper-2" id="item_in_cart"></div>
-        <div id="details">
         </div>
-          <div class="text-wrapper-5" id="total_item"></div>
-        <div class="overlap">
-          <div id="card_total"></div> <!-- card total harga -->
-        </div>
-        <div id="btn_order"> </div> <!-- tombol place order -->
-        <div class="card-container" id="cardContainer">
-          <div class="row" id="cart_card">
-          </div>
-        </div>
-        
       </div>
+      <p id="session"class="text-center" style="margin-top: 100px; font-family: Amiko-Regular, Helvetica; color: #57AD74;">Last Session Cart: {{last_opened}}</p>
     </div>
 
+    <div class="col-4" style="padding-left: 50px; padding-right: 50px;" id="details">
+    </div>
+  </div>
     <div class="modal fade" id="editCart" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
@@ -468,10 +278,6 @@
     document.getElementById("cart_card").innerHTML = ""
     document.getElementById("item_in_cart").innerHTML = ""
     document.getElementById("details").innerHTML = ""
-    document.getElementById("card_total").innerHTML = ""
-    document.getElementById("btn_order").innerHTML = ""
-    document.getElementById("total_item").innerHTML = ""
-
     document.getElementById("cart_empty").innerHTML = ""
     let htmlStringCard = ``
     let totalBook = 0
@@ -485,7 +291,7 @@
         totalAmount += cart.book_amount
         totalBook += 1
         htmlStringCard += 
-        `<div class="col"> 
+        `<div class="col-12"> 
           <div class="card mb-4">
             <div class="card-body">
               <div class="row">
@@ -537,34 +343,53 @@
       </h6>`
       document.getElementById("cart_card").innerHTML = htmlStringCard
       document.getElementById("item_in_cart").innerHTML = totalBook + " Item added"
-      document.getElementById("total_item").innerHTML = totalAmount
-      document.getElementById("details").innerHTML = ` <div class="text-wrapper-3">Details</div>
-                                                          <div class="text-wrapper-4">Quantity</div>`
-      document.getElementById("card_total").innerHTML = `<div class="card">
-                                                            <div class="card-body">
-                                                              <div class="row">
-                                                                <div class="col-lg-3">
-                                                                  <p class="text-wrapper-10">Total</p>
-                                                                </div>
-                                                                <div class="col text-end">
-                                                                  <p class="text-wrapper-9">Rp. ${Math.ceil(totalPrice*15000).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</p>
-                                                                </div>
-                                                              </div>
-                                                            </div>
-                                                          </div>`
-      document.getElementById("btn_order").innerHTML = `<a href="{% url 'checkout:checkout' %}">
-                                                            <div class="rectangle">
-                                                              <img height="70px" width="350px" src="https://github.com/MahogaHeryasa/temp/blob/master/IMG/Group%2019%20(1).png?raw=true"/>
-                                                            </div>
-                                                          </a>`
-      document.getElementById("searchBar").type = "text"                                            
+      document.getElementById("details").innerHTML = `      <h3 class="text-wrapper-2" style="margin-top: 100px;">Details</h3>
+      <div class="row">
+        <div class="col-6">
+          <p class="text-wrapper-4">Quantity</p>
+        </div>
+        <div class="col-6 text-end">
+          <p class="text-wrapper-5">${totalAmount}</p>
+        </div>
+      </div>
+      <div class="overlap">
+        <div class="card">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-lg-3">
+                <p class="text-wrapper-10">Total</p>
+              </div>
+              <div class="col text-end">
+                <p class="text-wrapper-9">Rp. ${Math.ceil(totalPrice*15000).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="order" style="margin-bottom: 150px; margin-top: 200px; display: flex; justify-content: center; align-items: center; ">
+          <a href="{% url 'checkout:checkout' %}">
+            <img height="70px" width="350px" src="https://github.com/MahogaHeryasa/temp/blob/master/IMG/Group%2019%20(1).png?raw=true"/>
+          </a>
+        </div>
+      </div>
+`                                   
     }
     else {
-      document.getElementById("cart_empty").innerHTML =`<a href="{% url 'product_page:show_product' %}">
-                                                          <img class="centered-image-2" height="70px" width="350px" src="https://github.com/MahogaHeryasa/temp/blob/master/IMG/Group%2045.png?raw=true"/>
-                                                        </a>
-                                                        <img class="centered-image" src="https://github.com/MahogaHeryasa/temp/blob/master/IMG/Group%2052.png?raw=true" alt="Your Cart is Empty" />`
+      document.getElementById("cart_empty").innerHTML =`<div class="col-12" style="display: flex; justify-content: center; align-items: center;">
+                                                          <a>
+                                                            <img src="https://github.com/MahogaHeryasa/temp/blob/master/IMG/Group%2052.png?raw=true" alt="Your Cart is Empty" />
+                                                          </a>
+                                                        </div>
+                                                        <div class="col-12" style="margin-top:10px;display: flex; justify-content: center; align-items: center;">
+                                                          <a href="{% url 'product_page:show_product' %}">
+                                                            <img  src="https://github.com/MahogaHeryasa/temp/blob/master/IMG/Group%2045.png?raw=true"/>
+                                                          </a>
+                                                        </div>`
       document.getElementById("searchBar").type = "hidden"
+      var element = document.getElementById("details")
+      element.style.borderLeft = "none"
+      element.classList.add("col-4")
+      var p = document.getElementById("session")
+      p.style.display = "none"
     }
   }
 
@@ -618,14 +443,4 @@
   document.getElementById('button_edit').onclick = edit
 
 </script>
-
-<footer class="my-5 pt-5 text-muted text-center text-small">
-  <p class="mb-1">© 2023 BukuKu</p>
-  <ul class="list-inline">
-      <li class="list-inline-item"><a href="#">Privacy</a></li>
-      <li class="list-inline-item"><a href="#">Terms</a></li>
-      <li class="list-inline-item"><a href="#">Support</a></li>
-  </ul>
-  <h6>Sesi terakhir login: {{ last_login }}</h6>
-</footer>
 {% endblock %} 
