@@ -1,45 +1,83 @@
 {% extends 'base.html' %}
 
-{% block meta %}
-    <title>Login</title>
-{% endblock meta %}
-
 {% block content %}
+<head>
+    <title>Login</title>
+    <style>
+        html, body {
+            height: 100%;
+        }
+        .login {
+            display: flex;
+            justify-content: center;
+            align-items: center; /* Untuk memusatkan konten vertikal */
+            width: 100%;
+            height: 100%;
+            background-image: url("https://raw.githubusercontent.com/kayzaazr/cupcat-shop/main/gambar-website/Login.png");
+            background-size: 1830px;
+            margin: 0;
+            padding: 20px;
+            flex-direction: column;
+        }
 
-<div class = "login">
+        table{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 709px;
+            height: 499px;
+            flex-shrink: 0;
+            border-radius: 20px;
+            background: #FFF;
+            box-shadow: 5px 4px 16px 0px rgba(0, 0, 0, 0.25);
+            flex-direction: row;
 
-    <h1>Login</h1>
+        }
 
-    <form method="POST" action="">
-        {% csrf_token %}
-        <table>
-            <tr>
-                <td>Username: </td>
-                <td><input type="text" name="username" placeholder="Username" class="form-control"></td>
-            </tr>
-                    
-            <tr>
-                <td>Password: </td>
-                <td><input type="password" name="password" placeholder="Password" class="form-control"></td>
-            </tr>
+        .isi-input {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class = "login">
+
+        <h1 style="color: white; margin-bottom: 20px; margin-top:80px;">Login</h1>
+
+        <form method="POST" action="">
+            {% csrf_token %}
+            <table>
+                <div class="isi-input">
+                    <tr>
+                        <td><input type="text" name="username" placeholder="Username" class="form-control"></td>
+                    </tr>
+                            
+                    <tr>
+                        <td><input type="password" name="password" placeholder="Password" class="form-control"></td>
+                    </tr>
 
             <tr>
                 <td></td>
-                <td><input class="btn login_btn" type="submit" value="Login"></td>
+                <td><a class="btn login_btn" href="{% url 'main:show_product' %}">Login</a></td>
             </tr>
         </table>
     </form>
 
-    {% if messages %}
-        <ul>
-            {% for message in messages %}
-                <li>{{ message }}</li>
-            {% endfor %}
-        </ul>
-    {% endif %}     
-        
-    Don't have an account yet? <a href="{% url 'main:register' %}">Register Now</a>
+        {% if messages %}
+            <ul>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}     
+            
+        <p style="margin-top:30px;"> Don't have an account yet? <a href="{% url 'main:register' %}">Register Now</a> </p>
 
-</div>
+    </div>
+</body>
 
 {% endblock content %}

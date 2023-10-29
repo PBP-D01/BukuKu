@@ -5,30 +5,73 @@
 {% endblock meta %}
 
 {% block content %}  
+<head>
+    <style>
+    html, body {
+        height: 100%;
+    }
+    .login {
+        display: flex;
+        justify-content: center;
+        align-items: center; /* Untuk memusatkan konten vertikal */
+        width: 100%;
+        height: 100%;
+        background-image: url("https://raw.githubusercontent.com/kayzaazr/cupcat-shop/main/gambar-website/Login.png");
+        background-size: 1830px;
+        margin: 0;
+        padding: 20px;
+        flex-direction: column;
+    }
 
-<div class = "login">
-    
-    <h1>Register</h1>  
+    table{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 709px;
+        height: 499px;
+        flex-shrink: 0;
+        border-radius: 20px;
+        background: #FFF;
+        box-shadow: 5px 4px 16px 0px rgba(0, 0, 0, 0.25);
+        flex-direction: row;
 
-        <form method="POST" >  
-            {% csrf_token %}  
-            <table>  
-                {{ form.as_table }}  
-                <tr>  
-                    <td></td>
-                    <td><input type="submit" name="submit" value="Daftar"/></td>  
-                </tr>  
-            </table>  
-        </form>
+    }
 
-    {% if messages %}  
-        <ul>   
-            {% for message in messages %}  
-                <li>{{ message }}</li>  
-                {% endfor %}  
-        </ul>   
-    {% endif %}
+    .isi-input {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+</style>
+</head>
 
-</div>  
+<body>
+    <div class = "login">
+        
+        <h1 style="color: white;">Register</h1>  
+
+            <form method="POST" >  
+                {% csrf_token %}  
+                <table>  
+                    {{ form.as_table }}  
+                    <div class="isi-input">
+                    <tr>  
+                        <td></td>
+                        <td><input type="submit" name="submit" value="Daftar"/></td>  
+                    </tr>  
+                </div>
+                </table>  
+            </form>
+
+        {% if messages %}  
+            <ul>   
+                {% for message in messages %}  
+                    <li>{{ message }}</li>  
+                    {% endfor %}  
+            </ul>   
+        {% endif %}
+
+    </div>  
+</body>
 
 {% endblock content %}
