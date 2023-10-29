@@ -29,15 +29,6 @@
                 <li class="nav-item">
                   <a class="nav-link" style="font-family: Amiko-Regular, Helvetica;font-size: 20px; color: #71C78F;margin-right: 10px; margin-left: 10px;" href="">{{name}}</a>
                 </li>
-                <!-- <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" style="font-family: Amiko-Regular, Helvetica;font-size: 20px; color: #71C78F; margin-right: 10px; margin-left: 10px;" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Shopping
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="/cart/">Your Cart</a></li>
-                        <li><a class="dropdown-item" href="/checkout/">Checkout</a></li>
-                    </ul>
-                </li> -->
             </ul>
         </div>
     </div>
@@ -46,7 +37,7 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <p>Sesi sebelumnya leaderboard dibuka: {{ last_opened }}</p>
     <div class="bg-white p-5 flex items-center justify-between">
-      <input oninput="filter(this)" type="text" placeholder="Cari buku Anda..." class="flex-grow border rounded-lg p-2 text-white bg-green-500" placeholder="Search">
+      <input oninput="filter(this)" type="text" placeholder="Cari buku Anda..." class="flex-grow border rounded-lg p-2 text-white" style="background-color:#71C78F; " placeholder="Search">
     </div>
 
     <div class="p-5 bg-white">
@@ -55,8 +46,8 @@
       </table>
     </div>
 
-    <table>
-      <tr>
+    <table style="align-items: center; text-align: center;">
+      <tr style="background-color: #71C78F">
         <th>Comment Section</th>
       </tr>
 
@@ -101,6 +92,7 @@
 async function refreshProducts() {
     document.getElementById("product_table").innerHTML = ""
     const products = await getProducts()
+    products.sort((a, b) => b.buys - a.buys);
     let htmlString = `<tr>
         <th>Rank</th>
         <th>Title</th>
@@ -131,6 +123,7 @@ refreshProducts()
 async function filter(input){
 document.getElementById("product_table").innerHTML = ""
     const products = await getProducts()
+    products.sort((a, b) => b.buys - a.buys);
     let htmlString = `<tr>
         <th>Rank</th>
         <th>Title</th>
