@@ -15,11 +15,14 @@ from django.http import HttpResponseRedirect
 # from leaderboard.forms import ProductForm
 from django.urls import reverse
 from leaderboard.models import LeaderBoard
+from django.contrib.auth.decorators import login_required
+
 
 
 from django.shortcuts import render 
 from book.models import Book
 
+@login_required(login_url='/login')
 def show_leaderboard(request):
     # Get the last time the leaderboard page was opened from the cookie
     last_opened = request.COOKIES.get('last_opened', None)
