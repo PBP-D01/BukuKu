@@ -4,46 +4,45 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <p>Previous Time Leaderboard Was Opened: {{ last_opened }}</p>
     <div class="bg-green-500 py-2 px-5 flex justify-between items-center">
-        <img src="https://raw.githubusercontent.com/kayzaazr/cupcat-shop/main/gambar-website/BukuKu..png" alt="Logo" class="w-40 h-auto">
-        <button class="button-cart">
-            <img src="https://raw.githubusercontent.com/kayzaazr/cupcat-shop/main/gambar-website/Mask%20group.png" alt="Cart" class="w-8 h-auto">
-        </button>
+      <img src="https://raw.githubusercontent.com/kayzaazr/cupcat-shop/main/gambar-website/BukuKu..png" alt="Logo" class="w-40 h-auto">
+      <button class="button-cart">
+        <img src="https://raw.githubusercontent.com/kayzaazr/cupcat-shop/main/gambar-website/Mask%20group.png" alt="Cart" class="w-8 h-auto">
+      </button>
     </div>
 
     <div class="bg-white p-5 flex items-center justify-between">
-        <input oninput="filter(this)" type="text" placeholder="Cari buku Anda..." class="flex-grow border rounded-lg p-2 text-white bg-green-500" placeholder="Search">
-        <button class="filter-button">
-            <img src="https://raw.githubusercontent.com/kayzaazr/cupcat-shop/main/gambar-website/Mask%20group-1.png" alt="Filter" class="w-8 h-auto">
-        </button>
+      <input oninput="filter(this)" type="text" placeholder="Cari buku Anda..." class="flex-grow border rounded-lg p-2 text-white bg-green-500" placeholder="Search">
+      <button class="filter-button">
+        <img src="https://raw.githubusercontent.com/kayzaazr/cupcat-shop/main/gambar-website/Mask%20group-1.png" alt="Filter" class="w-8 h-auto">
+      </button>
     </div>
 
     <div class="p-5 bg-white">
-        <h1 class="text-2xl my-5">LeaderBoard</h1>
-        <table id="product_table" class="w-full">
-        </table>
+      <h1 class="text-2xl my-5">LeaderBoard</h1>
+      <table id="product_table" class="w-full">
+      </table>
     </div>
 
     <table>
-        <tr>
-            <th>Comment Section</th>
+      <tr>
+        <th>Comment Section</th>
+      </tr>
 
-        </tr>
-    
-        {% comment %} Berikut cara memperlihatkan data produk di bawah baris ini {% endcomment %}
-    
-        {% for comment in comments %}
-            <tr>
-                <td>{{comment.comment}}</td>
-            </tr>
-        {% endfor %}
+      {% comment %} Berikut cara memperlihatkan data produk di bawah baris ini {% endcomment %}
+
+      {% for comment in comments %}
+      <tr>
+        <td>{{ comment.comment }}</td>
+      </tr>
+      {% endfor %}
     </table>
-    
+
     <br />
-    
+
     <a href="{% url 'leaderboard:create_comment' %}">
-        <button>
-            Add New Comment
-        </button>
+      <button>
+        Add New Comment
+      </button>
     </a>
 
     <script>
