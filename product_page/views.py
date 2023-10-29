@@ -1,3 +1,4 @@
+import json
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render
 from book.models import Book
@@ -20,7 +21,13 @@ def get_product_json(request):
     return HttpResponse(serializers.serialize('json', product_item))
 
 @csrf_exempt
-def add_cart(request, id):
+def add_cart(request):
+    
+    body = json.loads(
+        request.body.decode('utf-8'))
+    
+    id = body['id']
+    
     book = Book.objects.get(pk=id)
     # Cart.objects.all().delete()
     # return HttpResponse(b"ADDED", status=201)
@@ -28,15 +35,18 @@ def add_cart(request, id):
         cart = Cart.objects.get(user = request.user.id, book_id = id)
         cart.book_amount += 1
         cart.save()
-        print('ini if')
         return HttpResponse(b"ADDED", status=201)
     else:
         Cart(user = request.user, book = book, book_amount = 1).save()
-        print('ini elsef')
         return HttpResponse(b"ADDED", status=201)
 
 def search_bar(request, value):
     product_item = Book.objects.filter(title__icontains=value)
+    # print(serializers.serialize('json', product_item))
+    return HttpResponse(serializers.serialize('json', product_item))
+
+def search_bar2(request, value):
+    product_item = Book.objects.filter(author__icontains=value)
     print(serializers.serialize('json', product_item))
     return HttpResponse(serializers.serialize('json', product_item))
 

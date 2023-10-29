@@ -2,22 +2,22 @@
 {% load static %}
 {% block content %}
 <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <style>
         .card {
             display: flex;
             color: #0A3100;
             text-align: center;
-            font-family: Amiko;
-            font-size: 20px;
             font-style: normal;
             font-weight: 400;
             line-height: normal;
             width: 215.097px;
-            min-height:330.582px;
+            min-height:370.582px;
             justify-content: space-between;
             align-items: center;
             border-radius: 12.997px;
             background: #FFF;
+            border: 5px solid #79C278;
             box-shadow: 3.2492px 3.2492px 12.99679px 0px rgba(0, 0, 0, 0.25);
             gap:4.95px;
             padding: 10px;
@@ -76,23 +76,12 @@
         .isi-content {
             display: flex;
             flex-direction: column;
+            align-items: center;
+            justify-content: center;
             gap:20px;
         }
 
-        .buy-button {
-            width: 70px;
-            height: 40px;
-            flex-shrink: 0;
-            border-radius: 10px;
-            background: linear-gradient(180deg, #8DB085 0%, #5A8569 100%);
-            border: none;
-            color: white;
-            cursor: pointer;
-        }
-        
-        .buy-button:hover {
-            background: linear-gradient(180deg, #42653a 0%, #26472f 100%);
-        }
+    
         .button-all {
             display: flex;
             flex-direction: row;
@@ -100,9 +89,12 @@
             
         }
 
-        .navbar {
+        .navbarbuku {
             display: flex;
             flex-direction: row;
+            justify-content: space-between;
+            width: 100%;
+
         }
 
         .search-filter-bar {
@@ -138,7 +130,8 @@
         
         .dropdown-content button {
             padding: 10px; 
-            width: 100%;
+            width: 200px;
+
             text-align: left; 
             background-color: transparent;
             border: none;
@@ -166,7 +159,7 @@
         .button-cart-img {
             width: 100%;
             height: auto;
-            
+            margin-top: 20px;
         }
 
         .filter-img {
@@ -174,49 +167,71 @@
             height: auto;
         }
 
-        .btn-add-to-cart {
-        background: linear-gradient(180deg, #8DB085 0%, #5A8569 100%);
-        color: #fff; 
-        padding: 10px 20px; 
-        border: none; 
-        border-radius: 5px; 
-        cursor: pointer; 
-        font-size: 16px; 
-        margin-bottom: 0px;
+
+        .logobuku {
+            width: 85%;
+            height: 50%;
+            margin-left:1px;
+            margin-top: 30px;
+        }
+        
+        .rate-buku {
+            display: flex;
+            margin-left: 0;
         }
 
-        .btn-add-to-cart:hover {
-            background: #294123;
+        .harga-buku {
+            color: #33B031;
         }
 
-        .logo {
+        .button-product-page {
+            background: transparent; 
+            border: none; 
+            padding: 0; 
+            margin: 0;
             margin-left:40px;
             margin-top: 10px;
         }
-
-
+        
     </style>
 </head>
 
-<body>
+<body style="display:flex; flex-direction:column; align-items:center;">
+    <div class="toast" id="cartToast" role="alert" aria-live="assertive" aria-atomic="true" data-autohide="true" data-delay="500" style="position:fixed; z-index: 1; margin-top:18px; max-width:1200px">
+
+    </div>   
+    
+    <div class="toast" id="searchTitleToast" role="alert" aria-live="assertive" aria-atomic="true" data-autohide="true" data-delay="500" style="position:fixed; z-index: 1; margin-top:18px; width:fit-content">
+    </div>   
+
+    <div class="toast" id="searchAuthorToast" role="alert" aria-live="assertive" aria-atomic="true" data-autohide="true" data-delay="500" style="position:fixed; z-index: 1; margin-top:18px; width:fit-content">
+    </div>  
+
     <div class="isi-content">
-        <div class="navbar">
-            <img src="https://raw.githubusercontent.com/kayzaazr/cupcat-shop/main/gambar-website/BukuKu..png" class="logo"> 
+        <div class="navbarbuku">
+            <a href="/product_page">
+                <button class="button-product-page">
+                    <img src="https://raw.githubusercontent.com/kayzaazr/cupcat-shop/main/gambar-website/BukuKu..png" class="logobuku"> 
+                </button>
+            </a>
+            
             <div class="nav-kanan">
-                <button class="button-cart"> <img src="https://raw.githubusercontent.com/kayzaazr/cupcat-shop/main/gambar-website/Mask%20group.png" class="button-cart-img">
-                </button> 
+                <a href="/cart">
+                    <button class="button-cart"> <img src="https://raw.githubusercontent.com/kayzaazr/cupcat-shop/main/gambar-website/Mask%20group.png" class="button-cart-img">
+                    </button> 
+                </a>
                 
             </div>
             
         </div>
 
         <div class="search-filter-bar">
-            <input onkeydown='javascript:test(this)' type="text" placeholder="Cari buku Anda..." class="input-search">
+            <input id="search-bar" onkeydown='javascript:test(this)' type="text" placeholder="Cari buku Anda berdasarkan judul..." class="input-search">
             <div class="dropdown">
                 <button class="dropbtn"> <img src="https://raw.githubusercontent.com/kayzaazr/cupcat-shop/main/gambar-website/Mask%20group-1.png" class="filter-img"></button>
                 <div class="dropdown-content">
-                    <button id="button-1">Cari berdasarkan judul</button>
-                    <button id="button-2">Cari berdasarkan author</button>
+                    <button id="button-1" onclick="searchByTitle()" >Cari berdasarkan judul</button>
+                    <button id="button-2" onclick="searchByAuthor()">Cari berdasarkan author</button>
                 </div>
             </div>
         </div>
@@ -230,18 +245,19 @@
         const buku = document.getElementById("title");
         
         const product = await getProduct();
-        console.log(product)
+        
         let bukuString = ``
         product.forEach((item) => {
             bukuString += `
              <div class="card">
                 <img class="image-book" src="${item.fields.imgUrl}">
-                <div class="judul-buku"> ${item.fields.title} </div>
+                <div class="judul-buku" style="font-family: 'Amiko', sans-serif; font-size: 15px; font-weight: 600"> ${item.fields.title} </div>
+                <div class="author-buku"> Written by ${item.fields.author} </div>
                 <div class="harga-buku"> Rp${Math.ceil(item.fields.price*15000).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} </div>
                 <form action='javascript:add_to_cart(${item.pk})' id='transactionIDValue' class="d-inline" method="post">
                     {{cart_product_form}}
                     {% csrf_token %}
-                    <input type="submit" class="btn-add-to-cart" value="Add To Cart">
+                    <input type="submit" data-toggle="modal" data-target="#moreinfo" class="btn btn-success" value="Add To Cart">
                 </form>
              </div>`
 
@@ -256,26 +272,46 @@
     refreshProduct()
 
     async function add_to_cart(book_id) {
-        return fetch(`add_to_cart/${book_id}`).then((res) => res.json()) 
+        const product = await getProduct();
+
+        product.forEach((item) => {
+            if (item.pk == book_id){
+                document.getElementById('cartToast').innerHTML = `
+
+                <div class="toast-header">
+                    <strong class="mr-auto">Berhasil Menambahkan ${item.fields.title} </strong>
+                        <span aria-hidden="true"></span>
+                </div>
+              `
+            }
+        })
+        
+        $('#cartToast').toast('show');
+        return fetch(`add_to_cart`, {method:'POST', body:JSON.stringify({id:book_id}), headers: { 'Content-type':'application/json; charset=UTF-8',}}).then((res) => res.json()) 
     }
 
     async function test(input){
         console.log(input.value)
         const buku = document.getElementById("title");
-        const product = await fetch(`search_bar/${input.value}`).then((res) => res.json());
-        console.log(product)
+        let product;
+        if (document.getElementById('search-bar').placeholder=="Cari buku Anda berdasarkan judul..."){
+            product = await fetch(`search_bar/${input.value}`).then((res) => res.json());
+        } else {
+            product = await fetch(`search_bar2/${input.value}`).then((res) => res.json());
+        }
+        
         let bukuString = ``
         product.forEach((item) => {
             bukuString += `
              <div class="card">
                 <img class="image-book" src="${item.fields.imgUrl}">
-                <div class="judul-buku"> ${item.fields.title} </div>
+                <div class="judul-buku" style="font-family: 'Amiko', sans-serif; font-size: 15px; font-weight: 600"> ${item.fields.title} </div>
+                <div class="author-buku"> Written by ${item.fields.author} </div>
                 <div class="harga-buku"> Rp${Math.ceil(item.fields.price*15000).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} </div>
-
-                <form action='javascript:add_to_cart(${item.pk})' id='transactionIDValue' class="d-inline" method="post">
+                <form action='javascript:add_to_cart(${item.pk})' id='transactionIDValue' class="d-inline" method="POST">
                     {{cart_product_form}}
                     {% csrf_token %}
-                    <input type="submit" class="btn-add-to-cart" value="Add To Cart">
+                    <input type="submit" data-toggle="modal" data-target="#moreinfo" class="btn btn-success" value="Add To Cart">
                 </form>
 
              </div>`
@@ -283,6 +319,31 @@
         })
         buku.innerHTML = bukuString
     }
+
+    async function searchByAuthor(){
+        document.getElementById('search-bar').placeholder="Cari buku Anda berdasarkan author..."
+        document.getElementById('searchAuthorToast').innerHTML = `
+                <div class="toast-header">
+                    <strong class="mr-auto"> Mencari berdasarkan author.. </strong>
+                        <span aria-hidden="true"></span>
+                </div>
+              `
+              $('#searchAuthorToast').toast('show');
+    }
+
+    async function searchByTitle(){
+        document.getElementById('search-bar').placeholder="Cari buku Anda berdasarkan judul..."
+        document.getElementById('searchTitleToast').innerHTML = `
+                <div class="toast-header">
+                    <strong class="mr-auto"> Mencari berdasarkan judul.. </strong>
+                        <span aria-hidden="true"></span>
+                </div>
+              `
+              $('#searchTitleToast').toast('show');
+
+    }
+
+    
 
 </script>
 {% endblock %}
