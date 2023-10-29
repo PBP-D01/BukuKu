@@ -4,11 +4,77 @@
 
 {% endblock meta %}
 
+{% load static %}
 {% block content %} 
+<head>
+    <style>
+        .background-container {
+            background-image: url('https://raw.githubusercontent.com/nabilazav/my-first-repo/main/home.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            width: 100%;
+            height: 100vh;
+            position: relative;
+            bottom:5px
+        }
+
+        .img {
+            display: none; /* Hide the original image */
+        }
+        h1{
+        height: 55px;
+        width: 728px;
+        color: #ffffff;
+        font-family: "Ancress-Bold", Helvetica;
+        font-size: 46.1px;
+        font-weight: 700;
+        left: 0;
+        letter-spacing: 0;
+        line-height: normal;
+        position: fixed;
+        text-align: center;
+        top:100px;
+        }
+        .buttons-container {
+        position: absolute;
+        top: 150px;
+        left: 30px;
+        right: 0;       
+         }
+
+        .btn {
+        margin: 10px;
+            /* Add more styles for your buttons as needed */
+        }
+        .btn-green {
+        background: linear-gradient(180deg, rgb(63.02, 120.26, 48.71) 0%, rgb(28.77, 70.32, 42.9) 100%);
+        color: #fff; /* White text color */
+        margin: 10px;
+        padding: 10px 20px; /* Adjust padding as needed */
+        border: none;
+        border-radius: 5px;
+        font-size: 18px;
+        cursor: pointer;
+        transition: background-color 0.3s; /* Add a smooth hover effect */
+        }
+
+        .btn-green:hover {
+            background-color: #4a944e; /* Darker green on hover */
+        }
+                
+  
+
+
+    </style>
+</head>
+
 <body class="font-sans bg-gray-200">
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">BukuKu</a>
+            <a class="navbar-brand" href="">
+                <img src="https://raw.githubusercontent.com/kayzaazr/cupcat-shop/main/gambar-website/BukuKu..png" class="logobuku"> 
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -37,21 +103,27 @@
         </div>
     </nav>
 
-    <h1>Main Page BukuKu</h1>
+    <div class="background-container">
+        <!-- Your webpage content goes here -->
+    
+<h1> Temukan buku yang anda cari </h1>   
+<div class="buttons-container">
     <a href="{% url 'main:login' %}">
-        <button class="btn btn-primary">
+        <button class="btn btn-primary btn-green">
             Login
         </button>
     </a>
     <a href="{% url 'main:register' %}">
-        <button class="btn btn-primary">
+        <button class="btn btn-primary btn-green">
             Register
         </button>
     </a>
     <a href="{% url 'main:logout' %}">
-        <button class="btn btn-primary">
+        <button class="btn btn-primary btn-green">
             Logout
         </button>
     </a>
+</div>
+</div>
 </body>
 {% endblock content %} 
