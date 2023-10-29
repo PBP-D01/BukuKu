@@ -36,6 +36,14 @@ def checkout(request):
 @login_required(login_url='/login')
 @csrf_exempt
 def update_cart(request):
-    cart_item = Cart.objects.get(user=request.user)
-    cart_item.delete()
+    cart_items = Cart.objects.filter(user=request.user)
+
+    for cart_item in cart_items:
+        book = cart_item.book
+        book.buys += 1  # Increment the book_buys field
+
+        # Save the updated book and cart_item objects
+        book.save()
+        cart_item.delete()
+
     return HttpResponse({'status': 'DELETED'}, status=200)
