@@ -126,9 +126,6 @@
   box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.25) inset;
   width: 100%;
   height: 40px; 
-  /* position: absolute;
-  top: 100px;
-  left: 50px;       */
 }
 
 .input-search::placeholder{
@@ -239,29 +236,12 @@
           
         </div>
       </div>
+      <p class="text-center" style="margin-top: 100px; font-family: Amiko-Regular, Helvetica; color: #57AD74;">Last Session Cart: {{last_opened}}</p>
     </div>
 
     <div class="col-4" style="padding-left: 50px; padding-right: 50px;" id="details">
-
     </div>
   </div>
-    <!-- <div class="wireframe">
-      <div class="vertical-line"></div>
-        <input class="input-search" id="searchBar" type="text" placeholder="Cari buku Anda...">
-        <div class="text-wrapper-2" id="item_in_cart"></div>
-        <div id="details">
-        </div>
-          <div class="text-wrapper-5" id="total_item"></div>
-        <div class="overlap">
-          <div id="card_total"></div>
-        </div>
-        <div id="btn_order"> </div>
-        <div class="card-container" id="cardContainer">
-          <div class="row" id="cart_card">
-          </div>
-        </div>
-    </div> -->
-
     <div class="modal fade" id="editCart" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
@@ -399,7 +379,7 @@
                                                             <img src="https://github.com/MahogaHeryasa/temp/blob/master/IMG/Group%2052.png?raw=true" alt="Your Cart is Empty" />
                                                           </a>
                                                         </div>
-                                                        <div class="col-12" style="margin-top:10px;display: flex; justify-content: center; align-items: center;">
+                                                        <div class="col-12" style="margin-top:10px;gdisplay: flex; justify-content: center; align-items: center;">
                                                           <a href="{% url 'product_page:show_product' %}">
                                                             <img  src="https://github.com/MahogaHeryasa/temp/blob/master/IMG/Group%2045.png?raw=true"/>
                                                           </a>

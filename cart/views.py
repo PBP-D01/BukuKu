@@ -19,6 +19,7 @@ def show_cart(request):
     context = {
         'last_opened': last_opened,
         'name': user_name,
+        'last_login': request.user.last_login
     }
 
     response = render(request, "cart.html", context)
