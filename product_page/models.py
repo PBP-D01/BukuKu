@@ -1,7 +1,6 @@
 from django.db import models
+from book.models import Book
 
 class Product(models.Model):
-    name = models.CharField(max_length=255)
-    date_added = models.DateField(auto_now_add=True)
-    price = models.IntegerField()
-    description = models.TextField()
+    book = models.ForeignKey(Book, on_delete=models.CASCADE)
+    last_added_to_cart = models.DateField(auto_now_add=True)
