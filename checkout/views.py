@@ -36,16 +36,7 @@ def checkout(request):
 @login_required(login_url='/login')
 @csrf_exempt
 def update_cart(request):
-    if request.method == 'DELETE':
+    if request.method == 'POST':
         cart_item = Cart.objects.get(user=request.user)
         cart_item.delete()
-        return HttpResponse({'status': 'DELETED'}, status=200)
-
-@login_required(login_url='/login')
-@csrf_exempt
-def search_bar(request, value):
-    product_items = Cart.objects.filter(book__title__icontains=value) | Cart.objects.filter(book__author__icontains=value)
-    print(serializers.serialize('json', product_items))
-    return HttpResponse(serializers.serialize('json', product_items))
-
-   
+    return HttpResponse({'status': 'DELETED'}, status=200)
