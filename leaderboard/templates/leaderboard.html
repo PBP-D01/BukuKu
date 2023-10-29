@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
 <body class="font-sans bg-gray-200">
-
   <nav class="navbar navbar-expand-lg custom-navbar-bg">
     <div class="container-fluid">
       <button class="button-product-page">
@@ -46,8 +46,8 @@
       </table>
     </div>
 
-    <table style="align-items: center; text-align: center;">
-      <tr style="background-color: #71C78F">
+    <table style="align-items: center; text-align: center;" id="comment_table"></table>
+      <!-- <tr style="background-color: #71C78F">
         <th>Comment Section</th>
       </tr>
 
@@ -58,7 +58,7 @@
         <td>{{ comment.comment }}</td>
       </tr>
       {% endfor %}
-    </table>
+    </table> -->
 
     <br />
 
@@ -68,8 +68,9 @@
       </button>
     </a>
 
+    <script src="{% static 'js/leaderboard.js' %}"></script>
     <script>
-        async function getProducts() {
+      async function getProducts() {
     try {
         const response = await fetch("{% url 'leaderboard:get_product_json' %}");
         if (!response.ok) {
@@ -152,7 +153,6 @@ document.getElementById("product_table").innerHTML = ""
     document.getElementById("product_table").innerHTML = htmlString
 }
     </script>
-    </body>
 
-
+</body>
 {% endblock %}
