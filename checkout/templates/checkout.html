@@ -229,7 +229,6 @@
         #total_price{
         font-family: "Amiko-Bold", Helvetica;
         font-weight: 700;
-        color:#56ad74 ;
         font-size: 19.9px;
         letter-spacing: 0;
         text-align:center;
@@ -241,12 +240,40 @@
         font-weight: 700;
         
         }
-        .check-out .search-filter-bar {
-        position: absolute;
-        top: 150px; /* Sesuaikan dengan posisi vertikal yang Anda inginkan, misalnya di bawah "text-wrapper" */
-        left: 70px; /* Sesuaikan dengan posisi horizontal yang Anda inginkan */
-        z-index: 2; /* Z-index lebih tinggi untuk menampilkan di atas "text-wrapper" */
+        .green-text {
+        color: #71c78f;
+        font-family: "Amiko-SemiBold", Helvetica;
+        font-size: 22px;
+        font-weight: 600;
+        text-decoration: underline;
         }
+        #arrow-icon {
+        filter: invert(1) hue-rotate(139deg); /* Ubah warna panah menjadi hijau (#74b666) */
+        transition: filter 0.3s; /* Animasi perubahan warna */
+        }
+        .input-search {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
+        border:hidden;
+        color: white;
+        background: #79C278;
+        box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.25) inset;
+        height: 40px; 
+        position: absolute;
+        top: 150px;
+        left: 0px;   
+        }
+        .input-search::placeholder{
+        color: white;
+        }
+        .input-search:focus{
+        outline: none;
+        border: none;
+        }
+
+
 
 </style>
 
@@ -257,9 +284,8 @@
             <img class="mask-group" alt="Mask group" src="https://raw.githubusercontent.com/kayzaazr/cupcat-shop/main/gambar-website/Mask%20group.png" />
             <img class="img" alt="Mask group" src="https://raw.githubusercontent.com/nabilazav/my-first-repo/main/messageImage_1698513759813.jpg" />
         </div>
+        <input class="input-search" id="search_bar" type="text" placeholder="Cari buku Anda...">
         <div class="text-wrapper">CheckOut</div>
-        <div class="search-filter-bar">
-            <input onkeydown='javascript:search(this)' type="text" placeholder="Cari buku Anda..." class="input-search"></div>
         <div class="overlap-group">
             <img class="vector" alt="Vector" src="vector-26.svg" />
             <div class="rectangle"></div>
@@ -307,9 +333,11 @@
         </form>
 </div>
 
-<div class="card-container">
+<div class="card-container" id="cardContainer">
     <div class="row" id="cart_card"></div>
 </div>
+<br>
+<br>
 <div class="text-wrapper"id="total_price"></div>
 <br>
 
@@ -318,22 +346,6 @@
     async function getItems() {
         return fetch("{% url 'checkout:get_item_json' %}").then((res) => res.json())
     }
-
-    async function update_cart() {
-    const deleteUrl = `{% url 'checkout:update_cart' %}`;
-    console.log(itemId);
-    try {
-        const response = await fetch(deleteUrl, {
-            method: 'DELETE',
-            headers: {
-                'X-CSRFToken': '{{ csrf_token }}'
-            }
-        }).then(refreshBooks)
-        
-    } catch (error) {
-        console.error('Error:', error);
-    }
-}
 
     async function addItem() {
     const form = document.querySelector('#form');
@@ -362,7 +374,7 @@
             popup.classList.add("custom-popup");
             popup.innerHTML = `
                 <h4>${message}</h4>
-                <button id="closePopup">Tutup</button>
+                <button id="closePopup"  onclick="update_cart()">Tutup</button>
             `;
 
            
@@ -371,9 +383,8 @@
 
             // Mengaktifkan tombol untuk menutup pop-up
             document.getElementById("closePopup").addEventListener("click", function () {
-                document.body.removeChild(popup);
-
-            update_cart()
+                document.body.removeChild(popup)
+                update_cart(); 
             });
         } else {
             window.alert("Harap isi semua kolom formulir terlebih dahulu.");
@@ -418,47 +429,32 @@
         </div>  `
 
     })
-    htmlStringCard += `<h6 class="mb-0"><a href="/cart" class="text-body"><img width="30" height="30" color="#74b666" src="https://cdn.icon-icons.com/icons2/1674/PNG/512/arrowback_111142.png"></img>Back to cart</a></h6>`
+    htmlStringCard += `<h6 class="mb-0"><a href="/cart" class="text-body"><img width="30" height="30" src=            "https://raw.githubusercontent.com/nabilazav/my-first-repo/main/messageImage_1698570741502.jpg"></img><span class="green-text">Back to My Cart</span></a></h6>`
     document.getElementById("cart_card").innerHTML = htmlStringCard
     document.getElementById("total_price").innerHTML = ` Total Price(IDR)Rp. `+ Math.ceil(totalPrice*15000).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
     document.getElementById("total_item").innerHTML = totalAmount
+    document.getElementById("search_bar").type = "text"                                            
+
   }
 
   refreshBooks()
 
   
-  async function search(input) {
-    const container = document.getElementById("cart_card")
-    const product = await fetch(`search_bar/${input.value}`).then((res) => res.json());
-    console.log(product)
-    let bookString = ``;
-    product.forEach((cart) => {
-        bookString += `
-        <div class="col"> 
-            <div class="card mb-4">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-lg-2 col-md-8 text-end">
-                            <img style="height: 160px;" src="${cart.book_img}" />
-                        </div>
-                        <div class="col">
-                            <h5 class="card-title" style="font-family: Amiko-Regular, Helvetica; color: "#74b666";">${cart.book_title}</h5>
-                            <p class="card-text" style="font-family: Amiko-Regular, Helvetica;">Author: ${cart.book_author}</p>
-                            <p class="card-text" style="font-family: Amiko-Bold, Helvetica; font-weight: bold; color: "#74b666"; font-size: large;">Rp. ${Math.ceil(cart.book_price * 15000).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} </p>
-                            ${cart.book_amount}x
-                            <div class="d-flex mb-4" style="max-width: 180px; max-height: 1px;"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-footer" style="background: #74b666; height: 30px;"></div>
-            </div>
-        </div>  `
+  async function update_cart(){
+        fetch("/checkout/update_cart/", {
+            method: "POST",
+     }).then(refreshBooks)
+  } 
+
+  
+  $(document).ready(function(){
+    $("#search_bar").on("keyup", function() {
+      var value = $(this).val().toLowerCase();
+      $("#cardContainer .card").filter(function() {
+        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+      });
     });
-    // Set innerHTML dari container dengan hasil pencarian
-    container.innerHTML = bookString;
-}
-
-
+  });
 
 </script>
 
