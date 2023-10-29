@@ -9,13 +9,30 @@ from django.core import serializers
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
 from cart.forms import CartForm
+from datetime import datetime
 
 # Create your views here.
 @login_required(login_url='/login')
 def show_cart(request):
-    carts = Cart.objects.filter(user = request.user)
+    last_opened = request.COOKIES.get('last_opened', None)
+    user_name = request.user.username
+    context = {
+        'last_opened': last_opened,
+        'name': user_name,
+    }
 
-    return render(request, "cart.html")
+    response = render(request, "cart.html", context)
+    response.set_cookie('last_opened', datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f"))
+
+    try:
+        if last_opened:
+            last_opened = datetime.strptime(last_opened, "%Y-%m-%d %H:%M:%S.%f")
+        else:
+            last_opened = datetime.min
+    except ValueError:
+        last_opened = datetime.min 
+    
+    return response
 
 @login_required(login_url='/login') 
 def get_cart_json(request):
@@ -71,13 +88,17 @@ def edit_cart(request, id):
     cart = Cart.objects.get(pk = id)
 
     form = CartForm(request.POST or None, instance=cart)
-
+    
     if form.is_valid() and request.method == "POST":
         form.save()
         return HttpResponseRedirect(reverse('cart:show_cart'))
-
+    
     context = {
-    'form': form
+    'form': form,
+    'book_title': cart.book.title,
+    'book_author': cart.book.author,
+    'price': round(cart.book.price * 15000,2),
+    'img': cart.book.imgUrl,
     }
 
     return render(request, "edit_cart.html", context)
