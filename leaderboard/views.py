@@ -52,7 +52,9 @@ def show_leaderboard(request):
     last_opened = request.COOKIES.get('last_opened', None)
     context = {
         'last_opened': last_opened,
-        'comments': Comment.objects.all()
+        'comments': Comment.objects.all(),
+        'name': request.user.username,
+        'last_login': request.user.last_login,
     }
     # Update the cookie with the current timestamp
     response = render(request, "leaderboard.html", context=context)
