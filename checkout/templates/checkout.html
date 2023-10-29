@@ -29,7 +29,7 @@
         }
         
         .btn {
-            background-color: #04AA6D;
+            background-color: #56ad74;
             color: white;
             padding: 12px;
             margin: 10px 0;
@@ -62,7 +62,7 @@
             color: white;
         }
         .shipping-address {
-        background-color: #5F896B;
+        background-color: #74b666;;
         padding: 50px;
         color: white;
         height: 1024px;
@@ -75,14 +75,8 @@
             background-color: rgb(20, 21, 21);
             color:#d6e0d9
         }
-
-        .check-out {
-        background-color: #ffffff;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        width: 100%;
-        /* Add any additional styles you need */
+        #checkoutButton:hover{
+            color:white
         }
         .check-out {
         background-color: #ffffff;
@@ -181,7 +175,7 @@
         }
 
         .check-out .p {
-        color: #093100;
+        color: #56ad74;
         font-family: "Amiko-Regular", Helvetica;
         font-size: 6.8px;
         font-weight: 400;
@@ -235,7 +229,7 @@
         #total_price{
         font-family: "Amiko-Bold", Helvetica;
         font-weight: 700;
-        color: #093100;
+        color:#56ad74 ;
         font-size: 19.9px;
         letter-spacing: 0;
         text-align:center;
@@ -247,6 +241,13 @@
         font-weight: 700;
         
         }
+        .check-out .search-filter-bar {
+        position: absolute;
+        top: 150px; /* Sesuaikan dengan posisi vertikal yang Anda inginkan, misalnya di bawah "text-wrapper" */
+        left: 70px; /* Sesuaikan dengan posisi horizontal yang Anda inginkan */
+        z-index: 2; /* Z-index lebih tinggi untuk menampilkan di atas "text-wrapper" */
+        }
+
 </style>
 
 </head>
@@ -254,15 +255,19 @@
     <div class="div">
         <div class="overlap">
             <img class="mask-group" alt="Mask group" src="https://raw.githubusercontent.com/kayzaazr/cupcat-shop/main/gambar-website/Mask%20group.png" />
-            <img class="img" alt="Mask group" src= />
+            <img class="img" alt="Mask group" src="https://raw.githubusercontent.com/nabilazav/my-first-repo/main/messageImage_1698513759813.jpg" />
         </div>
         <div class="text-wrapper">CheckOut</div>
+        <div class="search-filter-bar">
+            <input onkeydown='javascript:search(this)' type="text" placeholder="Cari buku Anda..." class="input-search"></div>
         <div class="overlap-group">
             <img class="vector" alt="Vector" src="vector-26.svg" />
             <div class="rectangle"></div>
         </div>
     </div>
 </div>
+
+
 
 <div class="col-md-5 shipping-address">
         <br>
@@ -298,17 +303,14 @@
             <br>
             <br>
             <hr class="mb-4">
-            <button id="checkoutButton" class="btn btn-primary btn-lg btn-block" type="button"  onclick="update_cart()">Continue to checkout</button>
+            <button id="checkoutButton" class="btn btn-primary btn-lg btn-block" type="button">Continue to checkout</button>
         </form>
 </div>
 
-<div class="search-filter-bar">
-    <input onkeydown='javascript:test(this)' type="text" placeholder="Cari buku Anda..." class="input-search">
 <div class="card-container">
     <div class="row" id="cart_card"></div>
 </div>
 <div class="text-wrapper"id="total_price"></div>
-</div>
 <br>
 
 
@@ -316,9 +318,22 @@
     async function getItems() {
         return fetch("{% url 'checkout:get_item_json' %}").then((res) => res.json())
     }
-    async function update_buys() {
-        return fetch(`update_buys/`).then((res) => res.json()) 
+
+    async function update_cart() {
+    const deleteUrl = `{% url 'checkout:update_cart' %}`;
+    console.log(itemId);
+    try {
+        const response = await fetch(deleteUrl, {
+            method: 'DELETE',
+            headers: {
+                'X-CSRFToken': '{{ csrf_token }}'
+            }
+        }).then(refreshBooks)
+        
+    } catch (error) {
+        console.error('Error:', error);
     }
+}
 
     async function addItem() {
     const form = document.querySelector('#form');
@@ -349,6 +364,8 @@
                 <h4>${message}</h4>
                 <button id="closePopup">Tutup</button>
             `;
+
+           
             // Tambahkan elemen pop-up ke dokumen
             document.body.appendChild(popup);
 
@@ -356,6 +373,7 @@
             document.getElementById("closePopup").addEventListener("click", function () {
                 document.body.removeChild(popup);
 
+            update_cart()
             });
         } else {
             window.alert("Harap isi semua kolom formulir terlebih dahulu.");
@@ -376,6 +394,7 @@
         let price = cart.book_amount * cart.book_price
         totalPrice += price
         totalAmount += cart.book_amount
+        cart.book_buys +=1
         htmlStringCard += 
         `<div class="col"> 
           <div class="card mb-4">
@@ -385,21 +404,21 @@
                   <img style="height: 160px;" src="${cart.book_img}" />
                 </div>
                 <div class="col">
-                  <h5 class="card-title" style="font-family: Amiko-Regular, Helvetica; color: #57AD74;">${cart.book_title}</h5>
+                  <h5 class="card-title" style="font-family: Amiko-Regular, Helvetica; color: ##74b666;">${cart.book_title}</h5>
                   <p class="card-text" style="font-family: Amiko-Regular, Helvetica;">Author: ${cart.book_author}</p>
-                  <p class="card-text" style="font-family: Amiko-Bold, Helvetica; font-weight: bold; color: #57AD74; font-size:large;">Rp. ${Math.ceil(price*15000).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} </p>
+                  <p class="card-text" style="font-family: Amiko-Bold, Helvetica; font-weight: bold; color: #74b666; font-size:large;">Rp. ${Math.ceil(price*15000).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} </p>
                   ${cart.book_amount}x
                   <div class="d-flex mb-4" style="max-width: 180px; max-height: 1px;">
                   </div>
                 </div>
               </div>
             </div>
-            <div class="card-footer" style="background: #5D886A; height: 30px;"></div>
+            <div class="card-footer" style="background: #74b666; height: 30px;"></div>
           </div>
         </div>  `
 
     })
-    htmlStringCard += `<h6 class="mb-0"><a href="/product_page" class="text-body"><img widht="30" height="30" src="https://cdn.icon-icons.com/icons2/1674/PNG/512/arrowback_111142.png"></img>Back to shop</a></h6>`
+    htmlStringCard += `<h6 class="mb-0"><a href="/cart" class="text-body"><img width="30" height="30" color="#74b666" src="https://cdn.icon-icons.com/icons2/1674/PNG/512/arrowback_111142.png"></img>Back to cart</a></h6>`
     document.getElementById("cart_card").innerHTML = htmlStringCard
     document.getElementById("total_price").innerHTML = ` Total Price(IDR)Rp. `+ Math.ceil(totalPrice*15000).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
     document.getElementById("total_item").innerHTML = totalAmount
@@ -408,39 +427,37 @@
   refreshBooks()
 
   
-  async function test(input){
-        console.log(input.value)
-        const buku = document.querySelector("title");
-        const product = await fetch(`search_bar/${input.value}`).then((res) => res.json());
-        console.log(product)
-        let bukuString = ``
-        product.forEach((item) => {
-            bukuString += `
-            <div class="col"> 
+  async function search(input) {
+    const container = document.getElementById("cart_card")
+    const product = await fetch(`search_bar/${input.value}`).then((res) => res.json());
+    console.log(product)
+    let bookString = ``;
+    product.forEach((cart) => {
+        bookString += `
+        <div class="col"> 
             <div class="card mb-4">
                 <div class="card-body">
-                <div class="row">
-                    <div class="col-lg-2 col-md-8 text-end">
-                    <img style="height: 160px;" src="${cart.book_img}" />
-                    </div>
-                    <div class="col">
-                    <h5 class="card-title" style="font-family: Amiko-Regular, Helvetica; color: #57AD74;">${cart.book_title}</h5>
-                    <p class="card-text" style="font-family: Amiko-Regular, Helvetica;">Author: ${cart.book_author}</p>
-                    <p class="card-text" style="font-family: Amiko-Bold, Helvetica; font-weight: bold; color: #57AD74; font-size:large;">Rp. ${Math.ceil(price*15000).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} </p>
-                    ${cart.book_amount}x
-                    <div class="d-flex mb-4" style="max-width: 180px; max-height: 1px;">
-                    </div>
+                    <div class="row">
+                        <div class="col-lg-2 col-md-8 text-end">
+                            <img style="height: 160px;" src="${cart.book_img}" />
+                        </div>
+                        <div class="col">
+                            <h5 class="card-title" style="font-family: Amiko-Regular, Helvetica; color: "#74b666";">${cart.book_title}</h5>
+                            <p class="card-text" style="font-family: Amiko-Regular, Helvetica;">Author: ${cart.book_author}</p>
+                            <p class="card-text" style="font-family: Amiko-Bold, Helvetica; font-weight: bold; color: "#74b666"; font-size: large;">Rp. ${Math.ceil(cart.book_price * 15000).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} </p>
+                            ${cart.book_amount}x
+                            <div class="d-flex mb-4" style="max-width: 180px; max-height: 1px;"></div>
+                        </div>
                     </div>
                 </div>
-                </div>
-                <div class="card-footer" style="background: #5D886A; height: 30px;"></div>
+                <div class="card-footer" style="background: #74b666; height: 30px;"></div>
             </div>
-            </div>  `
-            
+        </div>  `
+    });
+    // Set innerHTML dari container dengan hasil pencarian
+    container.innerHTML = bookString;
+}
 
-        })
-        buku.innerHTML = bukuString
-    }
 
 
 </script>

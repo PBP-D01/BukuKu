@@ -33,45 +33,18 @@ def checkout(request):
     return render(request, "checkout.html", context)
 
 @login_required(login_url='/login')
-def get_cart_json(request):
-    cart = Cart.objects.filter(user = request.user)
-
-    cart_data = []
-    for cart_book in cart:
-        book = cart_book.book
-        cart_data.append({
-            'id': cart_book.id,
-            'book_title': book.title,
-            'book_author': book.author,
-            'book_price': book.price,
-            'book_img' : book.imgUrl,
-            'book_amount': cart_book.book_amount,
-        })
-
-    # Convert the list of dictionaries to a JSON string
-    cart_json = json.dumps(cart_data)
-
-    return HttpResponse(cart_json, content_type='application/json')
-
-@login_required(login_url='/login')
-@csrf_exempt
-def update_buys(request):
-        leaderboard_update = Cart.objects.get(user=request.user)
-        leaderboard_update.buys += 1
-        leaderboard_update.save()
-        return HttpResponse(b"ADDED", status=201)
-
-@login_required(login_url='/login')
 @csrf_exempt
 def update_cart(request):
+    if request.method == 'DELETE':
         cart_item = Cart.objects.get(user=request.user)
         cart_item.delete()
-        return HttpResponse(b"DELETED", status=201)
+        return HttpResponse({'status': 'DELETED'}, status=200)
 
 @login_required(login_url='/login')
 @csrf_exempt
 def search_bar(request, value):
-    print(f"Search value received: {value}")  # Debugging line
-    product_items = Book.objects.filter(book__title__icontains=value) | Cart.objects.filter(book__author__icontains=value)
-    product_data = serializers.serialize('json', product_items)
-    return HttpResponse(product_data, content_type='application/json')
+    product_items = Book.objects.filter(title__icontains=value)
+    print(serializers.serialize('json', product_items))
+    return HttpResponse(serializers.serialize('json', product_items))
+
+   
