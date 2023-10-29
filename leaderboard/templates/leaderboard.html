@@ -1,20 +1,53 @@
 {% extends 'base.html' %}
 {% block content %}
 <body class="font-sans bg-gray-200">
+
+  <nav class="navbar navbar-expand-lg custom-navbar-bg">
+    <div class="container-fluid">
+      <button class="button-product-page">
+        <img src="https://raw.githubusercontent.com/kayzaazr/cupcat-shop/main/gambar-website/BukuKu..png" class="logobuku"> 
+    </button>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav" style="margin-left: 500px">
+                <li class="nav-item">
+                    <a class="nav-link active" style="font-family: Amiko-Regular, Helvetica;font-size: 20px; color: #71C78F;margin-right: 10px;" aria-current="page" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" style="font-family: Amiko-Regular, Helvetica;font-size: 20px; color: #71C78F; margin-right: 10px; margin-left: 10px;" href="/product_page">Product Page</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" style="font-family: Amiko-Regular, Helvetica;font-size: 20px; color: #71C78F;margin-right: 10px; margin-left: 10px;" href="/leaderboard/">Product Leaderboard</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" style="font-family: Amiko-Regular, Helvetica;font-size: 20px; color: #71C78F;margin-right: 10px; margin-left: 10px;" href="/cart/">
+                    <img src="https://github.com/MahogaHeryasa/temp/blob/master/IMG/Group%2059.png?raw=true"/>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" style="font-family: Amiko-Regular, Helvetica;font-size: 20px; color: #71C78F;margin-right: 10px; margin-left: 10px;" href="">{{name}}</a>
+                </li>
+                <!-- <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" style="font-family: Amiko-Regular, Helvetica;font-size: 20px; color: #71C78F; margin-right: 10px; margin-left: 10px;" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Shopping
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="/cart/">Your Cart</a></li>
+                        <li><a class="dropdown-item" href="/checkout/">Checkout</a></li>
+                    </ul>
+                </li> -->
+            </ul>
+        </div>
+    </div>
+</nav>
+
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <p>Previous Time Leaderboard Was Opened: {{ last_opened }}</p>
-    <div class="bg-green-500 py-2 px-5 flex justify-between items-center">
-      <img src="https://raw.githubusercontent.com/kayzaazr/cupcat-shop/main/gambar-website/BukuKu..png" alt="Logo" class="w-40 h-auto">
-      <button class="button-cart">
-        <img src="https://raw.githubusercontent.com/kayzaazr/cupcat-shop/main/gambar-website/Mask%20group.png" alt="Cart" class="w-8 h-auto">
-      </button>
-    </div>
-
+    <p>Last Time {{name}} Logged In: {{ last_login }}</p>
     <div class="bg-white p-5 flex items-center justify-between">
       <input oninput="filter(this)" type="text" placeholder="Cari buku Anda..." class="flex-grow border rounded-lg p-2 text-white bg-green-500" placeholder="Search">
-      <button class="filter-button">
-        <img src="https://raw.githubusercontent.com/kayzaazr/cupcat-shop/main/gambar-website/Mask%20group-1.png" alt="Filter" class="w-8 h-auto">
-      </button>
     </div>
 
     <div class="p-5 bg-white">
