@@ -94,8 +94,8 @@ def checkout_flutter(request):
         for cart_item in cart_items:
             book = cart_item.book
             book.buys += 1  # Increment the book_buys field
-            # book.save()
-            # cart_item.delete()
+            book.save()
+            cart_item.delete()
 
             new_checkout = Checkout.objects.create(
                 user = request.user,
