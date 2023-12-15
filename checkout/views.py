@@ -68,21 +68,21 @@ def update_cart(request):
 
     return HttpResponse({'status': 'DELETED'}, status=200)
 
-# @login_required(login_url='/login')
-# @csrf_exempt
-# def checkout_form(request):
-#     if request.method == 'POST':
-#         first_name = request.POST.get("first_name")
-#         last_name = request.POST.get("last_name")
-#         email = request.POST.get("email")
-#         address = request.POST.get("address")
-#         user = request.user
+@login_required(login_url='/login')
+@csrf_exempt
+def checkout_form(request):
+    if request.method == 'POST':
+        first_name = request.POST.get("first_name")
+        last_name = request.POST.get("last_name")
+        email = request.POST.get("email")
+        address = request.POST.get("address")
+        user = request.user
 
-#         new_checkout = Checkout(first_name=first_name, last_name=last_name, email=email, address=address, user=user)
-#         new_checkout.save()
+        new_checkout = Checkout(first_name=first_name, last_name=last_name, email=email, address=address, user=user)
+        new_checkout.save()
 
-#         return HttpResponse(b"CREATED", status=201)
-#     return HttpResponseNotFound()
+        return HttpResponse(b"CREATED", status=201)
+    return HttpResponseNotFound()
 
 
 
@@ -93,11 +93,11 @@ def checkout_flutter(request):
         data = json.loads(request.body)
 
         new_checkout = Checkout.objects.create(
-            user=request.user,
-            first_name=data["first_name"],
-            last_name=data["last_name"],
-            email=data["email"],
-            address=data["address"],
+            user = request.user,
+            first_name = data["first_name"],
+            last_name = data["last_name"],
+            email = data["email"],
+            address = data["address"],
         )
 
         new_checkout.save()
