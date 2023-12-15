@@ -162,3 +162,5 @@ CORS_ALLOW_HEADERS = [
     'x-requested-with',
     'access-control-allow-origin',
 ]
+
+CSRF_TRUSTED_ORIGINS = ['https://bukuku-d01-tk.pbp.cs.ui.ac.id']
