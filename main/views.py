@@ -8,7 +8,6 @@ from django.shortcuts import redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
-from checkout.models import Checkout
 
 from product_page.models import Product
 
@@ -71,22 +70,3 @@ def create_product_flutter(request):
     else:
         return JsonResponse({"status": "error"}, status=401)
     
-@csrf_exempt
-def checkout_flutter(request):
-    if request.method == 'POST':
-        
-        data = json.loads(request.body)
-
-        new_product = Checkout.objects.create(
-            user = request.user,
-            first_name = data["first name"],
-            last_name = data["last name"],
-            email = data["email"],
-            address = data["address"],
-        )
-
-        new_product.save()
-
-        return JsonResponse({"status": "success"}, status=200)
-    else:
-        return JsonResponse({"status": "error"}, status=401)
