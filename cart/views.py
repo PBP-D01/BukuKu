@@ -35,7 +35,7 @@ def show_cart(request):
     
     return response
 
-
+@login_required(login_url='/login')
 def get_cart_json(request):
     cart = Cart.objects.filter(user=request.user)
 
