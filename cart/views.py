@@ -37,7 +37,7 @@ def show_cart(request):
 
 @login_required(login_url='/login')
 def get_cart_json(request):
-    cart = Cart.objects.filter(user=request.user)
+    cart = Cart.objects.filter(user=request.user).order_by('id')
 
     cart_data = []
     for cart_book in cart:
@@ -57,7 +57,7 @@ def get_cart_json(request):
     return HttpResponse(cart_json, content_type='application/json')
 
 def get_cart_json_flutter(request):
-    cart = Cart.objects.all()
+    cart = Cart.objects.all().order_by('id')
 
     cart_data = []
     for cart_book in cart:
