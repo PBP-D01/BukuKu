@@ -1,4 +1,5 @@
 from datetime import datetime
+import json
 from django.http import HttpResponse
 from django.shortcuts import render
 from requests import request
@@ -104,9 +105,10 @@ def get_leaderboard_flutter(request):
 
 
 @csrf_exempt
-def create_comment_flutter(request, id):
+def create_comment_flutter(request):
     if request.method == 'POST':
-        msg = request.POST.get('comment')
+        msg = json.loads(request.body)['comment']
+
         comment = Comment.objects.create(comment=msg).save()
         return JsonResponse({"status": "success"}, status=200)
     else:
@@ -116,4 +118,5 @@ def create_comment_flutter(request, id):
 def get_comment_flutter(request):
     comment_items=Comment.objects.all()
     json_data = serializers.serialize('json', comment_items)
+    # return HttpResponse(json_data, content_type="application/json")
     return JsonResponse(json_data, safe=False, status=200)

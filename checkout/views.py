@@ -95,7 +95,6 @@ def checkout_flutter(request):
             book = cart_item.book
             book.buys += 1  # Increment the book_buys field
             book.save()
-            #cart_item.delete()
 
             new_checkout = Checkout.objects.create(
                 user = request.user,
@@ -107,6 +106,8 @@ def checkout_flutter(request):
             )
 
             new_checkout.save()
+
+            cart_item.delete()
 
         return JsonResponse({"status": "success"}, status=200)
     else:
