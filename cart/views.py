@@ -35,14 +35,35 @@ def show_cart(request):
     
     return response
 
-@login_required(login_url='/login') 
+@login_required(login_url='/login')
 def get_cart_json(request):
-    cart = Cart.objects.filter(user = request.user)
+    cart = Cart.objects.filter(user=request.user).order_by('id')
 
     cart_data = []
     for cart_book in cart:
         book = cart_book.book
         cart_data.append({
+            'id': cart_book.id,
+            'book_title': book.title,
+            'book_author': book.author,
+            'book_price': book.price,
+            'book_img' : book.imgUrl,
+            'book_amount': cart_book.book_amount,
+        })
+
+    # Convert the list of dictionaries to a JSON string
+    cart_json = json.dumps(cart_data)
+
+    return HttpResponse(cart_json, content_type='application/json')
+
+def get_cart_json_flutter(request):
+    cart = Cart.objects.all().order_by('id')
+
+    cart_data = []
+    for cart_book in cart:
+        book = cart_book.book
+        cart_data.append({
+            'user': cart_book.user.id,
             'id': cart_book.id,
             'book_title': book.title,
             'book_author': book.author,
@@ -65,6 +86,20 @@ def increase_cart(request, id):
 
     return HttpResponse(b"INCREASED", status=201)
 
+@csrf_exempt
+def increase_cart_flutter(request):
+    if request.method == 'POST':
+
+        data = json.loads(request.body)
+
+        book = Cart.objects.get(pk=data['id'])
+        book.book_amount += 1
+        book.save()
+
+        return JsonResponse({"status": "success"}, status=200)
+    else:
+        return JsonResponse({"status": "error"}, status=401)
+
 @login_required(login_url='/login')
 @csrf_exempt
 def decrease_cart(request, id):
@@ -75,6 +110,21 @@ def decrease_cart(request, id):
  
     return HttpResponse(b"DECREASED", status=201)
 
+@csrf_exempt
+def decrease_cart_flutter(request):
+    if request.method == 'POST':
+
+        data = json.loads(request.body)
+
+        book = Cart.objects.get(pk=data['id'])
+        if (book.book_amount > 1):
+            book.book_amount -= 1
+            book.save()
+
+        return JsonResponse({"status": "success"}, status=200)
+    else:
+        return JsonResponse({"status": "error"}, status=401)
+    
 @login_required(login_url='/login')
 @csrf_exempt
 def delete_cart(request, id):
@@ -82,6 +132,19 @@ def delete_cart(request, id):
     book.delete()
 
     return HttpResponse(b"DELETED", status=201)
+
+@csrf_exempt
+def delete_cart_flutter(request):
+    if request.method == 'POST':
+
+        data = json.loads(request.body)
+
+        book = Cart.objects.get(pk=data['id'])
+        book.delete()
+
+        return JsonResponse({"status": "success"}, status=200)
+    else:
+        return JsonResponse({"status": "error"}, status=401)
 
 @login_required(login_url='/login')
 @csrf_exempt
@@ -116,3 +179,19 @@ def edit_cart_ajax(request, id):
         return HttpResponse(b"EDITED", status=201)
 
     return HttpResponseNotFound()
+
+@csrf_exempt
+def edit_cart_flutter(request):
+    if request.method == 'POST':
+
+        data = json.loads(request.body)
+
+        book = Cart.objects.get(pk=data['id'])
+        new_book_amount = data['amount']
+
+        book.book_amount = new_book_amount
+        book.save()
+
+        return JsonResponse({"status": "success"}, status=200)
+    else:
+        return JsonResponse({"status": "error"}, status=401)

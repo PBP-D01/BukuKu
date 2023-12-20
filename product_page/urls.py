@@ -9,4 +9,5 @@ urlpatterns = [
     path('add_to_cart', add_cart, name='add_cart'),
     path('search_bar/<str:value>', search_bar, name='search_bar'),
     path('search_bar2/<str:value>', search_bar2, name='search_bar2'),
+    path('add_cart_flutter/', add_cart_flutter, name='add_cart_flutter')
 ]
