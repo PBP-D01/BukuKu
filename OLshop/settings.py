@@ -12,15 +12,20 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 import os
 from pathlib import Path
+import environ # Tambahkan kode berikut
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+env = environ.Env() # Tambahkan kode berikut
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = "django-insecure-_7!f+a4=-*m74y^bio(0ug=@)*u=xrj5dpzpw#^85$=qv#z!ng"
+# Automatically determine environment by detecting if DATABASE_URL variable.
+# DATABASE_URL is provided by Heroku if a database add-on is added (e.g. Heroku Postgres).
+PRODUCTION = env.bool('PRODUCTION', False)
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -95,7 +100,12 @@ DATABASES = {
         "NAME": BASE_DIR / "db.sqlite3",
     }
 }
-
+# Set database settings automatically using DATABASE_URL.
+if PRODUCTION:
+    DATABASES = {
+        'default': env.db('DATABASE_URL')
+    }
+    DATABASES["default"]["ATOMIC_REQUESTS"] = True
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -139,3 +149,18 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+CORS_ALLOW_HEADERS = [
+    'accept',
+    'accept-encoding',
+    'authorization',
+    'content-type',
+    'dnt',
+    'origin',
+    'user-agent',
+    'x-csrftoken',
+    'x-requested-with',
+    'access-control-allow-origin',
+]
+
+CSRF_TRUSTED_ORIGINS = ['https://bukuku-d01-tk.pbp.cs.ui.ac.id']
