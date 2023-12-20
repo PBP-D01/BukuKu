@@ -1,7 +1,7 @@
 from django import views
 from django.urls import path
 from .views import  show_leaderboard, get_product_json, search_bar, create_comment
-from .views import show_xml, show_json, show_xml_by_id, show_json_by_id, create_comment_flutter, get_leaderboard_flutter, get_comment_flutter 
+from .views import show_xml, show_json, show_xml_by_id, show_json_by_id 
 
 
 
@@ -18,7 +18,4 @@ urlpatterns = [
     path('json/', show_json, name='show_json'), 
     path('xml/<int:id>/', show_xml_by_id, name='show_xml_by_id'),
     path('json/<int:id>/', show_json_by_id, name='show_json_by_id'),
-    path('create_comment_flutter/', create_comment_flutter, name='create_comment_flutter'),
-    path('get_leaderboard_flutter/', get_leaderboard_flutter, name='get_leaderboard_flutter'),
-    path('get_comment_flutter/', get_comment_flutter, name='get_comment_flutter'),
 ]

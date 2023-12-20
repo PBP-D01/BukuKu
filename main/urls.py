@@ -1,7 +1,6 @@
 from django.urls import path
-from main.views import create_product_flutter, show_main, login_user, logout_user, register
+from main.views import show_main, login_user, logout_user, register
 from product_page.views import show_product
-
 app_name = 'main'
 
 urlpatterns = [
