@@ -109,8 +109,11 @@ def post_review_api(request,book_id):
 
         text = data.get("text")
         rating = data.get("rating")
+        user_id = data.get("user_id")
+
+        user = User.objects.get(pk=user_id)
         
-        review = Review.objects.create(text=text, rating=rating, book=book, reviewer=request.user)
+        review = Review.objects.create(text=text, rating=rating, book=book, reviewer=user)
 
         return JsonResponse({'status': 'success', 'message': 'Review berhasil disimpan', 
                                 'review_rating': review.rating,
